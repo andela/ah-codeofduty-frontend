@@ -1,4 +1,4 @@
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ac921174149b94eeae4b/test_coverage)](https://codeclimate.com/github/andela/ah-codeofduty-frontend/test_coverage)  [![CircleCI](https://circleci.com/gh/andela/ah-codeofduty-frontend.svg?style=svg)](https://circleci.com/gh/andela/ah-codeofduty-frontend)
+ [![Maintainability](https://api.codeclimate.com/v1/badges/ac921174149b94eeae4b/maintainability)](https://codeclimate.com/github/andela/ah-codeofduty-frontend/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ac921174149b94eeae4b/test_coverage)](https://codeclimate.com/github/andela/ah-codeofduty-frontend/test_coverage)  [![CircleCI](https://circleci.com/gh/andela/ah-codeofduty-frontend.svg?style=svg)](https://circleci.com/gh/andela/ah-codeofduty-frontend) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
