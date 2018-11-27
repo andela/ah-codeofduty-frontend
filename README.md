@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 [![Build Status](https://travis-ci.org/andela/ah-codeofduty-frontend.svg?branch=develop)](https://travis-ci.org/andela/ah-codeofduty-frontend)
 
 ## Available Scripts
