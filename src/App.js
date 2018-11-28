@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./App.css";
-import Index from "./components/Home";
-import Login from "./components/Login";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import './App.scss';
+import Index from './components/Home';
+import Login from './components/Login';
 
 class App extends Component {
   render() {
