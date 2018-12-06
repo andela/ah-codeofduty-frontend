@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
+import socialLoginReducer from '../components/Authentication/Login/SocialLogin/socialLoginReducer';
 
 export default combineReducers({
-  simpleReducer,
+  socialLoginReducer,
 });

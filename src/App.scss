@@ -1,10 +1,20 @@
-.App {
-  text-align: center;
-}
+// .App {
+//   text-align: center;
+// }
+
+@import url('https://fonts.googleapis.com/css?family=Marck+Script%7CRaleway');
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
+
+}
+
+.App-Logo{
+  font-family: "Marck Script";
+  font-size: 1.2rem;
+  border-right: 1px solid orange;
+  padding-right: 40px;
 }
 
 .App-header {
@@ -22,24 +32,71 @@
   color: #61dafb;
 }
 
+.HR{
+  width: 95%;
+  margin-top: -10px;
+  background-color: orange;
+  opacity: 0.6;
+}
+
+.google{
+  background-color: #d34836;
+  display: inline-block;
+  background: rgb(209, 72, 54);
+  color: rgb(255, 255, 255);
+  width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto;
+  transition: background-color .3s,border-color .3s;
+}
+
+.facebook{
+  font-family: Roboto;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 5px;
+  color: #fff;
+  width: 145px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+  transition: background-color .3s,border-color .3s;
+  background-color: #4c69ba;
+  display: inline-block;
+  border:solid 1px #4c69ba;
+}
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
-  text-align:center;
-  
+  // text-align:center;
+
 }
 
 li {
   display: inline-block;
   margin : 20px;
   text-decoration: none;
+  font-family: "Raleway";
 }
 
-a {
+.App li a{
   text-decoration: none;
   color: black;
+  transition: 0.3s ease-in-out;
+}
+.App a:hover{
+  text-decoration: none;
+  color: orange;
 }
 
 
