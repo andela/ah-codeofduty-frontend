@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import store from './store';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import './App.scss';
 import Index from './components/Home/Home';
 import Login from './components/Authentication/LoginForm/LoginForm';
-import Navbar from './components/Navbar/Navbar';
-import Register from './components/Authentication/Signup/Register';
-import Profile from './components/Profile';
-import './App.scss';
-import ProtectedRoute from './views/Auth/ProtectedRoute';
+import Footer from './components/Footer/Footer';
+import Profile from './components/Profile/Profile';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <Navbar />
-            <Register />
-
-            <Switch>
-              <Route exact path="/" component={Index} />
-              <Route path="/login/" component={Login} />
-              <ProtectedRoute path="/profile" component={Profile} />
-            </Switch>
-          </div>
-        </Router>
-      </Provider>
+      <Router>
+        <div className="App">
+          <nav>
+            <ul>
+              <li className="App-logo">Authors' Haven</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/login/">Login</Link>
+              </li>
+              <li>
+                <Link to="/profile/">Profile</Link>
+              </li>
+            </ul>
+          </nav>
+          <hr className="HR" />
+          <Route exact path="/" component={Index} />
+          <Route path="/login/" component={Login} />
+          <Route path="/profile" component={Profile} />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
