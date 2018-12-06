@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import './App.scss';
-import Index from './components/Home';
-import Login from './components/Login';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login/">Login</Link>
-              </li>
-            </ul>
-          </nav>
+import ProtectedRoute from './views/Auth/ProtectedRoute';
 
+import Index from './components/Home/Home.jsx';
+import Navbar from './components/Navbar.jsx';
+import Profile from './components/Profile';
+import ResetPassword from './components/ResetPasword';
+
+const App = () => (
+  <Provider store ={store}>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Switch>
           <Route exact path="/" component={Index} />
-          <Route path="/login/" component={Login} />
-        </div>
-      </Router>
-    );
-  }
-}
+          <Route exact path ="/reset-password" component={ResetPassword}/>
+          <ProtectedRoute path="/profile" component={Profile} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;
