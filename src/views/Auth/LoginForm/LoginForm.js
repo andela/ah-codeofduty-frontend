@@ -68,7 +68,7 @@ export class LoginForm extends Component {
           </div>
             {pendingHtml}
             {errorHtml}
-            <div className="hint-text small"> Forgot Password? <a onClick="/reset-password">Reset Password</a></div>
+            <div className="hint-text small"> Forgot Password? <a href="/reset-password">Reset Password</a></div>
             <div className="or-seperator"><i>or</i></div>
             <div className="social-btn"></div>
       </form>
@@ -86,9 +86,6 @@ handleSubmit = (event)=>  {
   }
 }
 
-handleReset = () => {
-  history.push('/reset-password')
-}
 const mapStateToProps =  (state) => {
   return {
       isLoginPending: state.loginReducer.isLoginPending,
