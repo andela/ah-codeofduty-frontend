@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "bootstrap/dist/js/bootstrap.min";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.scss";
-import "../../App.scss";
+import React, { Component } from 'react';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.scss';
+import '../../App.scss';
 
 class Navbar extends Component {
   render() {
@@ -30,19 +30,7 @@ class Navbar extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                Home
-                <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="UI/profile.html">
-                Profile
-              </a>
-            </li>
-          </ul>
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0" />
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <div className="search-input">
@@ -82,15 +70,6 @@ class Navbar extends Component {
                   </ul>
                 </div>
               </div>
-            </li>
-            <li className="nav-item">
-              <i
-                className="fas fa-bell"
-                data-toggle="modal"
-                data-target="#notification_modal"
-              >
-                <span className="badge badge-danger badges">4</span>
-              </i>
             </li>
             <li className="nav-item">
               <a

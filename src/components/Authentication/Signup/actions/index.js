@@ -5,9 +5,7 @@ import { REGISTER_FAILED, REGISTER_SUCCESSFUL } from './types';
 
 export const registerSuccessful = () => ({
   type: REGISTER_SUCCESSFUL,
-  payload: [
-    'Registration Successful. Check your email to complete registration',
-  ],
+  payload: ['Registration Successful. Please login'],
 });
 
 export const registerFailed = error => ({
@@ -33,8 +31,6 @@ export const registerUser = user => (dispatch) => {
       }
       if (error.response.data.errors.username) {
         dispatch(registerFailed(error.response.data.errors.username));
-      } else {
-        dispatch(registerFailed('Something unexpected happened!'));
       }
     });
 };

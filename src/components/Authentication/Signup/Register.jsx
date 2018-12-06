@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import '../../Navbar';
 import { registerUser } from './actions';
 import Message from './message';
@@ -120,33 +121,19 @@ class Register extends Component {
                     <div className="or-seperator">
                       <i>or</i>
                     </div>
-                    <div className="text-center social-btn">
+                    <div className="text-center social-btn flexed">
                       <a
                         href="/"
                         id="color_facebook"
-                        className="btn btn-primary btn-block"
+                        className="btn btn-primary"
                       >
                         <i className="fa fa-facebook" />
-                        Register with
-                        <b> Facebook</b>
                       </a>
-                      <a
-                        href="/"
-                        id="color_twitter"
-                        className="btn btn-info btn-block"
-                      >
+                      <a href="/" id="color_twitter" className="btn btn-info">
                         <i className="fa fa-twitter" />
-                        Register with
-                        <b> Twitter</b>
                       </a>
-                      <a
-                        href="/"
-                        id="color_google"
-                        className="btn btn-danger btn-block"
-                      >
+                      <a href="/" id="color_google" className="btn btn-danger">
                         <i className="fa fa-google" />
-                        Register with
-                        <b> Google</b>
                       </a>
                     </div>
                   </form>
