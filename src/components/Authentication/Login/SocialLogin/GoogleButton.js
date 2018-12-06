@@ -53,6 +53,7 @@ GoogleButton.propTypes = {
   googleLoginUser: PropTypes.func.isRequired,
 };
 
+export { GoogleButton as GoogleTest };
 export default connect(
   mapStateToProps, { googleLoginUser },
 )(GoogleButton);

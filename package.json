@@ -3,33 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.15.0",
     "bootstrap": "^4.1.3",
     "coveralls": "^3.0.2",
-=======
-    "axios": "^0.18.0",
->>>>>>> Feature(Social Authentication): Users should be able to login through social authentication
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "moxios": "^0.4.0",
+    "jest": "^23.6.0",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-bootstrap": "^1.0.0-beta.3",
     "react-dom": "^16.6.3",
-<<<<<<< HEAD
     "react-fontawesome": "^1.6.1",
-=======
-    "react-facebook": "^6.0.15",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^4.0.0",
->>>>>>> Feature(Social Authentication): Users should be able to login through social authentication
     "react-redux": "^5.1.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
