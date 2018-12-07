@@ -1,31 +1,14 @@
 .Bio {
     margin-top: 30px;
-    padding-left: 30%;
-    width: 80%;
     font-family: "Raleway";
-    // background-color: aqua;
 }
 
-.Avatar {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    transition: 0.5s ease-in-out;
-}
-
-.Avatar:hover {
-    opacity: 0.7;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-}
-
-.Bio button {
-    border-radius: 20px;
-    border: 1px solid orange;
-    padding: 5px;
-    width: 100px;
+.bio-text {
     font-size: 0.8em;
-    margin-top: 25px;
+}
+
+.bio-data {
+    width: 100%;
 }
 
 .following {
@@ -37,4 +20,60 @@
     opacity: 0.8;
     transition: 0.3s ease-in-out;
     cursor: pointer;
+}
+
+.follow-row {
+    display: flex;
+}
+
+.follow-data {
+    margin-left: 43.8%;
+}
+
+@media(max-width: 1200px) {
+    .follow-data {
+        margin-left: 42.4%;
+    }
+}
+
+@media(max-width: 1150px) {
+    .follow-data {
+        margin-left: 41.4%;
+    }
+}
+
+@media(max-width: 890px) {
+    .follow-data {
+        margin-left: 40.4%;
+    }
+}
+
+@media(max-width: 750px) {
+    .follow-data {
+        margin-left: 39.4%;
+    }
+}
+
+@media(max-width: 700px) {
+    .follow-data {
+        margin-left: 38.4%;
+    }
+}
+
+@media(max-width: 640px) {
+    .follow-data {
+        margin-left: 37.4%;
+    }
+}
+
+@media(max-width: 570px) {
+    .follow-data {
+        margin-left: 36.4%;
+    }
+}
+
+@media(max-width: 500px) {
+    .follow-data {
+        margin-left: 30%;
+    }
 }

@@ -1,4 +1,4 @@
-import { ActionTypes } from '../actions/articlesActions';
+import { articleActionTypes } from '../actions/types';
 
 const initialState = {
   articles: [],
@@ -8,9 +8,9 @@ const initialState = {
 const articlesReducer = (state = initialState, action) => {
   const { articles, isLoading } = action;
   switch (action.type) {
-    case ActionTypes.ARTICLES_FETCH:
+    case articleActionTypes.ARTICLES_FETCH:
       return { ...state, isLoading };
-    case ActionTypes.ARTICLES_FETCHED:
+    case articleActionTypes.ARTICLES_FETCHED:
       return { articles, isLoading };
     default:
       return state;

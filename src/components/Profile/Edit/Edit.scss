@@ -30,7 +30,22 @@ textarea {
 }
 
 .Edit .Avatar {
-    margin-left: 20px
+    margin-left: 20px;
+}
+
+.saveButton {
+    margin-top: 25px;
+}
+
+.editAvatarIcon {
+    position: absolute;
+    color: white;
+    margin-top: 10px;
+    font-size: 4.5em;
+    margin-left: -95px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
 }
 
 // @media()

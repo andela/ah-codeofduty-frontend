@@ -1,23 +1,23 @@
-export const ActionTypes = {
-  ARTICLES_FETCH: 'ARTICLES_FETCH',
-  ARTICLES_FETCHED: 'ARTICLES_FETCHED',
-};
+import axios from 'axios';
+import { articleActionTypes } from './types';
 
-const articlesFetch = () => ({
-  type: ActionTypes.ARTICLES_FETCH,
+export const articlesFetch = () => ({
+  type: articleActionTypes.ARTICLES_FETCH,
   isLoading: true,
 });
 
-const articlesFetched = articles => ({
-  type: ActionTypes.ARTICLES_FETCHED,
+export const articlesFetched = articles => ({
+  type: articleActionTypes.ARTICLES_FETCHED,
   isLoading: false,
   articles,
 });
 
 export const getArticles = url => (dispatch) => {
   dispatch(articlesFetch());
-  return fetch(url)
-    .then(response => response.json())
-    .then(articles => dispatch(articlesFetched(articles)))
+  return axios
+    .get(url)
+    .then((response) => {
+      dispatch(articlesFetched(response.data));
+    })
     .catch(error => console.log(error));
 };

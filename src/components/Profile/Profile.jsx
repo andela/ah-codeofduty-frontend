@@ -5,6 +5,7 @@ import Bio from './Bio';
 import Stories from './Stories/Stories';
 import Modal from '../Modal/Modal';
 import Edit from './Edit/Edit';
+import getItem from '../../utils/getItem';
 import {
   getProfile,
   getFollowers,
@@ -15,16 +16,24 @@ import {
 
 class Profile extends Component {
   componentDidMount() {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiaWF0IjoxNTQzOTkxODI2fQ.2B8_Rz9OgCTo6U2u_fP7j8GgwOHMAf-yQ0Lnu4wn6rg';
-    const user = 'user';
+    const user = getItem('user');
+    const { token, username } = user;
+
     const { dispatch } = this.props;
-    dispatch(getFollowers(user, token));
-    dispatch(getFollowing(user, token));
-    dispatch(getProfile(user));
+    dispatch(getFollowers(username, token));
+    dispatch(getFollowing(username, token));
+    dispatch(getProfile(username));
     dispatch(editProfile);
   }
 
   render() {
+    const user = {
+      username: 'user',
+      token:
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiaWF0IjoxNTQ0MTU3MzM1fQ.x22_zvV1pO-mE4ma8Kgi8rCOkCdGXJWT4pXJJtiIrM8',
+    };
+    localStorage.setItem('user', JSON.stringify(user));
+
     const {
       profile, followers, following, showModal, dispatch,
     } = this.props;

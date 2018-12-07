@@ -19,7 +19,7 @@ const story = ({
       />
     </div>
     <div>
-      <p className="card-title">{title}</p>
+      <p className="card-title text-center pt-2">{title}</p>
       <p className="text-center text-muted description">{description}</p>
       <p>
         <span className="float-left pb-5 pl-3 stats">

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
+import ImageUpLoader from 'react-images-upload';
 
 import Button from '../Button';
 import Avatar from '../Avatar';
@@ -13,6 +15,7 @@ class Edit extends Component {
     bio: '',
     avatar: '',
     username: '',
+    showUploadImage: false,
   };
 
   componentDidMount() {
@@ -40,15 +43,51 @@ class Edit extends Component {
     dispatch(saveProfile(this.state));
   };
 
+  showUpload = () => {
+    console.log('I happened');
+    this.setState({ ...this.state, showUploadImage: true });
+  };
+
+  onDrop = picture => {
+    this.setState({
+      ...this.state,
+      avatarFile: picture[picture.length - 1],
+      showUploadImage: false,
+    });
+    console.log('this is my state', picture[0]);
+    const data = new FormData();
+    data.append('file', picture[picture.length - 1]);
+    data.append('api_key', '351366517116641');
+    data.append('upload_preset', 'eieibqqp');
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.cloudinary.com/v1_1/dvsjl8d7p/image/upload', false);
+    xhr.send(data);
+    const imageResponse = JSON.parse(xhr.responseText);
+    this.setState({ ...this.state, avatar: imageResponse.url });
+    console.log('dered', imageResponse.url);
+  };
+
   render() {
+    const imageUpload = this.state.showUploadImage ? (
+      <ImageUpLoader
+        withIcon={true}
+        buttonText="Add an image"
+        onChange={this.onDrop}
+        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+        maxFileSize={5242880}
+      />
+    ) : null;
     return (
       <div className="Edit">
-        <Avatar
-          className="text-center"
-          title="Edit Profile Picture?"
-          source={this.state.avatar}
-          alt={this.state.username}
-        />
+        <Avatar className="text-center" source={this.state.avatar} alt={this.state.username} />
+
+        <span onClick={this.showUpload} title="Edit Profile Picture?" className="editAvatarIcon">
+          &#9998;
+        </span>
+
+        {imageUpload}
+
         <form onSubmit={this.handleSubmit}>
           <input
             required
@@ -74,13 +113,14 @@ class Edit extends Component {
             name="bio"
             id="bio"
             type="text"
-            placeholder="Bio"
+            placeholder="Tell us about yourself in less than 100 characters..."
             onChange={this.updateInputValue}
             value={this.state.bio}
+            maxLength="100"
           />
 
           <br />
-          <Button>Save</Button>
+          <Button className="saveButton">Save</Button>
         </form>
       </div>
     );

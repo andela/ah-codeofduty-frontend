@@ -1,97 +1,89 @@
 import axios from 'axios';
+
 import { urls, headerObject } from '../apiEndpoints';
+import { profileActionTypes } from './types';
+import getItem from '../utils/getItem';
 
-export const ActionTypes = {
-  SAVE_PROFILE: 'SAVE_PROFILE',
-  EDIT_PROFILE: 'EDIT_PROFILE',
-  PROFILE_FETCH: 'PROFILE_FETCH',
-  PROFILE_FETCHED: 'PROFILE_FETCHED',
-  FOLLOWERS_FETCH: 'FOLLOWERS_FETCH',
-  FOLLOWERS_FETCHED: 'FOLLOWERS_FETCHED',
-  FOLLOWING_FETCH: 'FOLLOWING_FETCH',
-  FOLLOWING_FETCHED: 'FOLLOWING_FETCHED',
-  CANCEL_EDIT: 'CANCEL_EDIT',
-  UPDATE_PROFILE: 'UPDATE_PROFILE',
-};
-
-const profileFetch = () => ({
-  type: ActionTypes.PROFILE_FETCH,
+const { username, token } = getItem('user');
+export const profileFetch = () => ({
+  type: profileActionTypes.PROFILE_FETCH,
   isLoading: true,
 });
 
-const profileFetched = profile => ({
-  type: ActionTypes.PROFILE_FETCHED,
+export const profileFetched = profile => ({
+  type: profileActionTypes.PROFILE_FETCHED,
   isLoading: false,
   profile,
 });
 
-const followersFetched = followers => ({
-  type: ActionTypes.FOLLOWERS_FETCHED,
+export const followersFetched = followers => ({
+  type: profileActionTypes.FOLLOWERS_FETCHED,
   followers,
 });
 
-const followingFetched = following => ({
-  type: ActionTypes.FOLLOWING_FETCHED,
+export const followingFetched = following => ({
+  type: profileActionTypes.FOLLOWING_FETCHED,
   following,
 });
 
-const onSaveProfile = () => ({
-  type: ActionTypes.SAVE_PROFILE,
+export const onSaveProfile = () => ({
+  type: profileActionTypes.SAVE_PROFILE,
   showModal: false,
 });
-const onEditProfile = () => ({
-  type: ActionTypes.EDIT_PROFILE,
+
+export const onEditProfile = () => ({
+  type: profileActionTypes.EDIT_PROFILE,
   showModal: true,
 });
 
-const onCancelEdit = () => ({
-  type: ActionTypes.CANCEL_EDIT,
+export const onCancelEdit = () => ({
+  type: profileActionTypes.CANCEL_EDIT,
   showModal: false,
 });
 
-const updateProfile = profile => ({
-  type: ActionTypes.UPDATE_PROFILE,
+export const updateProfile = profile => ({
+  type: profileActionTypes.UPDATE_PROFILE,
   profile,
 });
 
 export const getProfile = user => (dispatch) => {
   dispatch(profileFetch());
-  return axios
-    .get(urls.USER_PROFILE(user))
-    .then(response => dispatch(profileFetched(response.data.profile)))
+  axios
+    .get(urls.USER_PROFILE(user), headerObject(token))
+    .then((response) => {
+      dispatch(profileFetched(response.data.profile));
+      return true;
+    })
     .catch(error => console.log(error));
 };
 
-export const getFollowers = (user, token) => dispatch => axios
+export const getFollowers = user => dispatch => axios
   .get(urls.USER_FOLLOWERS(user), headerObject(token))
   .then((resp) => {
     dispatch(followersFetched(resp.data.profile.followers));
   })
   .catch(error => console.log(error));
 
-export const getFollowing = (user, token) => dispatch => axios
+export const getFollowing = user => dispatch => axios
   .get(urls.USER_FOLLOWING(user), headerObject(token))
   .then((resp) => {
     dispatch(followingFetched(resp.data.profile.following));
   })
   .catch(error => console.log(error));
 
-export const editProfile = () => (dispatch) => {
-  dispatch(onEditProfile());
-};
-
 export const saveProfile = body => (dispatch) => {
-  console.log('I got here!');
-  const user = 'user'; // TODO: fetch from localStorage
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiaWF0IjoxNTQ0MDgwMDEwfQ.qLGiVmpqz1VY_b-ztA-SB1qyGgHHslCckJ-rMSaNntw';
   axios
-    .put(urls.USER_PROFILE(user), body, headerObject(token))
+    .put(urls.USER_PROFILE(username), body, headerObject(token))
     .then((response) => {
       console.log("Here's my response", response.data.profile);
       dispatch(onSaveProfile());
       dispatch(updateProfile(response.data.profile));
     })
     .catch(error => console.log(error));
+};
+
+export const editProfile = () => (dispatch) => {
+  dispatch(onEditProfile());
 };
 
 export const cancelEdit = () => (dispatch) => {

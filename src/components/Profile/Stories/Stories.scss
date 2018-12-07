@@ -1,24 +1,9 @@
-.active-nav{
-    border-bottom: 1.5px solid orange;
-    border-radius: 3px
-}
-
-.Stories li{
-    width: 70px;
-    margin: 0 5% 0 5%;
-}
-
-.all-stories{
-    width: 100%;
+.all-stories {
+    width: 90%;
     height: auto;
-    padding-top: 20px;  
-}
-
-.sticky nav{
-    position: sticky;
+    padding-top: 20px;
+    margin: auto;
 }
 
 // TODO: Add media queries for stories
-@media (min-width: 1000px){
-
-}
+@media (min-width: 1000px) {}
