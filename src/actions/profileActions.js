@@ -2,9 +2,11 @@ import axios from 'axios';
 
 import { urls, headerObject } from '../apiEndpoints';
 import { profileActionTypes } from './types';
-import getItem from '../utils/getItem';
+import authUser from '../utils/authUser';
 
-const { username, token } = getItem('user');
+// const user = { username: 'user', token: 'poiuytrewq' };
+const { username, token } = authUser();
+// console.log('yellow', user);
 export const profileFetch = () => ({
   type: profileActionTypes.PROFILE_FETCH,
   isLoading: true,

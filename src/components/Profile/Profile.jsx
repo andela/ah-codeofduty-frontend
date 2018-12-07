@@ -27,13 +27,6 @@ class Profile extends Component {
   }
 
   render() {
-    const user = {
-      username: 'user',
-      token:
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiaWF0IjoxNTQ0MTU3MzM1fQ.x22_zvV1pO-mE4ma8Kgi8rCOkCdGXJWT4pXJJtiIrM8',
-    };
-    localStorage.setItem('user', JSON.stringify(user));
-
     const {
       profile, followers, following, showModal, dispatch,
     } = this.props;
