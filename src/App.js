@@ -1,31 +1,24 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Index from './components/Home';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
+import PasswordReset from './components/PasswordReset';
+import PasswordResetForm from './components/PasswordResetForm';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login/">Login</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Route exact path="/" component={Index} />
-          <Route path="/login/" component={Login} />
-        </div>
-      </Router>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Index} />
+        <Route path="/login/" component={Login} />
+        <Route path="/resetpassword" component={PasswordReset} />
+        <Route path="/reset-password" name="token" component={PasswordResetForm} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 
 export default App;
