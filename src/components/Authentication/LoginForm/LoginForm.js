@@ -35,14 +35,13 @@ export class LoginForm extends Component {
   let {loginError, isLoginSuccess, isLoginPending, isLoginError} = this.props;
 
   let pendingHtml = "";
-  let successHtml = "";
   let errorHtml = "";
 
   if(isLoginPending){
-    pendingHtml= <div>Please wait...</div>
+    pendingHtml= <div className="alert alert-info">Please wait...</div>
   }
   if(isLoginError){
-     errorHtml = <div className='errors'>{loginError}</div>;
+     errorHtml = <div  className="alert alert-danger">{loginError}</div>;
   }
 
   return (
@@ -53,6 +52,8 @@ export class LoginForm extends Component {
       <div className="login-form" >
 
       <form className='loginForm' onSubmit={(event)=>this.handleSubmit(event)}>
+            {pendingHtml}
+            {errorHtml}
           <div className="form-group">
             <div className="input-group">
               <input className='form-control' placeholder="Username" required type="email" id="email" name="email" value={email} onChange={e => this.setState({email: e.target.value})}></input>
@@ -66,8 +67,6 @@ export class LoginForm extends Component {
           <div className="form-group">
             <button type="submit" className="btn btn-warning btn-block login-btn" >Login</button>
           </div>
-            {pendingHtml}
-            {errorHtml}
             <div className="hint-text small"> Forgot Password? <a href="/reset-password">Reset Password</a></div>
             <div className="or-seperator"><i>or</i></div>
             <div className="text-center social-btn flexed">
