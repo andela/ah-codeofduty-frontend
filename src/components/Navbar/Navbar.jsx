@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import 'bootstrap/dist/js/bootstrap.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
 import '../../App.scss';
 
+import authUser from '../../utils/authUser';
+import LoginForm from '../Authentication/LoginForm/LoginForm';
+
 class Navbar extends Component {
   render() {
     return (
+    
       <nav
         className="navbar navbar-expand-lg navbar-light bg-light font-raleway"
         id="navbar_home"
@@ -30,7 +36,11 @@ class Navbar extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0" />
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0" >
+          <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <div className="search-input">
@@ -71,29 +81,41 @@ class Navbar extends Component {
                 </div>
               </div>
             </li>
-            <li className="nav-item">
-              <a
-                href="/"
-                className="nav-link"
-                data-toggle="modal"
-                data-target="#signup_modal"
-              >
-                Login &nbsp;
-              </a>
-            </li>
-            <li className="nav-item">
-              <button
-                type="button"
-                className="btn btn-warning"
-                data-toggle="modal"
-                data-target="#register_modal"
-              >
-                Register
-              </button>
-            </li>
+            {authUser()
+              ? (
+                <React.Fragment>
+                  <li className='login-li-nav'>
+                    <Link to="/profile">Profile</Link>
+                  </li>
+                <li id="login-nav" className='login-li-nav'>
+                <a onClick={
+                  () => localStorage.removeItem('user')
+                  } href="/">Logout</a>
+              </li>
+              </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <li id="login-nav" className='login-li-nav'>
+                    <a data-toggle="modal" data-target="#loginModal">Login</a>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      type="button"
+                      className="btn btn-warning"
+                      data-toggle="modal"
+                      data-target="#register_modal"
+                    >
+                      Register
+                    </button>
+                  </li>
+                </React.Fragment>
+              )}
           </ul>
         </div>
+        <LoginForm />
       </nav>
+      
+      
     );
   }
 }
