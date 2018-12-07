@@ -5,7 +5,7 @@ import Bio from './Bio';
 import Stories from './Stories/Stories';
 import Modal from '../Modal/Modal';
 import Edit from './Edit/Edit';
-import getItem from '../../utils/getItem';
+import authUser from '../../utils/authUser';
 import {
   getProfile,
   getFollowers,
@@ -16,7 +16,7 @@ import {
 
 class Profile extends Component {
   componentDidMount() {
-    const user = getItem('user');
+    const user = authUser();
     const { token, username } = user;
 
     const { dispatch } = this.props;

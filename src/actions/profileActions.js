@@ -54,7 +54,6 @@ export const getProfile = user => (dispatch) => {
     .get(urls.USER_PROFILE(user), headerObject(token))
     .then((response) => {
       dispatch(profileFetched(response.data.profile));
-      return true;
     })
     .catch(error => console.log(error));
 };

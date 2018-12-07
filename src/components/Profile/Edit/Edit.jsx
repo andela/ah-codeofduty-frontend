@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import ImageUpLoader from 'react-images-upload';
 
@@ -65,7 +64,6 @@ class Edit extends Component {
     xhr.send(data);
     const imageResponse = JSON.parse(xhr.responseText);
     this.setState({ ...this.state, avatar: imageResponse.url });
-    console.log('dered', imageResponse.url);
   };
 
   render() {

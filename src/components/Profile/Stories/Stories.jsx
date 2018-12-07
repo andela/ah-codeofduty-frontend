@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getArticles } from '../../../actions/articlesActions';
-import getItem from '../../../utils/getItem';
+import authUser from '../../../utils/authUser';
 import { urls } from '../../../apiEndpoints';
 import Story from './Story/Story';
 import './Stories.scss';
 
 class Stories extends Component {
   componentDidMount() {
-    const user = getItem('user');
+    const user = authUser();
     const { username } = user;
     const { dispatch } = this.props;
     dispatch(getArticles(urls.USER_ARTICLES(username)));
