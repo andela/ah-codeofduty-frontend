@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import login from'./actions.jsx'
+import login from'../../../views/Auth/LoginForm/actions';
 import  './LoginForm.scss'
 import { Link } from 'react-router-dom';
 
@@ -70,7 +70,21 @@ export class LoginForm extends Component {
             {errorHtml}
             <div className="hint-text small"> Forgot Password? <a href="/reset-password">Reset Password</a></div>
             <div className="or-seperator"><i>or</i></div>
-            <div className="social-btn"></div>
+            <div className="text-center social-btn flexed">
+                      <a
+                        href="/"
+                        id="color_facebook"
+                        className="btn btn-primary"
+                      >
+                        <i className="fa fa-facebook-f" />
+                      </a>
+                      <a href="/" id="color_twitter" className="btn btn-info">
+                        <i className="fa fa-twitter" />
+                      </a>
+                      <a href="/" id="color_google" className="btn btn-danger">
+                        <i className="fa fa-google" />
+                      </a>
+            </div>
       </form>
     </div>
       </div>

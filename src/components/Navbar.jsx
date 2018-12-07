@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import authUser from '../utils/authUser';
-import LoginForm from '../views/Auth/LoginForm/LoginForm';
+import LoginForm from './Authentication/LoginForm/LoginForm';
 
 class Navbar extends Component {
   render() {
