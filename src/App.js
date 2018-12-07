@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import './App.scss';
@@ -13,7 +13,7 @@ import ResetPassword from './components/ResetPasword';
 
 const App = () => (
   <Provider store ={store}>
-    <BrowserRouter>
+    <Router>
       <div>
         <Navbar />
         <Switch>
@@ -22,7 +22,7 @@ const App = () => (
           <ProtectedRoute path="/profile" component={Profile} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 

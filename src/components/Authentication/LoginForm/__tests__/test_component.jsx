@@ -56,7 +56,7 @@ describe('test login button', () => {
   };
   const wrapper = shallow(<LoginForm {...props} />);
   it('renders login button', () => {
-    expect(wrapper.find('.btn').length).toBe(1);
+    expect(wrapper.find('.login-btn').length).toBe(1);
   });
 });
 
@@ -77,7 +77,7 @@ describe('test login container', () => {
   };
   it('tests container mounts', () => {
     const container = mount(<LoginForm store={store} />);
-    expect(container.find('.btn').length).toBe(1);
+    expect(container.find('.login-btn').length).toBe(1);
   });
   it('onClick submit', () => {
     const container = shallow(<LoginForm {...props}/>);
