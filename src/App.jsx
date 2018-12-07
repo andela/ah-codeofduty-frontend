@@ -9,6 +9,8 @@ import Register from './components/Authentication/Signup/Register';
 import Profile from './components/Profile';
 import './App.scss';
 import ProtectedRoute from './views/Auth/ProtectedRoute';
+import PasswordReset from './components/PasswordReset';
+import PasswordResetForm from './components/PasswordResetForm';
 
 class App extends Component {
   render() {
@@ -23,6 +25,8 @@ class App extends Component {
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
               <ProtectedRoute path="/profile" component={Profile} />
+              <Route path="/resetpassword" component={PasswordReset} />
+              <Route path="/reset-password" name="token" component={PasswordResetForm} />
             </Switch>
           </div>
         </Router>

@@ -47,12 +47,6 @@ class PasswordResetForm extends Component {
   }
 
   render() {
-    // const {
-    //   match: { params },
-    // } = this.props;
-    // let passwordError = this.newPassword.data.new_password
-    //   ? this.newPassword.data.new_password
-    //   : '';
     const matchError = this.props.newPassword.errors
       ? this.props.newPassword.errors.data.error
       : this.styleErrorPopUp('');
