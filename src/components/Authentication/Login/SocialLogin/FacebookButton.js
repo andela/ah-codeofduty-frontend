@@ -26,9 +26,9 @@ class FacebookButton extends PureComponent {
         appId="548320132259270"
         fields="name,email,picture"
         callback={this.handleFacebookResponse}
-        icon="fa fa-facebook-square icon-with-margin"
+        icon="fa fa-facebook icon-with-margin"
         cssClass="facebook"
-        textButton="Facebook"
+        textButton=""
         render={renderProps => (
           <button onClick={renderProps.onClick}>This is my custom FB button</button>
         )}

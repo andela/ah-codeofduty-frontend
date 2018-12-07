@@ -31,8 +31,8 @@ class GoogleButton extends PureComponent {
           onFailure={this.handleGoogleResponse}
           className="google"
         >
-          <i className="fa fa-google-plus  icon-with-margin" />
-          <span className="raised-font"> Google</span>
+          <i className="fa icon-with-margin" />
+          <span className="raised-font"> </span>
 
         </GoogleLogin>
         &nbsp;

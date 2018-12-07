@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import login from'../../../views/Auth/LoginForm/actions';
 import  './LoginForm.scss'
 import { Link } from 'react-router-dom';
+import FacebookButton from "../Login/SocialLogin/FacebookButton";
+import GoogleButton from "../Login/SocialLogin/GoogleButton";
 
 export class LoginForm extends Component {
   constructor(props){
@@ -65,19 +67,9 @@ export class LoginForm extends Component {
             <div className="hint-text small"> Forgot Password? <a href="/reset-password">Reset Password</a></div>
             <div className="or-seperator"><i>or</i></div>
             <div className="text-center social-btn flexed">
-                      <a
-                        href="/"
-                        id="color_facebook"
-                        className="btn btn-primary"
-                      >
-                        <i className="fa fa-facebook-f" />
-                      </a>
-                      <a href="/" id="color_twitter" className="btn btn-info">
-                        <i className="fa fa-twitter" />
-                      </a>
-                      <a href="/" id="color_google" className="btn btn-danger">
-                        <i className="fa fa-google" />
-                      </a>
+
+                        <FacebookButton/>
+                      <GoogleButton/>
             </div>
       </form>
     </div>
