@@ -84,16 +84,18 @@ class Navbar extends Component {
             {authUser()
               ? (
                 <React.Fragment>
-                  <li>
+                  <li className='login-li-nav'>
                     <Link to="/profile">Profile</Link>
                   </li>
-                <li id="login-nav">
-                <a onClick={() => localStorage.removeItem('user')} href="#">Logout</a>
+                <li id="login-nav" className='login-li-nav'>
+                <a onClick={
+                  () => localStorage.removeItem('user')
+                  } href="/">Logout</a>
               </li>
               </React.Fragment>
               ) : (
                 <React.Fragment>
-                  <li id="login-nav">
+                  <li id="login-nav" className='login-li-nav'>
                     <a data-toggle="modal" data-target="#loginModal">Login</a>
                   </li>
                   <li className="nav-item">
