@@ -31,7 +31,7 @@ describe('test email field', () => {
   };
   const wrapper = shallow(<LoginForm {...props} />);
   it('renders email field', () => {
-    expect(wrapper.find('#email').length).toBe(1);
+    expect(wrapper.find('#login-email').length).toBe(1);
   });
 });
 
@@ -43,7 +43,7 @@ describe('test password field', () => {
   };
   const wrapper = shallow(<LoginForm {...props} />);
   it('renders password field', () => {
-    expect(wrapper.find('#password').length).toBe(1);
+    expect(wrapper.find('#login-password').length).toBe(1);
   });
 });
 

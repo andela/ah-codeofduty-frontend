@@ -5,7 +5,7 @@ import { REGISTER_FAILED, REGISTER_SUCCESSFUL } from './types';
 
 export const registerSuccessful = () => ({
   type: REGISTER_SUCCESSFUL,
-  payload: ['Registration Successful. Please login'],
+  payload: ['Registration Successful.'],
 });
 
 export const registerFailed = error => ({
@@ -19,6 +19,7 @@ export const registerUser = user => (dispatch) => {
     .then((res) => {
       if (res.status === 201) {
         dispatch(registerSuccessful());
+        localStorage.setItem('user', JSON.stringify(user));
       }
       window.location.assign('/');
     })

@@ -23,6 +23,8 @@ export default function login({ email, password }) {
     sendLoginRequest({ email, password })
       .then(({ data }) => {
         dispatch(setLoginSuccess(data.user));
+        // eslint ignore next-line
+        // localStorage.setItem('user', JSON.stringify(data.user));
       })
       .catch((err) => {
         dispatch(setLoginPending(false));

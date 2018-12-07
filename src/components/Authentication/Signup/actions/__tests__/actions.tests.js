@@ -32,7 +32,7 @@ describe('Register actions', () => {
 
     const returnedAction = [
       {
-        payload: ['Registration Successful. Please login'],
+        payload: ['Registration Successful.'],
         type: REGISTER_SUCCESSFUL,
       },
     ];

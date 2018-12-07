@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-import '../../Navbar';
+import '../../Navbar/Navbar';
 import { registerUser } from './actions';
 import Message from './message';
 
@@ -139,7 +139,7 @@ class Register extends Component {
                   </form>
                   <div className="hint-text small">
                     I have an account?
-{" "}
+                    {' '}
                     <a href="/" className="text-primary">
                       Login here
                     </a>

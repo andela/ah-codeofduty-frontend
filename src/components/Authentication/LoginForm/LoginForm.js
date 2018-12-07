@@ -17,16 +17,11 @@ export class LoginForm extends Component {
     const { history, isLoginSuccess, user } = this.props;
     if (prevProps.isLoginPending && isLoginSuccess) {
       localStorage.setItem('user', JSON.stringify(user))
-      window.$('#loginModal').modal('hide')
+      window.$('#loginModal').modal('hide');
+      window.$('.modal-backdrop').modal('hide');
+      window.$('body').removeClass('modal-open');
+      window.$('.modal-backdrop').remove();
       history.push('/profile');
-    }
-  }
-
-  componentDidMount(prevProps) {
-    const { history} = this.props;
-    if (prevProps) {
-      window.$('#loginModal').modal('hide')
-      history.push('/reset-password');
     }
   }
 
@@ -56,12 +51,12 @@ export class LoginForm extends Component {
             {errorHtml}
           <div className="form-group">
             <div className="input-group">
-              <input className='form-control' placeholder="Username" required type="email" id="email" name="email" value={email} onChange={e => this.setState({email: e.target.value})}></input>
+              <input className='form-control' placeholder="Username" required type="email" id="login-email" name="email" value={email} onChange={e => this.setState({email: e.target.value})}></input>
             </div>
           </div>
           <div className="form-group">
             <div className="input-group">
-              <input className='form-control' placeholder="Password"  required type="password"  id="password" value={password} name="password" onChange={e => this.setState({password: e.target.value})}></input>
+              <input className='form-control' placeholder="Password"  required type="password"  id="login-password" value={password} name="password" onChange={e => this.setState({password: e.target.value})}></input>
             </div>
           </div>
           <div className="form-group">
