@@ -1,0 +1,253 @@
+/*Custom Home Navbar*/
+html,
+body {
+  height: 100%;
+}
+navbar {
+  padding: 0px !important;
+  -webkit-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  -moz-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+}
+
+.logo {
+  border-right: 2px solid orange;
+  color: orange;
+}
+
+.logo:hover {
+  color: black;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.badges {
+  position: relative;
+  top: -20px;
+  left: -25px;
+  font-size: 12px;
+}
+
+/*Side by side*/
+.login-form {
+  width: 340px;
+  margin: 30px auto;
+}
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.login-form h2 {
+  margin: 0 0 15px;
+}
+.login-form .hint-text {
+  color: #777;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.form-control,
+.btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+}
+.or-seperator {
+  margin: 20px 0 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+.or-seperator i {
+  padding: 0 10px;
+  background: #f7f7f7;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+.social-btn .btn {
+  border-radius: 5px;
+  padding-bottom: 4px;
+  padding-top: 8px;
+}
+.social-btn .btn:hover {
+  box-shadow: 2px 2px 4px #888888;
+}
+
+.social-btn .btn i {
+  float: left;
+  margin: 0;
+}
+.input-group-addon .fa {
+  font-size: 18px;
+}
+
+.form-control::placeholder {
+  color: rgba(73, 80, 87, 0.4);
+}
+
+.form-control:hover {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/*Authentication*/
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#or_divide {
+  height: 100%;
+}
+
+/*card footer*/
+
+.block_icons {
+  display: block;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+.nav-item :hover {
+  opacity: 10px;
+}
+
+.navbar-brand {
+  background: orange;
+  padding: 10px;
+}
+
+.input-group-addon {
+  padding-top: 10px;
+  padding-right: 6px;
+}
+
+/*Social Logins color codes*/
+#color_facebook {
+  background: #3b5998;
+}
+#color_twitter {
+  background: #1da1f2;
+}
+#color_google {
+  background: #db4437;
+}
+
+/*post image*/
+.w-100 {
+  padding: 1rem !important;
+}
+
+.container,
+#card_content {
+  padding: 10px;
+}
+.fa-heart {
+  color: rgb(214, 124, 116);
+  opacity: 20;
+}
+.fa-comment {
+  color: #413e3e;
+  opacity: 20;
+}
+.fa-user {
+  border: #232526;
+  background: #1da1f2;
+  padding: 10px;
+}
+
+.card-footer {
+  margin-top: 20px;
+}
+
+/*search*/
+.form-control {
+  padding-left: 2.375rem;
+}
+
+.pl {
+  padding-left: 2.375rem;
+}
+
+.search-input {
+  display: inline-flex;
+  color: #aaa;
+  padding-left: 1.6rem;
+}
+
+.search {
+  position: absolute;
+  width: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.dropdown-menu :hover {
+  background-color: #f1f1f1;
+}
+
+.card {
+  margin-bottom: 1rem !important;
+}
+
+#search {
+  line-height: 2.375rem;
+}
+
+#myInput {
+  margin-top: -8px;
+  border: 0;
+  border-radius: 0;
+  background: #f1f1f1;
+}
+
+.flexed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.fa-facebook-f:before,
+.fa-facebook:before,
+.fa-twitter:before,
+.fa-google:before {
+  content: "\F09A";
+  line-height: 24px;
+  font-size: 1.6rem;
+}
+.modal.show .modal-dialog {
+  margin-top: 8em;
+}
+
+@media (max-width: 992px) {
+  .search-input {
+    display: inline-flex;
+    padding-left: 0;
+  }
+}
+
+mark {
+  background-color: khaki;
+}
