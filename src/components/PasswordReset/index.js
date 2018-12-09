@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../PasswordReset/index.css';
+import './index.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.1/node_modules/redux';
 import sendEmailToUser from './actions';
@@ -29,11 +29,11 @@ class PasswordReset extends Component {
 
   render() {
     const { visible, message } = this.props;
-    const message_success = this.props.userEmail.fetched ? this.props.userEmail['message'] : '';
-    let suceess =
+    const message_success = this.props.userEmail.fetched ? this.props.userEmail.message : '';
+    const suceess =
       "Reset link has been successfully sent to your email. Check your spam folder if you don't find it.";
-    if (this.props.userEmail['message'] === suceess) {
-      var Successmessage = this.props.userEmail['message'];
+    if (this.props.userEmail.message === suceess) {
+      const Successmessage = this.props.userEmail.message;
     }
     // const visibility = this.props.userEmail.visibility ? this.props.userEmail.visibility : '';
     return (
@@ -59,10 +59,10 @@ class PasswordReset extends Component {
               />
             </div>
 
-            <input className="btn" type="submit" value="Reset my password" />
+            <input className="btnn" type="submit" value="Reset my password" />
             <p className="api_alert">
               <span className={`${visible ? 'alert alert-success' : 'd-none'}`}>
-                {message ? message : message_success}
+                {message || message_success}
               </span>
             </p>
           </div>

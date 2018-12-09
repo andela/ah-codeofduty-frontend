@@ -35,13 +35,13 @@
   color: black;
   width: 80%;
 }
-.btn {
+.btnn {
   width: 100%;
   color: #fff;
   border: 2px solid #ccc;
   margin-top: 30px;
   padding: 8px;
-  background: #ec844f;
+  background: orange;
   margin-left: 0%;
   font-size: 120%;
   border-radius: 10px 10px;

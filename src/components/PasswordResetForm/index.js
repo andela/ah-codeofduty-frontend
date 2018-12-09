@@ -38,8 +38,9 @@ class PasswordResetForm extends Component {
       new_password: this.state.user.new_password,
       confirm_password: this.state.user.confirm_password,
     };
-    console.log(this.state.token);
     this.props.updatePassword(postdata, this.state.token);
+    this.state.new_password = '';
+    this.state.confirm_password = '';
   };
 
   styleErrorPopUp(none = '') {
@@ -59,11 +60,12 @@ class PasswordResetForm extends Component {
           <div className="reset_box">
             <h1>Reset Password</h1>
 
-            <div className="textbox">
+            <div className="textbox" id="text-input">
               {/* <i className="fa fa-key" aria-hidden="true" /> */}
               <input
                 type="password"
                 name="new_password"
+                value={this.state.new_password}
                 required
                 onChange={this.onChangeHandler}
                 placeholder="New Password"
@@ -76,12 +78,14 @@ class PasswordResetForm extends Component {
                 type="password"
                 name="confirm_password"
                 required
+                value={this.state.confirm_password}
                 onChange={this.onChangeHandler}
                 placeholder="Confirm Password"
+                onClick={() => document.getElementById('text-input').style.display === 'none'}
               />
             </div>
 
-            <input className="btn" type="submit" value="Reset My Password" />
+            <input className="btnn" type="submit" value="Reset My Password" />
             <p className="api_alert">
               <span className={`alert alert-danger  ${this.styleErrorPopUp()}`}>
                 {new_password_error}

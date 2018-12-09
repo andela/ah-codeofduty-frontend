@@ -8,6 +8,7 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-15": "^1.2.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "expect": "^23.6.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
