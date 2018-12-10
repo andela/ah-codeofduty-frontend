@@ -96,28 +96,26 @@ describe('Action', () => {
 describe('Axios fetch operations', () => {
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
+  const store = mockStore({});
   let data = [];
 
-  // test fetch followers
-  it('Should fetch followers from API', () => {
-    moxios.stubRequest(urls.USER_FOLLOW('followers'), {
+  const moxiosFetch = (url, method) => {
+    moxios.stubRequest(url, {
       status: 200,
       response: data,
     });
-    const store = mockStore({});
-    store.dispatch(getFollow('user', 'followers'));
+    store.dispatch(method());
     expect(store.getActions()).toEqual(data);
+  };
+
+  // test fetch followers
+  it('Should fetch followers from API', () => {
+    moxiosFetch(urls.USER_FOLLOW('followers'), () => getFollow('user', 'followers'));
   });
 
   // test fetch following
   it('Should fetch following from API', () => {
-    moxios.stubRequest(urls.USER_FOLLOW('following'), {
-      status: 200,
-      response: data,
-    });
-    const store = mockStore({});
-    store.dispatch(getFollow('user', 'following'));
-    expect(store.getActions()).toEqual(data);
+    moxiosFetch(urls.USER_FOLLOW('following'), () => getFollow('user', 'following'));
   });
 
   // test fetch profile
@@ -128,14 +126,7 @@ describe('Axios fetch operations', () => {
         type: 'PROFILE_FETCH',
       },
     ];
-
-    moxios.stubRequest(urls.USER_PROFILE('user'), {
-      status: 200,
-      response: data,
-    });
-    const store = mockStore({});
-    store.dispatch(getProfile('user'));
-    expect(store.getActions()).toEqual(data);
+    moxiosFetch(urls.USER_PROFILE('user'), () => getProfile('user'));
   });
 
   // test save profile
