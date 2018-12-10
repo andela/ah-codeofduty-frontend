@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import login from'../../../views/Auth/LoginForm/actions';
-import  './LoginForm.scss'
+import { withRouter } from 'react-router-dom';
+import  './LoginForm.scss';
 import GoogleButton from "../SocialLogin/GoogleButton";
 import FacebookButton from "../SocialLogin/FacebookButton";
-import { withRouter } from 'react-router-dom';
 import login from '../../../views/Auth/LoginForm/actions';
 import './LoginForm.scss';
-import { Link } from 'react-router-dom';
 
 export class LoginForm extends Component {
   constructor(props) {
