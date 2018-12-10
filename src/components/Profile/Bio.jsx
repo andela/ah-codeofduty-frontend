@@ -3,6 +3,7 @@ import React from 'react';
 import './Bio.scss';
 import Avatar from './Avatar';
 import Button from './Button';
+import Columns from '../columns/columns';
 
 const bio = ({
   profile, following, followers, showModal,
@@ -39,14 +40,8 @@ const bio = ({
         </div>
       </div>
       <div className="row mt-3 follow-row">
-        <div className="col-xs-6 p-2 bio-following text-center follow-data">
-          <h6>{following}</h6>
-          <h6 className="pt-2">following</h6>
-        </div>
-        <div className="col-xs-6 p-2 text-center ">
-          <h6>{followers}</h6>
-          <h6 className="pt-2">followers</h6>
-        </div>
+        <Columns follow="following" classes="bio-following follow-data" stats={following} />
+        <Columns follow="followers" stats={followers} />
       </div>
     </div>
   );
