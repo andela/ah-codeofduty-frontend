@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.1/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import sendEmailToUser from './actions';
 // import Message from '.';
 
