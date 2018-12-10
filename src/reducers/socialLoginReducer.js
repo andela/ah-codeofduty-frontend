@@ -1,7 +1,7 @@
 import {
   LOGIN_USER_INITIATED,
   LOGIN_USER_SUCCESS,
-} from './actionTypes';
+} from '../components/Authentication/SocialLogin/actionTypes';
 
 const initialState = {
   user: {

@@ -10,6 +10,7 @@ export const googleLoginUser = (serviceProvider, userData) => (dispatch) => {
   dispatch(socialLoginInitiated(true));
   return axiosInstance.post(serviceProvider, userData)
     .then((res) => {
+        console.log('qqq ', res);
       localStorage.setItem('auth_token', res.data.user.token);
       dispatch(socialLoginSuccess(true));
       toast.success('Welcome to Authors Haven', { autoClose: 3500, hideProgressBar: true });

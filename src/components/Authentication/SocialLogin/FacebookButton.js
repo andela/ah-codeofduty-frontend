@@ -27,10 +27,11 @@ class FacebookButton extends PureComponent {
         fields="name,email,picture"
         callback={this.handleFacebookResponse}
         icon="fa fa-facebook-f"
-        cssClass=""
+        cssClass="btn btn-primary"
         textButton=""
         render={renderProps => (
-          <button onClick={renderProps.onClick}>This is my custom FB button</button>
+          <button id="color_facebook"
+                  onClick={renderProps.onClick}>This is my custom FB button</button>
         )}
       />
     );

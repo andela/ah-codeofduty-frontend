@@ -13,10 +13,11 @@ class GoogleButton extends PureComponent {
     };
 
     const { googleLoginUser } = this.props;
-    googleLoginUser('api/social_auth/', userData);
+    googleLoginUser('/api/social_auth/', userData);
   };
 
   handleGoogleResponse = (response) => {
+    console.log(response)
     const token = response.accessToken;
     this.signup(token);
   };
@@ -29,20 +30,25 @@ class GoogleButton extends PureComponent {
           redirectUri="/profile"
           onSuccess={this.handleGoogleResponse}
           onFailure={this.handleGoogleResponse}
-          className=""
+          className="fa fa-google"
+          render={renderProps => (
+              <button id="color_google" className="btn btn-danger" onClick={renderProps.onClick}>
+                  <i className="fa fa-google"  /></button>
+          )}
         >
-          <i className="fa fa-google" />
         </GoogleLogin>
-        &nbsp;
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ socialLoginReducer }) => ({
-  isLoggedIn: socialLoginReducer.user.isLoggedIn,
-  loading: socialLoginReducer.user.loading,
-});
+const mapStateToProps = ({ socialLoginReducer }) => {
+    console.log(socialLoginReducer);
+    return {
+        isLoggedIn: socialLoginReducer.user.isLoggedIn,
+        loading: socialLoginReducer.user.loading,
+    };
+}
 
 GoogleButton.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
