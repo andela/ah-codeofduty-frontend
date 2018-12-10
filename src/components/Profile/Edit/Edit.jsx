@@ -96,7 +96,6 @@ class Edit extends Component {
           />
           <textarea
             name="bio"
-            id="bio"
             type="text"
             placeholder="Tell us about yourself in less than 100 characters..."
             onChange={this.updateInputValue}

@@ -8,22 +8,21 @@ import Edit from './Edit/Edit';
 import authUser from '../../utils/authUser';
 import {
   getProfile,
-  getFollowers,
-  getFollowing,
-  editProfile,
-  cancelEdit,
+  getFollow,
+  editing,
+  onEditProfile,
+  onCancelEdit,
 } from '../../actions/profileActions';
 
 class Profile extends Component {
   componentDidMount() {
     const user = authUser();
-    const { token, username } = user;
+    const { username } = user;
 
     const { dispatch } = this.props;
-    dispatch(getFollowers(username, token));
-    dispatch(getFollowing(username, token));
+    dispatch(getFollow(username, 'followers'));
+    dispatch(getFollow(username, 'following'));
     dispatch(getProfile(username));
-    dispatch(editProfile);
   }
 
   render() {
@@ -33,7 +32,7 @@ class Profile extends Component {
 
     return (
       <div>
-        <Modal show={showModal} cancel={() => dispatch(cancelEdit())}>
+        <Modal show={showModal} cancel={() => dispatch(editing(onCancelEdit))}>
           <Edit profile={profile} />
         </Modal>
 
@@ -41,7 +40,7 @@ class Profile extends Component {
           profile={profile}
           followers={followers.length}
           following={following.length}
-          showModal={() => dispatch(editProfile())}
+          showModal={() => dispatch(editing(onEditProfile))}
         />
         <Stories />
       </div>

@@ -8,9 +8,9 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   const {
-    showModal, isLoading, profile, followers, following,
+    showModal, isLoading, profile, follow,
   } = action;
-
+  console.log(follow);
   switch (action.type) {
     case 'SAVE_PROFILE':
       return { ...state, showModal };
@@ -22,10 +22,10 @@ const profileReducer = (state = initialState, action) => {
       return { ...state, profile, isLoading };
     // case FOLLOWERS_FETCH:
     case 'FOLLOWERS_FETCHED':
-      return { ...state, followers };
+      return { ...state, followers: follow };
     // case FOLLOWING_FETCH:
     case 'FOLLOWING_FETCHED':
-      return { ...state, following };
+      return { ...state, following: follow };
     case 'CANCEL_EDIT':
       return { ...state, showModal };
     case 'UPDATE_PROFILE':

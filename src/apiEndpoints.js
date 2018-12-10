@@ -5,8 +5,7 @@ export const urls = {
   PROFILES: `${baseURL}profiles/`,
   FOLLOW: user => `${baseURL}profiles/${user}/follow`,
   USER_PROFILE: user => `${baseURL}profiles/${user}`,
-  USER_FOLLOWERS: user => `${baseURL}profiles/${user}/followers`,
-  USER_FOLLOWING: user => `${baseURL}profiles/${user}/following`,
+  USER_FOLLOW: (user, follow) => `${baseURL}profiles/${user}/${follow}`,
   USER_ARTICLES: user => `${baseURL}profiles/${user}/articles`,
 };
 

@@ -4,9 +4,7 @@ import { urls, headerObject } from '../apiEndpoints';
 import { profileActionTypes } from './types';
 import authUser from '../utils/authUser';
 
-// const user = { username: 'user', token: 'poiuytrewq' };
 const { username, token } = authUser();
-// console.log('yellow', user);
 export const profileFetch = () => ({
   type: profileActionTypes.PROFILE_FETCH,
   isLoading: true,
@@ -18,14 +16,12 @@ export const profileFetched = profile => ({
   profile,
 });
 
-export const followersFetched = followers => ({
-  type: profileActionTypes.FOLLOWERS_FETCHED,
-  followers,
-});
-
-export const followingFetched = following => ({
-  type: profileActionTypes.FOLLOWING_FETCHED,
-  following,
+export const followFetched = (follow, followType) => ({
+  type:
+    followType === 'following'
+      ? profileActionTypes.FOLLOWERS_FETCHED
+      : profileActionTypes.FOLLOWERS_FETCHED,
+  follow,
 });
 
 export const onSaveProfile = () => ({
@@ -58,17 +54,10 @@ export const getProfile = user => (dispatch) => {
     .catch(error => console.log(error));
 };
 
-export const getFollowers = user => dispatch => axios
-  .get(urls.USER_FOLLOWERS(user), headerObject(token))
+export const getFollow = (user, follow) => dispatch => axios
+  .get(urls.USER_FOLLOW(user, follow), headerObject(token))
   .then((resp) => {
-    dispatch(followersFetched(resp.data.profile.followers));
-  })
-  .catch(error => console.log(error));
-
-export const getFollowing = user => dispatch => axios
-  .get(urls.USER_FOLLOWING(user), headerObject(token))
-  .then((resp) => {
-    dispatch(followingFetched(resp.data.profile.following));
+    dispatch(followFetched(resp.data.profile[follow], follow));
   })
   .catch(error => console.log(error));
 
@@ -83,10 +72,6 @@ export const saveProfile = body => (dispatch) => {
     .catch(error => console.log(error));
 };
 
-export const editProfile = () => (dispatch) => {
-  dispatch(onEditProfile());
-};
-
-export const cancelEdit = () => (dispatch) => {
-  dispatch(onCancelEdit());
+export const editing = method => (dispatch) => {
+  dispatch(method());
 };
