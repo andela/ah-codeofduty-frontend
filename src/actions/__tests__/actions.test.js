@@ -75,21 +75,22 @@ describe('Articles Action creators', () => {
 });
 
 // test actions
-describe('Action', () => {
+describe('Actions', () => {
   const store = mockStore({});
-  store.dispatch(editing(onEditProfile));
-  expect(store.getActions()).toEqual([{ showModal: true, type: 'EDIT_PROFILE' }]);
-});
 
-describe('Action', () => {
-  const store = mockStore({});
-  store.dispatch(editing(onCancelEdit));
-  expect(store.getActions()).toEqual([
-    {
-      showModal: false,
-      type: 'CANCEL_EDIT',
-    },
-  ]);
+  const dispatching = (method, showModal, type) => {
+    store.dispatch(editing(method));
+    expect.objectContaining({
+      showModal,
+      type,
+    });
+  };
+  it('Should dispatch edit profile', () => {
+    dispatching(onEditProfile, true, EDIT_PROFILE);
+  });
+  it('Should dispatch cancel profile', () => {
+    dispatching(onCancelEdit, false, CANCEL_EDIT);
+  });
 });
 
 // test actions with axios operations
