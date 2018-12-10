@@ -10,18 +10,14 @@ import { articlesFetch, articlesFetched } from '../articlesActions';
 import {
   profileFetch,
   profileFetched,
-  followersFetched,
-  followingFetched,
+  followFetched,
   onSaveProfile,
   onEditProfile,
   updateProfile,
   onCancelEdit,
   getProfile,
-  getFollowers,
-  getFollowing,
-  cancelEdit,
-  editProfile,
-  saveProfile,
+  getFollow,
+  editing,
 } from '../profileActions';
 
 const middleware = [thunk];
@@ -55,10 +51,10 @@ describe('Profile Action creators', () => {
     expect(profileFetched().type).toEqual(PROFILE_FETCHED);
   });
   it('Should dispatch FOLLOWERS_FETCHED', () => {
-    expect(followersFetched().type).toEqual(FOLLOWERS_FETCHED);
+    expect(followFetched([], 'followers').type).toEqual(FOLLOWERS_FETCHED);
   });
   it('Should dispatch FOLLOWING_FETCHED,', () => {
-    expect(followingFetched().type).toEqual(FOLLOWING_FETCHED);
+    expect(followFetched([], 'following').type).toEqual(FOLLOWING_FETCHED);
   });
   it('Should dispatch CANCEL_EDIT', () => {
     expect(onCancelEdit().type).toEqual(CANCEL_EDIT);
@@ -81,14 +77,19 @@ describe('Articles Action creators', () => {
 // test actions
 describe('Action', () => {
   const store = mockStore({});
-  store.dispatch(editProfile);
-  expect(store.getActions()).toEqual([]);
+  store.dispatch(editing(onEditProfile));
+  expect(store.getActions()).toEqual([{ showModal: true, type: 'EDIT_PROFILE' }]);
 });
 
 describe('Action', () => {
   const store = mockStore({});
-  store.dispatch(cancelEdit);
-  expect(store.getActions()).toEqual([]);
+  store.dispatch(editing(onCancelEdit));
+  expect(store.getActions()).toEqual([
+    {
+      showModal: false,
+      type: 'CANCEL_EDIT',
+    },
+  ]);
 });
 
 // test actions with axios operations
@@ -99,23 +100,23 @@ describe('Axios fetch operations', () => {
 
   // test fetch followers
   it('Should fetch followers from API', () => {
-    moxios.stubRequest(urls.USER_FOLLOWERS('user'), {
+    moxios.stubRequest(urls.USER_FOLLOW('followers'), {
       status: 200,
       response: data,
     });
     const store = mockStore({});
-    store.dispatch(getFollowers('user'));
+    store.dispatch(getFollow('user', 'followers'));
     expect(store.getActions()).toEqual(data);
   });
 
   // test fetch following
   it('Should fetch following from API', () => {
-    moxios.stubRequest(urls.USER_FOLLOWERS('user'), {
+    moxios.stubRequest(urls.USER_FOLLOW('following'), {
       status: 200,
       response: data,
     });
     const store = mockStore({});
-    store.dispatch(getFollowing('user'));
+    store.dispatch(getFollow('user', 'following'));
     expect(store.getActions()).toEqual(data);
   });
 

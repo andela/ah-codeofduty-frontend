@@ -19,7 +19,7 @@ export const profileFetched = profile => ({
 export const followFetched = (follow, followType) => ({
   type:
     followType === 'following'
-      ? profileActionTypes.FOLLOWERS_FETCHED
+      ? profileActionTypes.FOLLOWING_FETCHED
       : profileActionTypes.FOLLOWERS_FETCHED,
   follow,
 });
