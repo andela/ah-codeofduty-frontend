@@ -6,7 +6,7 @@ import Index from './components/Home/Home';
 import Login from './components/Authentication/LoginForm/LoginForm';
 import Navbar from './components/Navbar/Navbar';
 import Register from './components/Authentication/Signup/Register';
-import Profile from './components/Profile';
+import Profile from './components/Profile/Profile';
 import './App.scss';
 import ProtectedRoute from './views/Auth/ProtectedRoute';
 
