@@ -65,7 +65,6 @@ export const saveProfile = body => (dispatch) => {
   axios
     .put(urls.USER_PROFILE(username), body, headerObject(token))
     .then((response) => {
-      console.log("Here's my response", response.data.profile);
       dispatch(onSaveProfile());
       dispatch(updateProfile(response.data.profile));
     })

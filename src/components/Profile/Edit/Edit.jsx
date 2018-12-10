@@ -43,7 +43,6 @@ class Edit extends Component {
   };
 
   showUpload = () => {
-    console.log('I happened');
     this.setState({ ...this.state, showUploadImage: true });
   };
 
@@ -53,7 +52,6 @@ class Edit extends Component {
       avatarFile: picture[picture.length - 1],
       showUploadImage: false,
     });
-    console.log('this is my state', picture[0]);
     const data = new FormData();
     data.append('file', picture[picture.length - 1]);
     data.append('api_key', '351366517116641');
@@ -85,8 +83,9 @@ class Edit extends Component {
         </span>
         {imageUpload}
 
-        <form onSubmit={this.handleSubmit}>
+        <form id="editForm" onSubmit={this.handleSubmit}>
           <Input
+            id="surname"
             values={inputValues('surname', 'text', 'First Name', this.state.surname)}
             changed={this.updateInputValue}
           />
