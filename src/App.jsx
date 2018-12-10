@@ -22,7 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
-              <Route path="/profile" component={Profile} />
+              <ProtectedRoute path="/profile" component={Profile} />
             </Switch>
           </div>
         </Router>
