@@ -4,6 +4,8 @@ import ImageUpLoader from 'react-images-upload';
 
 import Button from '../Button';
 import Avatar from '../Avatar';
+import Input from '../../Input/Input';
+import inputValues from '../../../utils/inputValues';
 import { saveProfile } from '../../../actions/profileActions';
 import './Edit.scss';
 
@@ -31,9 +33,7 @@ class Edit extends Component {
 
   updateInputValue = event => {
     const name = event.target.name;
-    this.setState({
-      [name]: event.target.value,
-    });
+    this.setState({ ...this.state, [name]: event.target.value });
   };
 
   handleSubmit = e => {
@@ -83,30 +83,17 @@ class Edit extends Component {
         <span onClick={this.showUpload} title="Edit Profile Picture?" className="editAvatarIcon">
           &#9998;
         </span>
-
         {imageUpload}
 
         <form onSubmit={this.handleSubmit}>
-          <input
-            required
-            name="surname"
-            id="surname"
-            type="text"
-            placeholder="First Name"
-            value={this.state.surname}
-            onChange={this.updateInputValue}
+          <Input
+            values={inputValues('surname', 'text', 'First Name', this.state.surname)}
+            changed={this.updateInputValue}
           />
-          <br />
-          <input
-            required
-            name="last_name"
-            id="last_name"
-            type="text"
-            placeholder="Last Name"
-            value={this.state.last_name}
-            onChange={this.updateInputValue}
+          <Input
+            values={inputValues('last_name', 'text', 'Last Name', this.state.last_name)}
+            changed={this.updateInputValue}
           />
-          <br />
           <textarea
             name="bio"
             id="bio"
@@ -116,8 +103,6 @@ class Edit extends Component {
             value={this.state.bio}
             maxLength="100"
           />
-
-          <br />
           <Button className="saveButton">Save</Button>
         </form>
       </div>

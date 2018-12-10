@@ -95,11 +95,10 @@ describe('Action', () => {
 describe('Axios fetch operations', () => {
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
+  let data = [];
 
   // test fetch followers
   it('Should fetch followers from API', () => {
-    const data = [];
-
     moxios.stubRequest(urls.USER_FOLLOWERS('user'), {
       status: 200,
       response: data,
@@ -111,8 +110,6 @@ describe('Axios fetch operations', () => {
 
   // test fetch following
   it('Should fetch following from API', () => {
-    const data = [];
-
     moxios.stubRequest(urls.USER_FOLLOWERS('user'), {
       status: 200,
       response: data,
@@ -124,7 +121,7 @@ describe('Axios fetch operations', () => {
 
   // test fetch profile
   it('Should edit profile', () => {
-    const data = [
+    data = [
       {
         isLoading: true,
         type: 'PROFILE_FETCH',
