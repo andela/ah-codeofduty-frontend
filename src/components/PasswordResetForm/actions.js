@@ -22,7 +22,10 @@ export const resetPasswordActionFailure = errors => ({
 const updatePassword = (data, token = null) => (dispatch) => {
   dispatch(resetPasswordAction());
   axios
-    .post(`http://127.0.0.1:8000/api/users/reset-password/${token}/`, data)
+    .post(
+      `https://ah-codeofduty-frontend-staging.herokuapp.com/api/users/reset-password/${token}/`,
+      data,
+    )
     .then(response => dispatch(resetPasswordActionSuccess(response.data.message)))
     .catch(errors => dispatch(resetPasswordActionFailure(errors.response)));
 };

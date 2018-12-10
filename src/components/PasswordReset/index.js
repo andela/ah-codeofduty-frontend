@@ -35,7 +35,6 @@ class PasswordReset extends Component {
     if (this.props.userEmail.message === suceess) {
       const Successmessage = this.props.userEmail.message;
     }
-    // const visibility = this.props.userEmail.visibility ? this.props.userEmail.visibility : '';
     return (
       <div>
         <form onSubmit={this.onSubmitHandler} id="passwordreset">
@@ -58,7 +57,6 @@ class PasswordReset extends Component {
                 onChange={this.onChangeHandler}
               />
             </div>
-
             <input className="btnn" type="submit" value="Reset my password" />
             <p className="api_alert">
               <span className={`${visible ? 'alert alert-success' : 'd-none'}`}>
