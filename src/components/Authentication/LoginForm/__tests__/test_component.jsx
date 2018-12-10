@@ -76,7 +76,7 @@ describe('test login container', () => {
     isLoginSuccess: false,
   };
   it('tests container mounts', () => {
-    const container = mount(<LoginForm store={store} />);
+    const container = shallow(<LoginForm store={store} />);
     expect(container.find('.login-btn').length).toBe(1);
   });
   it('onClick submit', () => {
