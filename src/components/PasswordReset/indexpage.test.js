@@ -4,7 +4,6 @@ import { mount, configure } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import expect from 'expect';
-// import { PasswordReset } from './index';
 import Enzyme, { shallow } from 'enzyme';
 import { store } from '../../store';
 import * as actions from './actions';
@@ -19,7 +18,6 @@ describe('<forgot password form/>', () => {
       <PasswordReset />
     </provider>,
   );
-  // expect(resetform.find('input').length).toEqual(0);
   expect(resetform).toHaveLength(1);
 });
 describe('RESET_PASSWORD', () => {
