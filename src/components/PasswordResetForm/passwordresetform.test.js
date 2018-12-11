@@ -4,7 +4,7 @@ import * as types from './constants';
 import * as action from '../PasswordReset/actions';
 import * as type from '../PasswordReset/constants';
 
-describe('Reset saved password i database', () => {
+describe('Reset saved password in database', () => {
   it('start process of resetting password', () => {
     const email = 'example@gmail.com';
     const expectedAction = {
@@ -14,40 +14,38 @@ describe('Reset saved password i database', () => {
   });
 
   it('reset password failure', () => {
-    const expectedAction = {
+    const expected = {
       type: types.RESET_PASSWORD_ACTION_FAILURE,
     };
-    expect(actions.resetPasswordActionFailure()).toEqual(expectedAction);
+    expect(actions.resetPasswordActionFailure()).toEqual(expected);
   });
 
   it('reset password sucess', () => {
-    const expectedAction = {
+    const expected = {
       type: types.RESET_PASSWORD_ACTION_SUCCESS,
     };
-    expect(actions.resetPasswordActionSuccess()).toEqual(expectedAction);
+    expect(actions.resetPasswordActionSuccess()).toEqual(expected);
   });
 
-  // ........................
-
-  it('start process of resetting password', () => {
+  it('start retriving forgoten password', () => {
     const email = 'example@gmail.com';
-    const expectedAction = {
+    const expected = {
       type: type.RESET_PASSWORD,
     };
-    expect(action.resetPassword(email)).toEqual(expectedAction);
+    expect(action.resetPassword(email)).toEqual(expected);
   });
 
   it('forgot password failure', () => {
-    const expectedAction = {
+    const expected = {
       type: type.RESET_PASSWORD_FAILURE,
     };
-    expect(action.resetPasswordFailure()).toEqual(expectedAction);
+    expect(action.resetPasswordFailure()).toEqual(expected);
   });
 
   it('forgot password sucess', () => {
-    const expectedAction = {
+    const expected = {
       type: type.RESET_PASSWORD_SUCCESS,
     };
-    expect(action.resetPasswordSuccess()).toEqual(expectedAction);
+    expect(action.resetPasswordSuccess()).toEqual(expected);
   });
 });
