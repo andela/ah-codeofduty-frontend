@@ -4,7 +4,7 @@ import { FacebookTest } from '../FacebookButton';
 
 const props = {
     isLoggedIn: false,
-    facebookLoginUser: jest.fn()
+    socialAuthentication: jest.fn()
 };
 
 const wrapper = shallow(<FacebookTest {...props}/>);
@@ -19,7 +19,7 @@ it('should call facebook login when a token is passed', () => {
 describe('signup method', () => {
     it('should call facebook login when a token is passed', () => {
         wrapper.instance().signup('token');
-        expect(props.facebookLoginUser).toHaveBeenCalled();
+        expect(props.socialAuthentication).toHaveBeenCalled();
     });
 });
 

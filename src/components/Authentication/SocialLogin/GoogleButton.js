@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import PropTypes from 'prop-types';
 
-import { googleLoginUser } from './userActions';
+import { socialAuthentication } from './userActions';
 
 class GoogleButton extends PureComponent {
   signup = (userToken) => {
@@ -12,12 +12,11 @@ class GoogleButton extends PureComponent {
       access_token: userToken,
     };
 
-    const { googleLoginUser } = this.props;
-    googleLoginUser('/api/social_auth/', userData);
+    const { socialAuthentication } = this.props;
+      socialAuthentication('/api/social_auth/', userData);
   };
 
   handleGoogleResponse = (response) => {
-    console.log(response)
     const token = response.accessToken;
     this.signup(token);
   };
@@ -43,7 +42,6 @@ class GoogleButton extends PureComponent {
 }
 
 const mapStateToProps = ({ socialLoginReducer }) => {
-    console.log(socialLoginReducer);
     return {
         isLoggedIn: socialLoginReducer.user.isLoggedIn,
         loading: socialLoginReducer.user.loading,
@@ -57,5 +55,5 @@ GoogleButton.propTypes = {
 
 export { GoogleButton as GoogleTest };
 export default connect(
-  mapStateToProps, { googleLoginUser },
+  mapStateToProps, { socialAuthentication },
 )(GoogleButton);

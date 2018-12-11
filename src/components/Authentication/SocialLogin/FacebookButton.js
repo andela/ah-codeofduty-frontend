@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 import PropTypes from 'prop-types';
-import { facebookLoginUser } from './userActions';
+import {socialAuthentication} from './userActions';
 
 class FacebookButton extends PureComponent {
   signup = (userToken) => {
@@ -10,12 +10,11 @@ class FacebookButton extends PureComponent {
       provider: 'facebook',
       access_token: userToken,
     };
-    const { facebookLoginUser } = this.props;
-    facebookLoginUser('api/social_auth/', userData);
+    const { socialAuthentication } = this.props;
+      socialAuthentication('api/social_auth/', userData);
   };
 
   handleFacebookResponse = (response) => {
-    console.log(response)
     const token = response.accessToken;
     this.signup(token);
   };
@@ -45,9 +44,9 @@ const mapStateToProps = ({ socialLoginReducer }) => ({
 
 FacebookButton.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  facebookLoginUser: PropTypes.func.isRequired,
+    socialAuthentication: PropTypes.func.isRequired,
 };
 
 export { FacebookButton as FacebookTest };
 export default connect(mapStateToProps,
-  { facebookLoginUser: facebookLoginUser })(FacebookButton);
+  { socialAuthentication: socialAuthentication })(FacebookButton);

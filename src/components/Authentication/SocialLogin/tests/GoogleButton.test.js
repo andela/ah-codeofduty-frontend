@@ -4,7 +4,7 @@ import { GoogleTest } from "../GoogleButton";
 
 const props = {
     isLoggedIn: false,
-    googleLoginUser: jest.fn()
+    socialAuthentication: jest.fn()
 };
 
 const wrapper = shallow(<GoogleTest {...props}/>);
@@ -20,7 +20,7 @@ it('should call google login when a token is passed', () => {
 describe('signup method', () => {
     it('should call gooogle login when a token is passed', () => {
         wrapper.instance().signup('token');
-        expect(props.googleLoginUser).toHaveBeenCalled();
+        expect(props.socialAuthentication).toHaveBeenCalled();
     });
 });
 

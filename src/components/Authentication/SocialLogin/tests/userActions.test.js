@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { googleLoginUser, facebookLoginUser } from '../userActions';
+import { socialAuthentication } from '../userActions';
 import { LOGIN_USER_INITIATED, LOGIN_USER_SUCCESS } from '../actionTypes';
 import axiosInstance from '../../../../utils/config';
 
@@ -22,7 +22,7 @@ describe('userAction', () => {
       access_token: 'token',
     };
     const type = [{ type: LOGIN_USER_INITIATED }];
-    googleLoginUser('/api/social_auth/', user_data)(store.dispatch);
+      socialAuthentication('/api/social_auth/', user_data)(store.dispatch);
     await flushAllPromises();
     expect(store.getActions()).toEqual(type);
   });
@@ -32,7 +32,7 @@ describe('userAction', () => {
       access_token: 'token',
     };
     const type = [{ type: LOGIN_USER_INITIATED }];
-    facebookLoginUser('/api/social_auth/', user_data)(store.dispatch);
+      socialAuthentication('/api/social_auth/', user_data)(store.dispatch);
     await flushAllPromises();
     expect(store.getActions()).toEqual(type);
   });
@@ -52,7 +52,7 @@ describe('userAction', () => {
     mock
       .onPost('/api/social_auth/', user_data)
       .reply(200, response);
-    store.dispatch(googleLoginUser('/api/social_auth/', user_data))
+    store.dispatch(socialAuthentication('/api/social_auth/', user_data))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -74,7 +74,7 @@ describe('userAction', () => {
     mock
       .onPost('/api/social_auth/', user_data)
       .reply(200, response);
-    store.dispatch(facebookLoginUser('/api/social_auth/', user_data))
+    store.dispatch(socialAuthentication('/api/social_auth/', user_data))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
