@@ -21,9 +21,9 @@ export default function login({ email, password }) {
     dispatch(setLoginPending(true));
     sendLoginRequest({ email, password })
       .then(({ data }) => {
+        // eslint ignore next-line
         localStorage.setItem('user', JSON.stringify(data.user));
         dispatch(setLoginSuccess(data.user));
-        // eslint ignore next-line
       })
       .catch((err) => {
         dispatch(setLoginPending(false));

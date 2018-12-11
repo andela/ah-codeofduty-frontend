@@ -6,11 +6,18 @@ export const articlesFetch = () => ({
   isLoading: true,
 });
 
-export const articlesFetched = articles => ({
-  type: articleActionTypes.ARTICLES_FETCHED,
-  isLoading: false,
-  articles,
-});
+export const articlesFetched = (data) => {
+  const { results, links, articlesCount } = data;
+  const { prev, next } = links;
+  return {
+    type: articleActionTypes.ARTICLES_FETCHED,
+    isLoading: false,
+    articles: results,
+    prev,
+    next,
+    articlesCount,
+  };
+};
 
 export const getArticles = url => (dispatch) => {
   dispatch(articlesFetch());

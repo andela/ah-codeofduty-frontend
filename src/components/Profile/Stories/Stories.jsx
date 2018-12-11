@@ -12,11 +12,13 @@ class Stories extends Component {
     const user = authUser();
     const { username } = user;
     const { dispatch } = this.props;
-    dispatch(getArticles(urls.USER_ARTICLES(username)));
+    // dispatch(getArticles(urls.USER_ARTICLES(username)));
+    dispatch(getArticles(urls.ARTICLES));
   }
 
   render() {
     const { articles } = this.props;
+    console.log('myarticles', articles);
     const allStories = articles.map(article => <Story article={article} key={article.slug} />);
 
     return (
