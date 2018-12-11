@@ -7,4 +7,6 @@ const authUser = () => {
   }
 };
 
+export const getUserData = (provider, access_token) => ({provider, access_token});
+
 export default authUser;

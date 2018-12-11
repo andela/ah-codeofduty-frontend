@@ -4,14 +4,11 @@ import GoogleLogin from 'react-google-login';
 import PropTypes from 'prop-types';
 
 import { socialAuthentication } from './userActions';
+import {getUserData} from "../../../utils/authUser";
 
 class GoogleButton extends PureComponent {
   signup = (userToken) => {
-    const userData = {
-      provider: 'google-oauth2',
-      access_token: userToken,
-    };
-
+      const userData = getUserData('google-oauth2', userToken);
     const { socialAuthentication } = this.props;
       socialAuthentication('/api/social_auth/', userData);
   };

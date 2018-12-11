@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 import PropTypes from 'prop-types';
 import {socialAuthentication} from './userActions';
+import { getUserData } from '../../../utils/authUser'
+
 
 class FacebookButton extends PureComponent {
   signup = (userToken) => {
-    const userData = {
-      provider: 'facebook',
-      access_token: userToken,
-    };
+    const userData = getUserData('facebook', userToken);
+
     const { socialAuthentication } = this.props;
       socialAuthentication('api/social_auth/', userData);
   };
