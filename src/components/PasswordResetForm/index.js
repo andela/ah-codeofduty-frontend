@@ -61,7 +61,7 @@ class PasswordResetForm extends Component {
             <h1>Reset Password</h1>
 
             <div className="textbox" id="text-input">
-              {/* <i className="fa fa-key" aria-hidden="true" /> */}
+            
               <input
                 type="password"
                 name="new_password"
@@ -73,7 +73,7 @@ class PasswordResetForm extends Component {
             </div>
 
             <div className="textbox">
-              {/* <i className="fa fa-key" aria-hidden="true" /> */}
+          
               <input
                 type="password"
                 name="confirm_password"

@@ -4,50 +4,28 @@ import * as types from './constants';
 import * as action from '../PasswordReset/actions';
 import * as type from '../PasswordReset/constants';
 
-describe('Reset saved password i database', () => {
-  it('start process of resetting password', () => {
-    const email = 'example@gmail.com';
-    const expectedAction = {
-      type: types.RESET_PASSWORD_ACTION,
-    };
-    expect(actions.resetPasswordAction(email)).toEqual(expectedAction);
-  });
-
+const test = (type, action) => {
+  const expected = { type };
+  expect(action).toEqual(expected);
+};
+describe('Reset saved password in database', () => {
   it('reset password failure', () => {
-    const expectedAction = {
-      type: types.RESET_PASSWORD_ACTION_FAILURE,
-    };
-    expect(actions.resetPasswordActionFailure()).toEqual(expectedAction);
+    test(types.RESET_PASSWORD_ACTION_FAILURE, actions.resetPasswordActionFailure());
   });
-
   it('reset password sucess', () => {
-    const expectedAction = {
-      type: types.RESET_PASSWORD_ACTION_SUCCESS,
-    };
-    expect(actions.resetPasswordActionSuccess()).toEqual(expectedAction);
+    test(types.RESET_PASSWORD_ACTION_SUCCESS, actions.resetPasswordActionSuccess());
+  });
+  it('reset password', () => {
+    test(types.RESET_PASSWORD_ACTION, actions.resetPasswordAction());
   });
 
-  // ........................
-
-  it('start process of resetting password', () => {
-    const email = 'example@gmail.com';
-    const expectedAction = {
-      type: type.RESET_PASSWORD,
-    };
-    expect(action.resetPassword(email)).toEqual(expectedAction);
+  it('forgot pass failure', () => {
+    test(type.RESET_PASSWORD_FAILURE, action.resetPasswordFailure());
   });
-
-  it('forgot password failure', () => {
-    const expectedAction = {
-      type: type.RESET_PASSWORD_FAILURE,
-    };
-    expect(action.resetPasswordFailure()).toEqual(expectedAction);
+  it('forgot pass sucess', () => {
+    test(type.RESET_PASSWORD_SUCCESS, action.resetPasswordSuccess());
   });
-
-  it('forgot password sucess', () => {
-    const expectedAction = {
-      type: type.RESET_PASSWORD_SUCCESS,
-    };
-    expect(action.resetPasswordSuccess()).toEqual(expectedAction);
+  it('forgot pass', () => {
+    test(type.RESET_PASSWORD, action.resetPassword());
   });
 });

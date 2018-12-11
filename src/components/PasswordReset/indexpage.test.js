@@ -3,6 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import expect from 'expect';
 import Enzyme, { shallow } from 'enzyme';
 import PasswordReset from './index';
+import PasswordResetForm from '../PasswordResetForm';
 
 Enzyme.configure({ adapter: new Adapter() });
 describe('<forgot password form/>', () => {

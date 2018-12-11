@@ -15,7 +15,6 @@ function newPassword(state = initialState, action) {
     case RESET_PASSWORD_ACTION:
       return { ...state, fetching: true };
     case RESET_PASSWORD_ACTION_SUCCESS:
-      // window.alert(action.payload);
       return {
         ...state,
         fetching: false,
@@ -23,8 +22,6 @@ function newPassword(state = initialState, action) {
         fetched: true,
       };
     case RESET_PASSWORD_ACTION_FAILURE:
-      // window.alert(JSON.stringify(action.errors));
-      // return { ...state, fetching: false, errors: action.errors };
       return {
         ...state,
         fetching: false,
