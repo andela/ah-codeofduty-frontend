@@ -12,8 +12,7 @@ class Stories extends Component {
     const user = authUser();
     const { username } = user;
     const { dispatch } = this.props;
-    // dispatch(getArticles(urls.USER_ARTICLES(username)));
-    dispatch(getArticles(urls.ARTICLES));
+    dispatch(getArticles(urls.USER_ARTICLES(username)));
   }
 
   render() {

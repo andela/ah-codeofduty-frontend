@@ -25,6 +25,8 @@ const articlesReducer = (state = initialState, action) => {
         articlesCount,
         isLoading,
       };
+    case articleActionTypes.USER_ARTICLES_FETCHED:
+      return { ...state, articles };
     default:
       return state;
   }
