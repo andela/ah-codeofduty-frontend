@@ -1,38 +1,38 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./articles.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './articles.scss';
+import { ToastContainer } from 'react-toastify';
 import DeleteModal from "./deleteModal";
 import authUser from "../../utils/authUser";
 import Comments from '../Comments/index'
 import LikesDislikes from '../like_unlike/index';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css'; 
-import { Footer } from "../Footer/Footer";
-import Rating from "../Rating/Rating";
-import Average from "../Rating/averageRating";
+import 'react-toastify/dist/ReactToastify.min.css';
+import { Footer } from '../Footer/Footer';
+import Rating from '../Rating/Rating';
+import Average from '../Rating/averageRating';
 import Tags from '../Tags/Tags';
 
 const { username } = authUser();
-localStorage.setItem("username", username);
+localStorage.setItem('username', username);
 
-const getAuthor = author => {
-  const currentUser = localStorage.getItem("username");
+const getAuthor = (author) => {
+  const currentUser = localStorage.getItem('username');
   if (currentUser === author) {
-    return "btn-display";
+    return 'btn-display';
   }
-  return "btn-no-display";
+  return 'btn-no-display';
 };
 
-const articleCreated = articleDate => {
+const articleCreated = (articleDate) => {
   const dateTime = new Date(articleDate);
   const dateOnly = dateTime.toDateString();
   return dateOnly;
 };
 
-const Article = ( { article, slug, toggleEdit }) => (
+const Article = ({ article, slug, toggleEdit }) => (
   <div>
     <div><ToastContainer /></div>
-  <div>
+    <div>
     <div className="container px-5 pb-5">
       <div className="row pb-4">
         <div className="px-5 pt-3 col-md-8">
@@ -42,8 +42,11 @@ const Article = ( { article, slug, toggleEdit }) => (
           </h1>
 
           <p className="text-muted pb-3 font-exo">
-            {" "}
-            <span>{article.time_to_read}</span> Min Read{" "}
+            {' '}
+            <span>{article.time_to_read}</span>
+{' '}
+Min Read
+{" "}
           </p>
           <p className="card-text">
             <div dangerouslySetInnerHTML={{ __html: article.body }} />
@@ -70,8 +73,11 @@ const Article = ( { article, slug, toggleEdit }) => (
         <div className="col-md-4 pl-5 side-column mt-3 font-raleway">
           <div className="fixed sticky-top">
             <h5 className="mb-4 pt-5 font-raleway">
-              {" "}
-              Stories by <b>{article.author.username}</b>{" "}
+              {' '}
+              Stories by 
+{' '}
+<b>{article.author.username}</b>
+{" "}
             </h5>
             <div className="">
               <a
@@ -93,7 +99,7 @@ const Article = ( { article, slug, toggleEdit }) => (
           <Rating />
         </div>
         <div className="col-md-4 text-center pb-3">
-        <LikesDislikes slug={slug}/>
+          <LikesDislikes slug={slug} />
           <span id="buttons" className={getAuthor(article.author.username)}>
             <i
               title="edit"
@@ -115,7 +121,9 @@ const Article = ( { article, slug, toggleEdit }) => (
         </div>
         <div className="col-md-4 text-center pb-2">
           <span className="text-muted font-exo">
-            Created on: <i>{articleCreated(article.time_created)}</i>
+            Created on: 
+{' '}
+<i>{articleCreated(article.time_created)}</i>
           </span>
         </div>
       </div>
@@ -123,16 +131,16 @@ const Article = ( { article, slug, toggleEdit }) => (
     <Tags tags={article.tagList} />
     <Comments />
   </div>
-  <div className="footer">
+    <div className="footer">
     <Footer />
   </div>
-</div>
+    </div>
 );
 
 Article.propTypes = {
   article: PropTypes.object.isRequired,
   toggleEdit: PropTypes.func.isRequired,
-  slug: PropTypes.string
+  slug: PropTypes.string,
 };
 
 export default Article;

@@ -27,12 +27,12 @@ export const registerUser = user => (dispatch) => {
           // eslint ignore next-line
           localStorage.setItem('user', JSON.stringify(data.user));
           window.location.assign('/');
-        }).catch( error=> {
-          console.log(error)
+        }).catch((error) => {
+          console.log(error);
           dispatch(setLoginPending(false));
           dispatch(setLoginError(error.response));
         });
-      } 
+      }
     })
     .catch((error) => {
       if (error.response.data.errors.password) {

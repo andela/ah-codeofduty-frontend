@@ -46,7 +46,7 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
-        <Articles userURL={urls.USER_ARTICLES(username)}/>
+        <Articles userURL={urls.USER_ARTICLES(username)} />
       </div>
     );
   }
