@@ -6,7 +6,9 @@ import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from "./profileReducer";
 import { articleReducer } from './articleReducer';
 import ratingReducer from "../components/Rating/reducers/ratingReducer";
-
+import articlesReducer from "./articlesReducer";
+import userEmail from "../components/PasswordReset/reducer";
+import newPassword from "../components/PasswordResetForm/reducers";
 
 export default combineReducers({
   simpleReducer,
@@ -16,4 +18,7 @@ export default combineReducers({
   profileReducer,
   articleReducer,
   ratingReducer,
+  articlesReducer,
+  userEmail,
+  newPassword
 });
