@@ -38,30 +38,13 @@ class PasswordReset extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmitHandler} id="passwordreset">
-          <div className="reset_box">
-            <h1>Reset Password</h1>
-            <p>
-              please enter your email address below and we will send you instruction for setting a
-              new password.
-            </p>
-            <div className="textbox">
-              <i className="fa fa-envelope" aria-hidden="true" />
-
-              <input
-                type="email"
-                id="email"
-                required
-                name="email"
-                value={this.state.email}
-                placeholder="exam@example.com"
-                onChange={this.onChangeHandler}
-              />
+          <div className="reset_box"><h1>Reset Password</h1>
+            <p>please enter your email address below and we will send you instruction for setting a new password.</p>
+            <div className="textbox"><i className="fa fa-envelope" aria-hidden="true" />
+              <input type="email" id="email" required name="email" value={this.state.email} placeholder="exam@example.com" onChange={this.onChangeHandler} />
             </div>
-            <input className="btnn" type="submit" value="Reset my password" />
-            <p className="api_alert">
-              <span className={`${visible ? 'alert alert-success' : 'd-none'}`}>
-                {message || message_success}
-              </span>
+            <input className="btnn" type="submit" value="Reset my password" /><p className="api_alert">
+              <span className={`${visible ? 'alert alert-success' : 'd-none'}`}>{message || message_success}</span>
             </p>
           </div>
         </form>
