@@ -5,7 +5,6 @@ import loginReducer from "../views/Auth/LoginForm/reducer.jsx";
 import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from "./profileReducer";
 import { articleReducer } from './articleReducer';
-import articlesReducer from './articlesReducer';
 import likeDislikeReducer from '../components/like_unlike/reducer';
 import ratingReducer from "../components/Rating/reducers/ratingReducer";
 import userEmail from "../components/PasswordReset/reducer";
@@ -20,7 +19,6 @@ export default combineReducers({
   profileReducer,
   articleReducer,
   socialLoginReducer,
-  articlesReducer,
   likeDislikeReducer,
   ratingReducer,
   userEmail,
