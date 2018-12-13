@@ -28,8 +28,8 @@ class Paginate extends Component {
         previousLabel="<< prev"
         nextLabel="next >>"
         pageCount={articlesCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={2}
         onPageChange={this.handlePageChange}
         containerClassName="pagination"
         pageClassName="pages"
