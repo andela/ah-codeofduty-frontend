@@ -7,6 +7,10 @@ export const urls = {
   ARTICLES: articles,
   PROFILES: `${baseURL}profiles/`,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  TAGS: `${baseURL}tags/`,
+>>>>>>> (Feature #161255325): Add tagging on all relevant views:
 
   ARTICLE: slug => `${articles}${slug}/`,
   ARTICLES_PAGINATE: (limit, offset) =>
@@ -18,6 +22,8 @@ export const urls = {
 
   FILTER_BY_TAGS: tag => `${baseURL}/articles/?tags=${tag}`,
 >>>>>>> (Feature #161255325): Add tagging on all relevant views:
+
+  FILTER_BY_TAGS: tag => `${baseURL}/articles/?tags=${tag}`,
 
   FOLLOW: user => `${baseURL}profiles/${user}/follow`,
   USER_PROFILE: user => `${baseURL}profiles/${user}`,
