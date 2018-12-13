@@ -9,6 +9,11 @@
     border: 1px solid orange;
     padding: 4px 10px 4px 10px;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.pages:hover {
+    background-color: rgba(255, 165, 0, 0.8);
 }
 
 .active-page {
@@ -29,7 +34,6 @@
     background-color: orange;
 }
 
-.next a:hover,
-.prev a:hover {
+.pagination a:hover {
     color: black
 }
