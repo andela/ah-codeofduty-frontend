@@ -6,10 +6,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../../Navbar/Navbar';
 import { registerUser } from './actions';
 import Message from './message';
+import Rating from '../../Rating/Rating';
 
 class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // State is read-only:
       // The only way to change the state is to emit an action, an object describing what happened.
@@ -139,11 +140,12 @@ class Register extends Component {
                   </form>
                   <div className="hint-text small">
                     I have an account?
-                    {' '}
+{" "}
                     <a href="/" className="text-primary">
                       Login here
                     </a>
                   </div>
+                  <Rating />
                 </div>
               </div>
             </div>
