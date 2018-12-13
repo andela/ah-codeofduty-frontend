@@ -11,7 +11,13 @@ class Paginate extends Component {
     let { selected } = data;
     const limit = 10;
     let offset = selected * limit;
-    this.props.dispatch(getArticles(urls.ARTICLES_PAGINATE(limit, offset)));
+    let url;
+    if ('user' in this.props) {
+      url = urls.USER_ARTICLES_PAGINATE(limit, offset, this.props.user);
+    } else {
+      url = urls.ARTICLES_PAGINATE(limit, offset);
+    }
+    this.props.dispatch(getArticles(url));
   };
 
   render() {

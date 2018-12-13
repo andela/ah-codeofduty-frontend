@@ -19,21 +19,13 @@ export const articlesFetched = (data) => {
   };
 };
 
-export const userArticlesFetched = articles => ({
-  type: articleActionTypes.USER_ARTICLES_FETCHED,
-  articles,
-});
-
 export const getArticles = url => (dispatch) => {
   dispatch(articlesFetch());
   return axios
     .get(url)
     .then((response) => {
       const { data } = response;
-      if ('results' in response) {
-        dispatch(articlesFetched(data));
-      }
-      dispatch(userArticlesFetched(data));
+      dispatch(articlesFetched(data));
     })
     .catch(error => console.log(error));
 };
