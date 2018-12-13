@@ -4,6 +4,7 @@ import './articles.scss';
 import DeleteModal from './deleteModal';
 import authUser from "../../utils/authUser";
 import {Footer} from "../Footer/Footer";
+import LikesDislikes from '../like_unlike/index'
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -81,8 +82,10 @@ Stories by{' '}
           <span className="fa fa-star" />
         </div>
         <div className="col-md-4 text-center pb-3">
-          <i className="fas fa-thumbs-up mr-4" />
-          <i className="fas fa-thumbs-down mr-5" />
+          {/* <i className="fas fa-thumbs-up mr-4" />
+          <i className="fas fa-thumbs-down mr-5" /> */}
+          <LikesDislikes slug={slug}/>
+          
           <span id="buttons" className={getAuthor(article.author.username)}>
             <i title="edit" id="toggleEdit" className="fas fa-pencil-square-o mr-3" onClick={toggleEdit} />
             <i title="delete" className="fas fa-trash fa-2x" id="delete" data-toggle="modal" data-target="#deleteModal" />

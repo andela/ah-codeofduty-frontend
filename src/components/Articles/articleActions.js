@@ -48,6 +48,7 @@ export const fetchArticles = (url) => (dispatch) => {
 };
 
 export const fetchSpecificArticle = slug => (dispatch) => {
+  localStorage.setItem('likeslug',slug);
   dispatch(getSpecificArticleInitiated(true));
   return axios.get(urls.ARTICLE(slug))
     .then((response) => {

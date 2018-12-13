@@ -5,6 +5,8 @@ import loginReducer from '../views/Auth/LoginForm/reducer';
 import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from './profileReducer';
 import { articleReducer } from './articleReducer';
+import articlesReducer from './articlesReducer';
+import likeDislikeReducer from '../components/like_unlike/reducer';
 
 export default combineReducers({
   simpleReducer,
@@ -13,4 +15,6 @@ export default combineReducers({
   profileReducer,
   articleReducer,
   socialLoginReducer,
+  articlesReducer,
+  likeDislikeReducer,
 });
