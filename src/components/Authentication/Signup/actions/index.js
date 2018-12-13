@@ -2,6 +2,9 @@
 
 import axios from 'axios';
 import { REGISTER_FAILED, REGISTER_SUCCESSFUL } from './types';
+import { STAGING_URL } from '../../../../utils/config';
+import sendLoginRequest from '../../../../views/Auth/LoginForm/thunk';
+import { setLoginSuccess } from '../../../../views/Auth/LoginForm/actions';
 
 export const registerSuccessful = () => ({
   type: REGISTER_SUCCESSFUL,
@@ -15,11 +18,18 @@ export const registerFailed = error => ({
 
 export const registerUser = user => (dispatch) => {
   axios
-    .post('https://ah-codeofduty-staging.herokuapp.com/api/users/', { ...user })
+    .post(`${STAGING_URL}/users/`, { ...user })
     .then((res) => {
+      console.log(res.data.user);
       if (res.status === 201) {
         dispatch(registerSuccessful());
-        localStorage.setItem('user', JSON.stringify(user));
+        sendLoginRequest(user).then(({ data }) => {
+          dispatch(setLoginSuccess(data.user));
+          // eslint ignore next-line
+          // localStorage.setItem('user', JSON.stringify(data.user));
+        });
+        // eslint ignore next-line
+        localStorage.setItem('user', JSON.stringify(res.data.user));
       }
       window.location.assign('/');
     })
