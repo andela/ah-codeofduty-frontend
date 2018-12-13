@@ -28,7 +28,7 @@ class Profile extends Component {
 
   render() {
     const {
-      profile, followers, following, showModal, dispatch,
+      profile, followers, following, showModal, dispatch, tags,
     } = this.props;
 
     const user = authUser();
@@ -46,7 +46,11 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
+<<<<<<< HEAD
         <Articles userURL={urls.USER_ARTICLES(username)}/>
+=======
+        <Stories className="Stories" />
+>>>>>>> (Feature #161255325): Add tagging on all relevant views:
       </div>
     );
   }

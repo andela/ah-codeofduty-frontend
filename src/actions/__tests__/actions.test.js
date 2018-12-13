@@ -1,5 +1,3 @@
-// import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -61,6 +59,27 @@ describe('Profile Action creators', () => {
   });
 });
 
+<<<<<<< HEAD
+=======
+// test articles action creators
+describe('Articles Action creators', () => {
+  it('Should dispatch ARTICLES_FETCH', () => {
+    expect(articlesFetch().type).toEqual(ARTICLES_FETCH);
+  });
+  it('Should dispatch ARTICLES_FETCHED', () => {
+    const data = {
+      results: [],
+      links: {
+        next: '',
+        prev: '',
+        articlesCount: 0,
+      },
+    };
+    expect(articlesFetched(data).type).toEqual(ARTICLES_FETCHED);
+  });
+});
+
+>>>>>>> (Feature #161255325): Add tagging on all relevant views:
 // test actions
 describe('Actions', () => {
   const store = mockStore({});
