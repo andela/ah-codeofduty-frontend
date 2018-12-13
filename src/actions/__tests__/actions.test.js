@@ -1,5 +1,3 @@
-// import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';

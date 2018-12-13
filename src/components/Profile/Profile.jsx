@@ -28,7 +28,7 @@ class Profile extends Component {
 
   render() {
     const {
-      profile, followers, following, showModal, dispatch,
+      profile, followers, following, showModal, dispatch, tags,
     } = this.props;
 
     const user = authUser();
