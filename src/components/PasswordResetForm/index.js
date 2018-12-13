@@ -13,7 +13,10 @@ class PasswordResetForm extends Component {
         confirm_password: ""
       },
       token: ""
+
     };
+    this.error = '';
+    this.visible = '';
   }
   componentDidMount() {
     const urll = this.props.location.search;
@@ -39,22 +42,20 @@ class PasswordResetForm extends Component {
       confirm_password: this.state.user.confirm_password
     };
     this.props.updatePassword(postdata, this.state.token);
-    this.state.new_password = "";
-    this.state.confirm_password = "";
+    // this.setState.new_password = "";
+    // this.setState.confirm_password = "";
   };
 
   styleErrorPopUp(none = "") {
     return none;
   }
-  errorshandler() {
 
-  }
 
   render() {
-    const matchError = this.props.newPassword.errors
-      ? this.props.newPassword.errors.data.error : this.styleErrorPopUp("");
-    const new_password_error = this.props.newPassword.errors
-      ? this.props.newPassword.errors.data.new_password : this.styleErrorPopUp("");
+    if (this.props.newPassword.errors !== null) {
+      this.error = "Password must contain at least 8 characters Password must contain a number and a letter and that are not repeating more that two times";
+      this.visible = true;
+    };
     return (
       <div>
         <form onSubmit={this.onSubmitHandler}>
@@ -67,7 +68,7 @@ class PasswordResetForm extends Component {
               <input type="password" name="confirm_password" required value={this.state.confirm_password} onChange={this.onChangeHandler} placeholder="Confirm Password" onClick={() => document.getElementById("text-input").style.display === "none"} />
             </div>
             <input className="btnn" type="submit" value="Reset My Password" />
-            <p className="api_alert"><span className={`alert alert-danger  ${this.styleErrorPopUp()}`}>{new_password_error} {matchError} </span> </p>
+            <p className="api_alert"><span className={`${this.visible ? 'alert alert-danger' : 'd-none'}`}>{this.error}</span> </p>
           </div>
         </form>
       </div>

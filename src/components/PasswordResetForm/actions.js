@@ -23,7 +23,7 @@ const updatePassword = (data, token = null) => (dispatch) => {
   dispatch(resetPasswordAction());
   axios
     .post(
-      `https://ah-codeofduty-frontend-staging.herokuapp.com/api/users/reset-password/${token}/`,
+      `https://ah-codeofduty-staging.herokuapp.com/api/users/reset-password/${token}/`,
       data,
     )
     .then(response => dispatch(resetPasswordActionSuccess(response.data.message)))
