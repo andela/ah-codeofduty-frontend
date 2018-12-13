@@ -9,6 +9,7 @@ import Register from './components/Authentication/Signup/Register';
 import Profile from './components/Profile/Profile';
 import './App.scss';
 import ProtectedRoute from './views/Auth/ProtectedRoute';
+import FollowUnfollowButton from './components/FollowUnfollow';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
               <ProtectedRoute path="/profile" component={Profile} />
+              <Route path="/follow" component={FollowUnfollowButton} />
             </Switch>
           </div>
         </Router>
