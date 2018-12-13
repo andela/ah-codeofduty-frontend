@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import './index.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import updatePassword from './actions';
+import React, { Component } from "react";
+import "./index.css";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import updatePassword from "./actions";
 class PasswordResetForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       user: {
-        new_password: '',
-        confirm_password: '',
+        new_password: "",
+        confirm_password: ""
       },
-      token: '',
+      token: ""
     };
   }
   componentDidMount() {
     const urll = this.props.location.search;
-    const url = urll.split('=')[1];
-    const data = url.split('/')[0];
+    const url = urll.split("=")[1];
+    const data = url.split("/")[0];
     this.setState({
-      token: data,
+      token: data
     });
   }
   onChangeHandler = e => {
     this.setState({
       user: {
         ...this.state.user,
-        [e.target.name]: e.target.value,
-      },
+        [e.target.name]: e.target.value
+      }
     });
   };
 
@@ -36,24 +36,24 @@ class PasswordResetForm extends Component {
     e.preventDefault();
     const postdata = {
       new_password: this.state.user.new_password,
-      confirm_password: this.state.user.confirm_password,
+      confirm_password: this.state.user.confirm_password
     };
     this.props.updatePassword(postdata, this.state.token);
-    this.state.new_password = '';
-    this.state.confirm_password = '';
+    this.state.new_password = "";
+    this.state.confirm_password = "";
   };
 
-  styleErrorPopUp(none = '') {
+  styleErrorPopUp(none = "") {
     return none;
   }
 
   render() {
     const matchError = this.props.newPassword.errors
       ? this.props.newPassword.errors.data.error
-      : this.styleErrorPopUp('');
+      : this.styleErrorPopUp("");
     const new_password_error = this.props.newPassword.errors
       ? this.props.newPassword.errors.data.new_password
-      : this.styleErrorPopUp('');
+      : this.styleErrorPopUp("");
     return (
       <div>
         <form onSubmit={this.onSubmitHandler}>
@@ -61,7 +61,6 @@ class PasswordResetForm extends Component {
             <h1>Reset Password</h1>
 
             <div className="textbox" id="text-input">
-            
               <input
                 type="password"
                 name="new_password"
@@ -71,9 +70,7 @@ class PasswordResetForm extends Component {
                 placeholder="New Password"
               />
             </div>
-
             <div className="textbox">
-          
               <input
                 type="password"
                 name="confirm_password"
@@ -81,7 +78,9 @@ class PasswordResetForm extends Component {
                 value={this.state.confirm_password}
                 onChange={this.onChangeHandler}
                 placeholder="Confirm Password"
-                onClick={() => document.getElementById('text-input').style.display === 'none'}
+                onClick={() =>
+                  document.getElementById("text-input").style.display === "none"
+                }
               />
             </div>
 
@@ -100,18 +99,18 @@ class PasswordResetForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  newPassword: state.newPassword,
+  newPassword: state.newPassword
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      updatePassword,
+      updatePassword
     },
-    dispatch,
+    dispatch
   );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(PasswordResetForm);
