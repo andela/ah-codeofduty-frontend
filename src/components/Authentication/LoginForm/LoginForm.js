@@ -88,7 +88,7 @@ export class LoginForm extends Component {
                   </div>
                   <div className="hint-text small">
                     {' '}
-                    Forgot Password? <a href="/resetpassword">Reset Password</a>
+                    Forgot Password? <a href="/reset-password">Reset Password</a>
                   </div>
                   <div className="or-seperator">
                     <i>or</i>

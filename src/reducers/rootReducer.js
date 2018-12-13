@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import simpleReducer from './simpleReducer';
 import authReducer from '../components/Authentication/Signup/reducers/authReducer';
 import loginReducer from '../views/Auth/LoginForm/reducer.jsx';
+import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from './profileReducer';
 import articlesReducer from './articlesReducer';
 import userEmail from '../components/PasswordReset/reducer';
@@ -15,5 +16,4 @@ export default combineReducers({
   articlesReducer,
   userEmail,
   newPassword,
-
 });
