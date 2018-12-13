@@ -1,4 +1,3 @@
-
 import sendLoginRequest from './thunk';
 import * as actionTypes from './actionTypes';
 
@@ -22,9 +21,9 @@ export default function login({ email, password }) {
     dispatch(setLoginPending(true));
     sendLoginRequest({ email, password })
       .then(({ data }) => {
+        localStorage.setItem('user', JSON.stringify(data.user));
         dispatch(setLoginSuccess(data.user));
         // eslint ignore next-line
-        // localStorage.setItem('user', JSON.stringify(data.user));
       })
       .catch((err) => {
         dispatch(setLoginPending(false));

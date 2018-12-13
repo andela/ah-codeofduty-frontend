@@ -1,8 +1,10 @@
-export default () => {
+const authUser = () => {
   try {
     // eslint-disable-next-line
-    return JSON.parse(localStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('user')) || false;
   } catch (e) {
-    return null;
+    return e;
   }
 };
+
+export default authUser;

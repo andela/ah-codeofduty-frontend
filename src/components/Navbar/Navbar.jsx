@@ -12,7 +12,7 @@ import LoginForm from '../Authentication/LoginForm/LoginForm';
 class Navbar extends Component {
   render() {
     return (
-    
+
       <nav
         className="navbar navbar-expand-lg navbar-light bg-light font-raleway"
         id="navbar_home"
@@ -114,8 +114,8 @@ class Navbar extends Component {
         </div>
         <LoginForm />
       </nav>
-      
-      
+
+
     );
   }
 }

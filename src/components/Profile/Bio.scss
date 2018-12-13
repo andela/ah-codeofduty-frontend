@@ -1,0 +1,79 @@
+.Bio {
+    margin-top: 30px;
+    font-family: "Raleway";
+}
+
+.bio-text {
+    font-size: 0.8em;
+}
+
+.bio-data {
+    width: 100%;
+}
+
+.following {
+    background-color: orange;
+}
+
+.Bio button:hover {
+    background-color: orange;
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.follow-row {
+    display: flex;
+}
+
+.follow-data {
+    margin-left: 43.8%;
+}
+
+@media(max-width: 1200px) {
+    .follow-data {
+        margin-left: 42.4%;
+    }
+}
+
+@media(max-width: 1150px) {
+    .follow-data {
+        margin-left: 41.4%;
+    }
+}
+
+@media(max-width: 890px) {
+    .follow-data {
+        margin-left: 40.4%;
+    }
+}
+
+@media(max-width: 750px) {
+    .follow-data {
+        margin-left: 39.4%;
+    }
+}
+
+@media(max-width: 700px) {
+    .follow-data {
+        margin-left: 38.4%;
+    }
+}
+
+@media(max-width: 640px) {
+    .follow-data {
+        margin-left: 37.4%;
+    }
+}
+
+@media(max-width: 570px) {
+    .follow-data {
+        margin-left: 36.4%;
+    }
+}
+
+@media(max-width: 500px) {
+    .follow-data {
+        margin-left: 30%;
+    }
+}
