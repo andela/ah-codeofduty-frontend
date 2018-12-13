@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from './Home.scss';
 const Index = () => (
   <div>
     <div className="jumbotron" id="featured_posts">
