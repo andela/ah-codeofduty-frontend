@@ -16,12 +16,10 @@ export class LoginForm extends Component {
   componentDidUpdate(prevProps) {
     const { history, isLoginSuccess, user } = this.props;
     if (prevProps.isLoginPending && isLoginSuccess) {
-      localStorage.setItem('user', JSON.stringify(user));
       window.$('#loginModal').modal('hide');
       window.$('.modal-backdrop').modal('hide');
       window.$('body').removeClass('modal-open');
       window.$('.modal-backdrop').remove();
-      history.push('/profile');
     }
   }
 
@@ -90,7 +88,7 @@ export class LoginForm extends Component {
                   </div>
                   <div className="hint-text small">
                     {' '}
-                    Forgot Password? <a href="/resetpassword">Reset Password</a>
+                    Forgot Password? <a href="/reset-password">Reset Password</a>
                   </div>
                   <div className="or-seperator">
                     <i>or</i>
