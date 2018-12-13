@@ -27,7 +27,7 @@ class Profile extends Component {
 
   render() {
     const {
-      profile, followers, following, showModal, dispatch,
+      profile, followers, following, showModal, dispatch, tags,
     } = this.props;
 
     return (
@@ -42,7 +42,7 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
-        <Stories />
+        <Stories className="Stories" />
       </div>
     );
   }

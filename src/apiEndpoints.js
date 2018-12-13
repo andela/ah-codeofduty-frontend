@@ -3,6 +3,10 @@ const baseURL = 'https://ah-codeofduty-staging.herokuapp.com/api/';
 export const urls = {
   ARTICLES: `${baseURL}articles/`,
   PROFILES: `${baseURL}profiles/`,
+  TAGS: `${baseURL}tags/`,
+
+  FILTER_BY_TAGS: tag => `${baseURL}/articles/?tags=${tag}`,
+
   FOLLOW: user => `${baseURL}profiles/${user}/follow`,
   USER_PROFILE: user => `${baseURL}profiles/${user}`,
   USER_FOLLOW: (user, follow) => `${baseURL}profiles/${user}/${follow}`,

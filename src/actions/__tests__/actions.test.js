@@ -1,5 +1,3 @@
-// import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -70,7 +68,15 @@ describe('Articles Action creators', () => {
     expect(articlesFetch().type).toEqual(ARTICLES_FETCH);
   });
   it('Should dispatch ARTICLES_FETCHED', () => {
-    expect(articlesFetched({}).type).toEqual(ARTICLES_FETCHED);
+    const data = {
+      results: [],
+      links: {
+        next: '',
+        prev: '',
+        articlesCount: 0,
+      },
+    };
+    expect(articlesFetched(data).type).toEqual(ARTICLES_FETCHED);
   });
 });
 

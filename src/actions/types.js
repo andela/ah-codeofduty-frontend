@@ -12,6 +12,7 @@ export const profileActionTypes = {
 export const articleActionTypes = {
   ARTICLES_FETCH: 'ARTICLES_FETCH',
   ARTICLES_FETCHED: 'ARTICLES_FETCHED',
+  TAGS_FETCHED: 'TAGS_FETCHED',
 };
 
 // export default ActionTypes;
