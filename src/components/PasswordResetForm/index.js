@@ -3,7 +3,11 @@ import "./index.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import updatePassword from "./actions";
-class PasswordResetForm extends Component {
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
+
+
+export class PasswordResetForm extends Component {
   constructor(props) {
     super(props);
 
@@ -43,24 +47,10 @@ class PasswordResetForm extends Component {
     };
     this.props.updatePassword(postdata, this.state.token);
   };
-
-  styleErrorPopUp(none = "") {
-    return none;
-  }
-
-
   render() {
-
-    if (this.props.newPassword.errors !== null) {
-      this.error = "Password must contain at least 8 characters Password must contain a number and a letter and that are not repeating more that two times";
-      this.visible = true;
-    }
-    if (this.props.newPassword.message === 'Congratulations! You have successfully changed your password.') {
-      this.props.history.push('/login')
-    }
-
     return (
       <div>
+        <div><ToastContainer /></div>
         <form onSubmit={this.onSubmitHandler}>
           <div className="reset_box">
             <h1>Reset Password</h1>
@@ -71,7 +61,6 @@ class PasswordResetForm extends Component {
               <input type="password" name="confirm_password" required value={this.state.confirm_password} onChange={this.onChangeHandler} placeholder="Confirm Password" onClick={() => document.getElementById("text-input").style.display === "none"} />
             </div>
             <input className="btnn" type="submit" value="Reset My Password" />
-            <p className="api_alert"><span className={`${this.visible ? 'alert alert-danger' : 'd-none'}`}>{this.error}</span> </p>
           </div>
         </form>
       </div>
