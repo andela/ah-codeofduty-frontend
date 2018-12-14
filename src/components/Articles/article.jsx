@@ -95,7 +95,7 @@ November, 2018
 Article.propTypes = {
   article: PropTypes.object.isRequired,
   toggleEdit: PropTypes.func.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };
 
 export default Article;
