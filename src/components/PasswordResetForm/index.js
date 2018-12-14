@@ -52,10 +52,17 @@ class PasswordResetForm extends Component {
 
 
   render() {
+<<<<<<< HEAD
     if (this.props.newPassword.errors !== null) {
       this.error = "Password must contain at least 8 characters Password must contain a number and a letter and that are not repeating more that two times";
       this.visible = true;
     };
+=======
+    const matchError = this.props.newPassword.errors
+      ? this.props.newPassword.errors.data.error : this.styleErrorPopUp("");
+    const new_password_error = this.props.newPassword.errors
+      ? this.props.newPassword.errors.data.new_password : this.styleErrorPopUp("");
+>>>>>>> a9c1b4b65d6f791514080d14dece8d3b8c4f33ff
     return (
       <div>
         <form onSubmit={this.onSubmitHandler}>
