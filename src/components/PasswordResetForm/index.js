@@ -57,8 +57,6 @@ class PasswordResetForm extends Component {
       this.visible = true;
     }
     if (this.props.newPassword.message === 'Congratulations! You have successfully changed your password.') {
-      console.log("hbhebdhedvdgh")
-      this.visible = false;
       this.props.history.push('/login')
     }
 
