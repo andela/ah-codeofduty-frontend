@@ -22,7 +22,7 @@ export const login = ({ email, password }) => dispatch => {
     .then(({ data }) => {
       dispatch(setLoginSuccess(data.user));
       // eslint ignore next-line
-      // localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem("user", JSON.stringify(data.user));
     })
     .catch(err => {
       dispatch(setLoginPending(false));

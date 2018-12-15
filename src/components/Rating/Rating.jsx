@@ -14,11 +14,11 @@ class Rating extends Component {
   }
 
   componentDidMount() {
-    this.props.ar("add-tag");
+    this.props.ar("why-react");
   }
 
   changeRating = newRating => {
-    this.props.addRating({ rate: newRating, slug: "add-tag" });
+    this.props.addRating({ rate: newRating, slug: "why-react" });
     this.setState({
       rating: newRating
     });

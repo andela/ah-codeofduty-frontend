@@ -1,5 +1,13 @@
 import axios from "axios";
 
+export const STAGING_URL = "https://ah-codeofduty-staging.herokuapp.com/api";
+export const headerObject = token => ({
+  headers: {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json"
+  }
+});
+
 const baseURL = "https://ah-codeofduty-staging.herokuapp.com/";
 const timeout = false;
 const token = localStorage.getItem("auth_token");
@@ -19,10 +27,3 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
-export const STAGING_URL = "https://ah-codeofduty-staging.herokuapp.com/api";
-export const headerObject = token => ({
-  headers: {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json"
-  }
-});
