@@ -9,9 +9,4 @@ export const profileActionTypes = {
   UPDATE_PROFILE: 'UPDATE_PROFILE',
 };
 
-export const articleActionTypes = {
-  ARTICLES_FETCH: 'ARTICLES_FETCH',
-  ARTICLES_FETCHED: 'ARTICLES_FETCHED',
-};
-
 // export default ActionTypes;
