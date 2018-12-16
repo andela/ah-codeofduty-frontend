@@ -9,6 +9,7 @@ import Register from './components/Authentication/Signup/Register';
 import Profile from './components/Profile/Profile';
 import './App.scss';
 import ProtectedRoute from './views/Auth/ProtectedRoute';
+import Comments from  './components/Comments/index'
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
+              <ProtectedRoute exact path="/comments/" component={Comments} />
               <ProtectedRoute path="/profile" component={Profile} />
             </Switch>
           </div>
