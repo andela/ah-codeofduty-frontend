@@ -1,5 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
     "materialTheme.autoApplyIcons": true,
-    "material-icon-theme.activeIconPack": "react"
+    "material-icon-theme.activeIconPack": "react",
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true
 }
