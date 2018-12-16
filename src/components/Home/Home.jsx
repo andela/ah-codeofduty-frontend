@@ -1,7 +1,16 @@
 import React from 'react';
+import './Home.scss';
+import { Button, Card, CardBody, CardImage, CardTitle, CardText, Col } from 'mdbreact';
+import {Footer} from "../Footer/Footer";
+
+const divStyle = {
+  backgroundImage: `url('http://www.brandgradients.com/img/backgrounds/instagram-hex-colors-gradient-background.png')`,
+};
+
 const Index = () => (
+
   <div>
-    <div className="jumbotron" id="featured_posts">
+    <div className="jumbotron" style={divStyle}>
       <div className="container">
         <h1 className="display-3" id="blog_heading">Featured blog</h1>
         <p id="blog_content">
@@ -21,45 +30,58 @@ const Index = () => (
 
     <div className="container">
 
-      <div className="container">
+      <div className="">
         <h3>Most popular</h3>
         <br />
         <div className="card-deck">
-          <div className="card">
-            <div className="card-body text-center">
-              <img className="card-img-top" src="https://afs-calneva.org/wp-content/uploads/sites/8/2016/07/North_Fork_Amer_River_5July2008-003_size-edit.jpg" alt="Photo of sunset" />
-              <br />
-              <p>Put simply, all of these different types of paragraphs...</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body text-center">
-              <h4>Sample heading</h4>
-              <p>Put simply, all of these different types of paragraphs simply involve layering on a different purpose or intent. When students have the right foundation, it’s just that simple.</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body text-center">
-              <img className="card-img-top" src="https://afs-calneva.org/wp-content/uploads/sites/8/2016/07/North_Fork_Amer_River_5July2008-003_size-edit.jpg" alt="Photo of sunset" />
-              <br />
-              <p>Put simply, all of these different types of paragraphs...</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
         </div>
       </div>
       <br />
@@ -70,41 +92,54 @@ const Index = () => (
         <br />
 
         <div className="card-deck">
-          <div className="card">
-            <div className="card-body text-center">
-              <img className="card-img-top" src="https://afs-calneva.org/wp-content/uploads/sites/8/2016/07/North_Fork_Amer_River_5July2008-003_size-edit.jpg" alt="Photo of sunset" />
-              <br />
-              <p>Put simply, all of these different types of paragraphs...</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body text-center">
-              <h4>Sample heading</h4>
-              <p>Put simply, all of these different types of paragraphs simply involve layering on a different purpose or intent. When students have the right foundation, it’s just that simple.</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body text-center">
-              <img className="card-img-top" src="https://afs-calneva.org/wp-content/uploads/sites/8/2016/07/North_Fork_Amer_River_5July2008-003_size-edit.jpg" alt="Photo of sunset" />
-              <br />
-              <p>Put simply, all of these different types of paragraphs...</p>
-            </div>
-            <div className="card-footer">
-              <i className="fa fa-star" aria-hidden="true" />
-              {' '}
-              4.5
-            </div>
-          </div>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <CardImage
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                  waves
+              />
+              <CardBody>
+                <CardTitle>Sample heading</CardTitle>
+                <CardText>
+                  Sample description
+                </CardText>
+                <a href="#"> Read More...</a>
+              </CardBody>
+            </Card>
+          </Col>
         </div>
       </div>
       <br />
@@ -113,7 +148,7 @@ const Index = () => (
     </div>
 
     <div className="footer">
-    footer
+    <Footer />
     </div>
   </div>
 );

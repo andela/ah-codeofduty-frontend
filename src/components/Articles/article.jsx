@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './articles.scss';
 import DeleteModal from './deleteModal';
 import authUser from "../../utils/authUser";
+import {Footer} from "../Footer/Footer";
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -22,6 +23,7 @@ const articleCreated = articleDate => {
 };
 
 const Article = ({ article, slug, toggleEdit }) => (
+    <div>
   <div>
     <div className="ave-rating position-fixed">
       <i className="float-left fas fa-star mb-2 mt-5 checked" title="Average rating" />
@@ -97,6 +99,10 @@ Stories by{' '}
       </div>
     </div>
   </div>
+        <div className="footer">
+            <Footer />
+        </div>
+    </div>
 );
 
 Article.propTypes = {

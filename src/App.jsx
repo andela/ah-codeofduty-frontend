@@ -27,7 +27,7 @@ class App extends Component {
               <Route path="/login/" component={Login} />
               <ProtectedRoute path="/profile" component={Profile} />
               <ProtectedRoute path="/new_article" component={CreateArticle} />
-              <ProtectedRoute path="/articles" component={Articles} />
+              <Route path="/articles" component={Articles} />
                 <ProtectedRoute exact path="/article/:slug" component={EditArticle} />
             </Switch>
           </div>

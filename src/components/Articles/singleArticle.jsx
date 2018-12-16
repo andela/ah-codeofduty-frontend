@@ -18,7 +18,7 @@ const SingleArticle = ({ article }) => {
           />
           <CardBody>
             <CardTitle>{article.title}</CardTitle>
-            <CardText>
+            <CardText >
               {article.description}
             </CardText>
             <centre><Link exact to={returnArticleURL(article.slug)}>Read More...</Link></centre>

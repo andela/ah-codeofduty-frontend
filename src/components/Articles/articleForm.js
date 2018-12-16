@@ -3,6 +3,7 @@ import Loader from 'react-loader';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import {Footer} from "../Footer/Footer";
 
 const ArticleForm = ({
   handleSubmit,
@@ -33,6 +34,7 @@ const ArticleForm = ({
   },
 
 }) => (
+    <div>
   <div
     className="container-fluid ah-container"
     style={{ paddingTop: '50px' }}
@@ -67,6 +69,7 @@ const ArticleForm = ({
                     id="description"
                     value={description}
                     onChange={handleChange}
+                    maxLength="30"
                     required
                   />
                 </div>
@@ -108,6 +111,10 @@ const ArticleForm = ({
       </Loader>
     </div>
   </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </div>
 );
 
 ArticleForm.propTypes = {
