@@ -6,7 +6,7 @@ import { urls } from '../../apiEndpoints';
 import './Paginate.scss';
 import { getArticles } from '../../actions/articlesActions';
 
-class Paginate extends Component {
+export class Paginate extends Component {
   handlePageChange = data => {
     let { selected } = data;
     const limit = 10;
