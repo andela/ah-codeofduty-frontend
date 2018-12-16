@@ -41,7 +41,7 @@ const ArticleForm = ({
       <Loader loaded={!loading}>
         <div className="col-12">
           <form id="add-article-form" onSubmit={handleSubmit}>
-            <div className="col-sm-12 col-md-12">
+            <div className="col-sm-12 col-md-12 ml-4">
               <div className="form-group mt-2">
                 <div className="input-group mb-2">
                   <input
@@ -56,6 +56,7 @@ const ArticleForm = ({
                   />
                 </div>
               </div>
+              <br/>
               <div className="form-group">
                 <div className="input-group mb-2">
                   <input
@@ -70,6 +71,7 @@ const ArticleForm = ({
                   />
                 </div>
               </div>
+              <br/>
               <div className="form-group">
                 <div className="text-editor">
                   <div>
@@ -81,16 +83,18 @@ const ArticleForm = ({
                       value={body}
                       onChange={handleEditorChange}
                       placeholder="Add the body here..."
+                      title="body"
                     />
                   </div>
+                  <br/>
                   <div className="m-t-10">
-                    <button type="submit" className="btn ah-btn m-r-10">
+                    <button type="submit" className="Button m-r-10">
                                             Save
                     </button>
                     <button
                       type="button"
                       id="clear-button"
-                      className="btn btn-outline-warning m-r-10"
+                      className="Button ml-3"
                       onClick={resetForm}
                     >
                                             Clear

@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './articles.scss';
 import DeleteModal from './deleteModal';
+import authUser from "../../utils/authUser";
+
+const { username } = authUser();
+localStorage.setItem('username', username);
 
 const getAuthor = (author) => {
   const currentUser = localStorage.getItem('username');
@@ -9,6 +13,12 @@ const getAuthor = (author) => {
     return 'btn-display';
   }
   return 'btn-no-display';
+};
+
+const articleCreated = articleDate => {
+    const dateTime = new Date(articleDate);
+    const dateOnly = dateTime.toDateString();
+    return dateOnly;
 };
 
 const Article = ({ article, slug, toggleEdit }) => (
@@ -26,7 +36,7 @@ const Article = ({ article, slug, toggleEdit }) => (
             {' '}
           </h1>
 
-          <p className="text-muted pb-3 font-exo"> 2 Min Read </p>
+            <p className="text-muted pb-3 font-exo"> <span>{article.time_to_read}</span> Min Read </p>
           <p className="card-text">
             <div dangerouslySetInnerHTML={{ __html: article.body }} />
           </p>
@@ -81,10 +91,7 @@ Stories by{' '}
         </div>
         <div className="col-md-4 text-center pb-2">
           <span className="text-muted font-exo">
-Created at: 22
-            <sup>nd</sup>
-            {' '}
-November, 2018
+              Created on: <i>{articleCreated(article.time_created)}</i>
           </span>
         </div>
       </div>
