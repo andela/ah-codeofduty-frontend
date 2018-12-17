@@ -24,6 +24,9 @@ describe('Paginate component mount', ()=>{
 
     it('should render Paginate component correctly', () => {
         expect(enzymeWrapper.find('.pagination')).toBeDefined();
+        expect(enzymeWrapper.find('.pages')).toBeDefined();
+        expect(enzymeWrapper.find('.next')).toBeDefined();
+        expect(enzymeWrapper.find('.prev')).toBeDefined();
       });
 
     
