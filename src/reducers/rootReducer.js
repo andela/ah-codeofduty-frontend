@@ -4,8 +4,9 @@ import authReducer from "../components/Authentication/Signup/reducers/authReduce
 import loginReducer from "../views/Auth/LoginForm/reducer.jsx";
 import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from "./profileReducer";
-import articlesReducer from "./articlesReducer";
+import { articleReducer } from './articleReducer';
 import ratingReducer from "../components/Rating/reducers/ratingReducer";
+
 
 export default combineReducers({
   simpleReducer,
@@ -13,6 +14,6 @@ export default combineReducers({
   loginReducer,
   socialLoginReducer,
   profileReducer,
-  articlesReducer,
-  ratingReducer
+  articleReducer,
+  ratingReducer,
 });

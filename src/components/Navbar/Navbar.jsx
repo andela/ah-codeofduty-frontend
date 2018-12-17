@@ -36,9 +36,15 @@ class Navbar extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0" >
-          <li>
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li>
               <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/new_article">New Article</Link>
+            </li>
+            <li>
+              <Link to="/articles">Articles</Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
@@ -84,18 +90,23 @@ class Navbar extends Component {
             {authUser()
               ? (
                 <React.Fragment>
-                  <li className='login-li-nav'>
+                  <li className="login-li-nav">
                     <Link to="/profile">Profile</Link>
                   </li>
-                <li id="login-nav" className='login-li-nav'>
-                <a onClick={
+                  <li id="login-nav" className="login-li-nav">
+                    <a
+                      onClick={
                   () => localStorage.removeItem('user')
-                  } href="/">Logout</a>
-              </li>
-              </React.Fragment>
+                  }
+                      href="/"
+                    >
+Logout
+                    </a>
+                  </li>
+                </React.Fragment>
               ) : (
                 <React.Fragment>
-                  <li id="login-nav" className='login-li-nav'>
+                  <li id="login-nav" className="login-li-nav">
                     <a data-toggle="modal" data-target="#loginModal">Login</a>
                   </li>
                   <li className="nav-item">

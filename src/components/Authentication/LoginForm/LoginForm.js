@@ -16,19 +16,18 @@ export class LoginForm extends Component {
     };
   }
   componentDidUpdate(prevProps) {
-    const { history, isLoginSuccess, user } = this.props;
+    const {isLoginSuccess} = this.props;
     if (prevProps.isLoginPending && isLoginSuccess) {
       window.$('#loginModal').modal('hide');
       window.$('.modal-backdrop').modal('hide');
       window.$('body').removeClass('modal-open');
       window.$('.modal-backdrop').remove();
-      // history.push('/profile');
     }
   }
 
   render() {
     let { email, password } = this.state;
-    let { loginError, isLoginSuccess, isLoginPending, isLoginError } = this.props;
+    let { loginError, isLoginPending, isLoginError } = this.props;
 
     let pendingHtml = '';
     let errorHtml = '';
