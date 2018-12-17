@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import 'bootstrap/dist/js/bootstrap.min';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import '../../Navbar/Navbar';
-import { registerUser } from './actions';
-import Message from './message';
-import Rating from '../../Rating/Rating';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "bootstrap/dist/js/bootstrap.min";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+
+import "../../Navbar/Navbar";
+import { registerUser } from "./actions";
+import Message from "./message";
 
 class Register extends Component {
   constructor(props) {
@@ -14,9 +14,9 @@ class Register extends Component {
     this.state = {
       // State is read-only:
       // The only way to change the state is to emit an action, an object describing what happened.
-      username: '',
-      email: '',
-      password: '',
+      username: "",
+      email: "",
+      password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,7 @@ class Register extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   }
 
@@ -34,7 +34,7 @@ class Register extends Component {
     const user = {
       username,
       email,
-      password,
+      password
     };
     const { registerUser } = this.props;
     registerUser(user);
@@ -139,13 +139,11 @@ class Register extends Component {
                     </div>
                   </form>
                   <div className="hint-text small">
-                    I have an account?
-{" "}
+                    I have an account?{" "}
                     <a href="/" className="text-primary">
                       Login here
                     </a>
                   </div>
-                  <Rating />
                 </div>
               </div>
             </div>
@@ -160,10 +158,10 @@ const mapStateToProps = state => ({
   visible: state.authReducer.visible,
   message: state.authReducer.message,
   message2: state.authReducer.message2,
-  success: state.authReducer.success,
+  success: state.authReducer.success
 });
 
 export default connect(
   mapStateToProps,
-  { registerUser },
+  { registerUser }
 )(Register);

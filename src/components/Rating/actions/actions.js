@@ -41,7 +41,7 @@ export const avgRate = data => dispatch => {
   const url = `${STAGING_URL}/articles/${data}/`;
 
   axios.get(url, headerObject(token)).then(response => {
-    const articleData = response.data.average_rating;
+    const articleData = response.data.average_rating || 0;
     dispatch(averageRating(articleData));
   });
 };
