@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import axios from "axios";
 import authUser from "../../utils/authUser";
+import { urls, headerObject } from "../../apiEndpoints";
 
 import {
   createArticleError,
@@ -18,19 +19,10 @@ import {
 
 const { token } = authUser();
 
-const url = "https://ah-codeofduty-staging.herokuapp.com/api/articles/";
-
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`
-  }
-};
-
 export const postArticle = postData => dispatch => {
   dispatch(createArticleInitiated(true));
   return axios
-    .post(url, postData, config)
+    .post(urls.ARTICLES, postData, headerObject(token))
     .then(response => {
       dispatch(createArticleSuccess(true));
       toast.success(
@@ -47,32 +39,27 @@ export const postArticle = postData => dispatch => {
     });
 };
 
-export const fetchArticles = () => dispatch => {
+export const fetchArticles = url => dispatch => {
   dispatch(getArticlesInitiated(true));
   return axios.get(url).then(response => {
-    dispatch(getAllArticles(response.data.results));
+    console.warn("Look, I fetched articles!", response.data);
+    dispatch(getAllArticles(response.data));
   });
 };
 
 export const fetchSpecificArticle = slug => dispatch => {
   dispatch(getSpecificArticleInitiated(true));
-  return axios
-    .get(`https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/`)
-    .then(response => {
-      dispatch(getSpecificArticle(response.data));
-      localStorage.setItem("currentArticle", slug);
-    });
+  return axios.get(urls.ARTICLE(slug)).then(response => {
+    dispatch(getSpecificArticle(response.data));
+    localStorage.setItem("currentArticle", slug);
+  });
 };
 
 export const updateArticle = (slug, newData) => dispatch => {
   toast.dismiss();
   dispatch(editArticleInititated(true));
   return axios
-    .put(
-      `https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/`,
-      newData,
-      config
-    )
+    .put(urls.ARTICLE(slug), newData, headerObject(token))
     .then(response => {
       dispatch(editArticleSuccess(true));
       toast.success(response.data.message, {
@@ -94,16 +81,11 @@ export const updateArticle = (slug, newData) => dispatch => {
 };
 
 export const deleteArticle = slug => dispatch => {
-  axios
-    .delete(
-      `https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/`,
-      config
-    )
-    .then(() => {
-      dispatch(deleteArticleSuccess(true));
-      toast.success("The article was deleted!", {
-        autoClose: 3500,
-        hideProgressBar: true
-      });
+  axios.delete(urls.ARTICLE(slug), headerObject(token)).then(() => {
+    dispatch(deleteArticleSuccess(true));
+    toast.success("The article was deleted!", {
+      autoClose: 3500,
+      hideProgressBar: true
     });
+  });
 };
