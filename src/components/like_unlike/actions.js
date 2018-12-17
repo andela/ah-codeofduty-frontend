@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import * as types from './constants';
 import authUser from '../../utils/authUser';
 
@@ -42,8 +43,14 @@ export const likesArticle = (slug, data) => (dispatch) => {
     .post(`https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/like/`, data, {
       headers,
     })
-    .then(response => dispatch(likeArticleSuccess(response.data)))
-    .catch(errors => dispatch(likeArticleFailure(errors.response)));
+    .then(response => {dispatch(likeArticleSuccess(response.data));
+      toast.success("you have sucessfully liked this article", { autoClose: 3500, hideProgressBar: true },
+      { position: toast.POSITION.TOP_CENTER, });
+    })
+    .catch(errors => {dispatch(likeArticleFailure(errors.response));
+      toast.error("you have already liked this article", { autoClose: 3500, hideProgressBar: true },
+      { position: toast.POSITION.TOP_CENTER, });
+    });
 };
 
 export const dislikesArticle = (slug, data) => (dispatch) => {
@@ -56,6 +63,12 @@ export const dislikesArticle = (slug, data) => (dispatch) => {
     .post(`https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/like/`, data, {
       headers,
     })
-    .then(response => dispatch(unlikeArticleSuccess(response.data)))
-    .catch(errors => dispatch(unlikeArticleFailure(errors.response)));
+    .then(response => { dispatch(unlikeArticleSuccess(response.data));
+      toast.success("you have sucessfully disliked this article", { autoClose: 3500, hideProgressBar: true },
+      { position: toast.POSITION.TOP_CENTER, });
+      })
+    .catch(errors => {dispatch(unlikeArticleFailure(errors.response));
+      toast.error('you have already dislike this article', { autoClose: 3500, hideProgressBar: true }, {
+      position: toast.POSITION.TOP_CENTER, });
+    });
 };

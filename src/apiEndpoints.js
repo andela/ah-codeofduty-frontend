@@ -7,7 +7,7 @@ export const urls = {
   ARTICLES: articles,
   PROFILES: `${baseURL}profiles/`,
 
-  ARTICLE: slug => `${articles}/${slug}/`,
+  ARTICLE: slug => `${articles}${slug}/`,
   ARTICLES_PAGINATE: (limit, offset) => `${articles}?limit=${limit}&offset=${offset}`,
   USER_ARTICLES_PAGINATE: (limit, offset, user) => `${userArticles(user)}?limit=${limit}&offset=${offset}`,
 

@@ -4,7 +4,9 @@ import './articles.scss';
 import DeleteModal from './deleteModal';
 import authUser from "../../utils/authUser";
 import {Footer} from "../Footer/Footer";
-import LikesDislikes from '../like_unlike/index'
+import LikesDislikes from '../like_unlike/index';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -25,6 +27,7 @@ const articleCreated = articleDate => {
 
 const Article = ({ article, slug, toggleEdit }) => (
     <div>
+      <div> <ToastContainer /></div>
   <div>
     <div className="ave-rating position-fixed">
       <i className="float-left fas fa-star mb-2 mt-5 checked" title="Average rating" />

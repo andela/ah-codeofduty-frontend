@@ -26,14 +26,12 @@ export class LikesDislikes extends Component {
   };
   
   render() {
-    const likeError = this.props.likeDislike.errors
-      ? this.props.likeDislike.errors.data.detail
-      : '';
     return (
       <>
         <button
           type="button"
           className="btn btn-default btn-responsive up_button"
+          id="up_button"
           onClick={this.handleLikeClick}
         >
           <i class="fa fa-thumbs-up fa-2x" id="thumbsup"></i>
@@ -46,7 +44,6 @@ export class LikesDislikes extends Component {
         >
           <i className="fa fa-thumbs-down fa-2x" id="thumbsdown"></i>
         </button>
-        <p className="text-danger">{likeError}</p>
       </>
     );
   }
