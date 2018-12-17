@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { REGISTER_FAILED, REGISTER_SUCCESSFUL } from './types';
+import sendLoginRequest from '../../../../views/Auth/LoginForm/thunk';
 
 export const registerSuccessful = () => ({
   type: REGISTER_SUCCESSFUL,
