@@ -36,47 +36,15 @@ class Rating extends Component {
           starDimension="20px"
           starSpacing="4px"
         />
-        {/* <StarRatings
-          rating={this.props.average_rating.average_rating}
-          starDimension="20px"
-          starSpacing="5px"
-        /> */}
       </div>
     );
   }
 }
 
-// class averageRating extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       rating: 0,
-//       average_rating: 0
-//     };
-//   }
-
-//   componentDidMount() {
-//     this.props.ar("why-react");
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <StarRatings
-//           rating={this.props.average_rating.average_rating}
-//           starDimension="20px"
-//           starSpacing="5px"
-//         />
-//       </div>
-//     );
-//   }
-// }
-
 const matchDispatchToProps = dispatch =>
   bindActionCreators(
     {
       addRating: rateArticle
-      // ar: avgRate
     },
     dispatch
   );
