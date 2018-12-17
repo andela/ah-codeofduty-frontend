@@ -9,6 +9,9 @@ import Register from './components/Authentication/Signup/Register';
 import Profile from './components/Profile/Profile';
 import './App.scss';
 import ProtectedRoute from './views/Auth/ProtectedRoute';
+import CreateArticle from './components/Articles/createArticle';
+import Articles from './components/Articles/articles';
+import EditArticle from "./components/Articles/editArticle";
 
 class App extends Component {
   render() {
@@ -23,6 +26,9 @@ class App extends Component {
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
               <ProtectedRoute path="/profile" component={Profile} />
+              <ProtectedRoute path="/new_article" component={CreateArticle} />
+              <Route path="/articles" component={Articles} />
+                <ProtectedRoute exact path="/article/:slug" component={EditArticle} />
             </Switch>
           </div>
         </Router>

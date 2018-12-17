@@ -5,8 +5,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
 import { urls } from '../../apiEndpoints';
-import { profileActionTypes, articleActionTypes } from '../types';
-import { articlesFetch, articlesFetched } from '../articlesActions';
+import { profileActionTypes } from '../types';
 import {
   profileFetch,
   profileFetched,
@@ -34,8 +33,6 @@ const {
   UPDATE_PROFILE,
 } = profileActionTypes;
 
-const { ARTICLES_FETCH, ARTICLES_FETCHED } = articleActionTypes;
-
 // test profile action creators
 describe('Profile Action creators', () => {
   it('Should dispatch SAVE_PROFILE', () => {
@@ -61,16 +58,6 @@ describe('Profile Action creators', () => {
   });
   it('Should dispatch UPDATE_PROFILE', () => {
     expect(updateProfile().type).toEqual(UPDATE_PROFILE);
-  });
-});
-
-// test articles action creators
-describe('Articles Action creators', () => {
-  it('Should dispatch ARTICLES_FETCH', () => {
-    expect(articlesFetch().type).toEqual(ARTICLES_FETCH);
-  });
-  it('Should dispatch ARTICLES_FETCHED', () => {
-    expect(articlesFetched({}).type).toEqual(ARTICLES_FETCHED);
   });
 });
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Bio from './Bio';
-import Stories from './Stories/Stories';
 import Modal from '../Modal/Modal';
 import Edit from './Edit/Edit';
 import authUser from '../../utils/authUser';
@@ -42,7 +41,6 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
-        <Stories />
       </div>
     );
   }
