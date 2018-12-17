@@ -6,6 +6,8 @@ import authUser from "../../utils/authUser";
 import { Footer } from "../Footer/Footer";
 import Rating from "../Rating/Rating";
 import Average from "../Rating/averageRating";
+import Comments from '../Comments/index';
+
 
 const { username } = authUser();
 localStorage.setItem("username", username);
@@ -116,10 +118,12 @@ const Article = ({ article, slug, toggleEdit }) => (
         </div>
       </div>
     </div>
-    <div className="footer">
-      <Footer />
-    </div>
+    <Comments />
   </div>
+        <div className="footer">
+            <Footer />
+     
+    </div> 
 );
 
 Article.propTypes = {
