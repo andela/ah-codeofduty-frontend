@@ -7,6 +7,59 @@ const divStyle = {
   backgroundImage: `url('http://www.brandgradients.com/img/backgrounds/instagram-hex-colors-gradient-background.png')`,
 };
 
+const cardSample = () => (<div>
+      <div className="card-deck">
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <CardImage
+                className="img-fluid"
+                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                waves
+            />
+            <CardBody>
+              <CardTitle>Sample heading</CardTitle>
+              <CardText>
+                Sample description
+              </CardText>
+              <a href="#"> Read More...</a>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <CardImage
+                className="img-fluid"
+                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                waves
+            />
+            <CardBody>
+              <CardTitle>Sample heading</CardTitle>
+              <CardText>
+                Sample description
+              </CardText>
+              <a href="#"> Read More...</a>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <CardImage
+                className="img-fluid"
+                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                waves
+            />
+            <CardBody>
+              <CardTitle>Sample heading</CardTitle>
+              <CardText>
+                Sample description
+              </CardText>
+              <a href="#"> Read More...</a>
+            </CardBody>
+          </Card>
+        </Col>
+      </div>
+    </div>
+);
 const Index = () => (
 
   <div>
@@ -33,114 +86,18 @@ const Index = () => (
       <div className="">
         <h3>Most popular</h3>
         <br />
-        <div className="card-deck">
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-        </div>
+       <div>
+         {cardSample()}
+       </div>
       </div>
       <br />
       <hr />
 
+
       <div className="container">
         <h3>Recent Posts</h3>
         <br />
-
-        <div className="card-deck">
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <CardImage
-                  className="img-fluid"
-                  src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                  waves
-              />
-              <CardBody>
-                <CardTitle>Sample heading</CardTitle>
-                <CardText>
-                  Sample description
-                </CardText>
-                <a href="#"> Read More...</a>
-              </CardBody>
-            </Card>
-          </Col>
-        </div>
+        {cardSample()}
       </div>
       <br />
       <hr />
