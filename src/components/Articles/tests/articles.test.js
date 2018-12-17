@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import { Articles } from '../articles';
 
 describe('Articles Component', () => {
-  const fetchArticles = jest.fn();
+  const dispatch = jest.fn();
   const articlesPayload = {
     results: [
       { author: 1 },
     ],
   };
   it('should render articles Component correctly', () => {
-    shallow(<Articles fetchArticles={fetchArticles} articlesPayload={articlesPayload} />,
+    shallow(<Articles dispatch={dispatch} articlesPayload={articlesPayload} />,
     );
   });
 });

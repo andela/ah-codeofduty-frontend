@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Bio from './Bio';
 import Modal from '../Modal/Modal';
 import Edit from './Edit/Edit';
+import Articles from '../Articles/articles';
 import authUser from '../../utils/authUser';
 import {
   getProfile,
@@ -12,6 +13,7 @@ import {
   onEditProfile,
   onCancelEdit,
 } from '../../actions/profileActions';
+import { urls } from '../../apiEndpoints';
 
 class Profile extends Component {
   componentDidMount() {
@@ -29,6 +31,9 @@ class Profile extends Component {
       profile, followers, following, showModal, dispatch,
     } = this.props;
 
+    const user = authUser();
+    const { username } = user;
+
     return (
       <div>
         <Modal show={showModal} cancel={() => dispatch(editing(onCancelEdit))}>
@@ -41,6 +46,7 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
+        <Articles userURL={urls.USER_ARTICLES(username)}/>
       </div>
     );
   }

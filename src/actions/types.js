@@ -8,5 +8,3 @@ export const profileActionTypes = {
   CANCEL_EDIT: 'CANCEL_EDIT',
   UPDATE_PROFILE: 'UPDATE_PROFILE',
 };
-
-// export default ActionTypes;
