@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SHORTNAME = 'authors-haven';
+const SHORTNAME = 'ah-cod';
 const WEBSITE_URL = 'https://ah-codeofduty-staging.herokuapp.com';
 
 function renderDisqus() {

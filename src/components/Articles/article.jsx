@@ -4,6 +4,7 @@ import './articles.scss';
 import DeleteModal from './deleteModal';
 import authUser from "../../utils/authUser";
 import {Footer} from "../Footer/Footer";
+import Comments from '../Comments/index';
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -98,6 +99,7 @@ Stories by{' '}
         </div>
       </div>
     </div>
+    <Comments />
   </div>
         <div className="footer">
             <Footer />
