@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 
 import { urls } from '../../apiEndpoints';
 import './Paginate.scss';
-import { getArticles } from '../../actions/articlesActions';
+import { fetchArticles } from '../Articles/articleActions';;
 
 export class Paginate extends Component {
   handlePageChange = data => {
@@ -12,12 +12,13 @@ export class Paginate extends Component {
     const limit = 10;
     let offset = selected * limit;
     let url;
-    if ('user' in this.props) {
+    const { user } = this.props
+    if (Boolean(user)) {
       url = urls.USER_ARTICLES_PAGINATE(limit, offset, this.props.user);
     } else {
       url = urls.ARTICLES_PAGINATE(limit, offset);
     }
-    this.props.dispatch(getArticles(url));
+    this.props.dispatch(fetchArticles(url));
   };
 
   render() {
@@ -42,9 +43,7 @@ export class Paginate extends Component {
   }
 }
 
-const mapStateToProps = ({ articlesReducer }) => {
-  const { articlesCount, prev, next, dispatch } = articlesReducer;
-  return { articlesCount, prev, next, dispatch };
-};
+const mapStateToProps = ({ articleReducer: {articlesCount, dispatch} }) => ({ articlesCount, dispatch });
+
 
 export default connect(mapStateToProps)(Paginate);

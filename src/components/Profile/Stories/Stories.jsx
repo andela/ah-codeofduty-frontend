@@ -22,6 +22,7 @@ class Stories extends Component {
     const { username } = user;
     const allStories = articles.map(article => <Story article={article} key={article.slug} />);
     const paginate = articles.length ? <Paginate user={username} /> : null;
+    
 
     return (
       <div className="text-center Stories">

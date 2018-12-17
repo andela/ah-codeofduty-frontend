@@ -17,6 +17,7 @@ const initialState = {
   editArticleSuccess: false,
   editArticleInitiated: false,
   editArticleError: {},
+  articlesCount: 0,
 };
 
 export const articleReducer = (state = initialState, action) => {
@@ -43,6 +44,7 @@ export const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         articlesPayload: action.payload,
+        articlesCount: action.articlesCount,
         loading: false,
       };
     case GET_ALL_ARTICLES_INITIATED:
