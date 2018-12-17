@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from '../Rating/Rating';
 import './Home.scss';
 import { Button, Card, CardBody, CardImage, CardTitle, CardText, Col } from 'mdbreact';
 import {Footer} from "../Footer/Footer";
