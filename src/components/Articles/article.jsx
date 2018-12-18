@@ -29,10 +29,6 @@ const articleCreated = articleDate => {
 const Article = ( { article, slug, toggleEdit }) => (
   <div>
     <div>
-      <div className="ave-rating position-fixed">
-        <i className="float-left fas fa-star mb-2 mt-5 checked" title="Average rating" />
-        <p className="small text-center font-raleway">{article.average_rating}</p>
-      </div>
       <div className="container px-5 pb-5">
         <div className="row pb-4">
           <div className="px-5 pt-3 col-md-8">
@@ -40,6 +36,8 @@ const Article = ( { article, slug, toggleEdit }) => (
             <h1 className="card-title pt-4 font-exo">
               {article.title}
               {' '}
+            <Average/>
+
             </h1>
 
             <p className="text-muted pb-3 font-exo"> <span>{article.time_to_read}</span> Min Read </p>
