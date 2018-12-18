@@ -32,11 +32,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-<<<<<<< HEAD
     "react-star-ratings": "^2.3.0",
-=======
     "react-tagsinput": "^3.19.0",
->>>>>>> (Feature #161255325): Tags should be present in relevant views
     "react-test-renderer": "^16.6.3",
     "react-text-truncate": "^0.13.1",
     "react-toastify": "^4.4.3",

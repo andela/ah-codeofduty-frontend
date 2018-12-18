@@ -3,6 +3,7 @@ import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
 import Button from '../Profile/Button';
+import Avatar from '../Profile/Avatar';
 import Modal from '../Modal/Modal';
 import Backdrop from '../Backdrop/Backdrop';
 import Columns from '../columns/columns';
@@ -36,6 +37,10 @@ describe('Render Components without crashing', ()=>{
             value: '',
         };
         shallow(<Input changed={()=>jest.fn()} values={values}/>);
+    });
+
+    it('should render Avatar component correctly', () => {
+        shallow(<Avatar title='' alt='' source=''/>);
     });
 
 

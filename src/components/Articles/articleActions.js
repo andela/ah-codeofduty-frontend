@@ -14,14 +14,9 @@ import {
   getAllArticles,
   getArticlesInitiated,
   getSpecificArticle,
-<<<<<<< HEAD
-  getSpecificArticleInitiated
-} from "./actionCreators";
-=======
   getSpecificArticleInitiated,
   getAllTags,
 } from './actionCreators';
->>>>>>> (Feature #161255325): Tags should be present in relevant views
 
 const { token } = authUser();
 

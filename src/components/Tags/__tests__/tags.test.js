@@ -1,7 +1,5 @@
 import React from 'react';
 
-import configureStore from 'redux-mock-store';
-
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow, mount } from 'enzyme';
 import { Tags } from '../Tags';
