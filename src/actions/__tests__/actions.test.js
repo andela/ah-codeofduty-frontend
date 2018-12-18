@@ -19,7 +19,6 @@ import {
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
-
 const {
   SAVE_PROFILE,
   EDIT_PROFILE,
@@ -114,6 +113,4 @@ describe('Axios fetch operations', () => {
     ];
     moxiosFetch(urls.USER_PROFILE('user'), () => getProfile('user'));
   });
-
-  // test save profile
 });
