@@ -4,6 +4,7 @@ import './articles.scss';
 import DeleteModal from './deleteModal';
 import authUser from "../../utils/authUser";
 import {Footer} from "../Footer/Footer";
+import Comments from '../Comments/index'
 import LikesDislikes from '../like_unlike/index';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'; 
@@ -85,8 +86,6 @@ Stories by{' '}
           <span className="fa fa-star" />
         </div>
         <div className="col-md-4 text-center pb-3">
-          {/* <i className="fas fa-thumbs-up mr-4" />
-          <i className="fas fa-thumbs-down mr-5" /> */}
           <LikesDislikes slug={slug}/>
           
           <span id="buttons" className={getAuthor(article.author.username)}>
@@ -104,6 +103,7 @@ Stories by{' '}
         </div>
       </div>
     </div>
+    <Comments />
   </div>
         <div className="footer">
             <Footer />
