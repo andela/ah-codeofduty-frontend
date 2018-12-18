@@ -9,7 +9,7 @@ import '../../App.scss';
 import authUser from '../../utils/authUser';
 import LoginForm from '../Authentication/LoginForm/LoginForm';
 
-class Navbar extends Component {
+export class Navbar extends Component {
   render() {
     return (
 
