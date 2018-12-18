@@ -14,8 +14,14 @@ import {
   getAllArticles,
   getArticlesInitiated,
   getSpecificArticle,
+<<<<<<< HEAD
   getSpecificArticleInitiated
 } from "./actionCreators";
+=======
+  getSpecificArticleInitiated,
+  getAllTags,
+} from './actionCreators';
+>>>>>>> (Feature #161255325): Tags should be present in relevant views
 
 const { token } = authUser();
 
@@ -89,3 +95,10 @@ export const deleteArticle = slug => dispatch => {
     });
   });
 };
+
+export const fetchTags = () => dispatch => {
+  axios.get(urls.TAGS)
+  .then(response => dispatch(getAllTags(response.data.tags))
+  )
+  .catch(error => console.log(error))
+}

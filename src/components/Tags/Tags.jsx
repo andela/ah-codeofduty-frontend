@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../Profile/Button';
-import { getArticles } from '../../actions/articlesActions';
+import { fetchArticles } from '../Articles/articleActions';
 import { urls } from '../../apiEndpoints';
 import './Tags.scss';
 
@@ -11,7 +11,7 @@ import './Tags.scss';
 class Tags extends Component {
   handleTags = tag => {
     const { dispatch } = this.props;
-    dispatch(getArticles(urls.FILTER_BY_TAGS(tag)));
+    dispatch(fetchArticles(urls.FILTER_BY_TAGS(tag)));
   };
 
   render() {
@@ -21,7 +21,7 @@ class Tags extends Component {
   }
 }
 
-const mapStateToProps = ({ articlesReducer: { dispatch } }) => {
+const mapStateToProps = ({ articleReducer: { dispatch } }) => {
   return { dispatch };
 };
 export default connect(mapStateToProps)(Tags);

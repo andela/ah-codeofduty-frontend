@@ -46,11 +46,7 @@ class Profile extends Component {
           following={following.length}
           showModal={() => dispatch(editing(onEditProfile))}
         />
-<<<<<<< HEAD
         <Articles userURL={urls.USER_ARTICLES(username)}/>
-=======
-        <Stories className="Stories" />
->>>>>>> (Feature #161255325): Add tagging on all relevant views:
       </div>
     );
   }

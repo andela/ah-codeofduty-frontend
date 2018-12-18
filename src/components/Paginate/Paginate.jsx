@@ -4,17 +4,19 @@ import ReactPaginate from 'react-paginate';
 
 import { urls } from '../../apiEndpoints';
 import './Paginate.scss';
-import { fetchArticles } from '../Articles/articleActions';;
+import { fetchArticles } from '../Articles/articleActions';
+import authUser from '../../utils/authUser';
 
 export class Paginate extends Component {
   handlePageChange = data => {
     let { selected } = data;
-    const limit = 10;
+    const limit = 12;
     let offset = selected * limit;
     let url;
-    const { user } = this.props
-    if (Boolean(user)) {
-      url = urls.USER_ARTICLES_PAGINATE(limit, offset, this.props.user);
+    const {username} = authUser();
+    const { isUser } = this.props;
+    if (Boolean(isUser)) {
+      url = urls.USER_ARTICLES_PAGINATE(limit, offset, username);
     } else {
       url = urls.ARTICLES_PAGINATE(limit, offset);
     }
@@ -23,7 +25,7 @@ export class Paginate extends Component {
 
   render() {
     let { articlesCount } = this.props;
-    articlesCount = Math.ceil(articlesCount / 10);
+    articlesCount = Math.ceil(articlesCount / 12);
     return (
       <ReactPaginate
         previousLabel="<< prev"

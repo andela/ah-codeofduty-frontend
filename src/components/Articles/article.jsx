@@ -7,6 +7,7 @@ import { Footer } from "../Footer/Footer";
 import Rating from "../Rating/Rating";
 import Average from "../Rating/averageRating";
 import Comments from "../Comments/index";
+import Tags from '../Tags/Tags';
 
 const { username } = authUser();
 localStorage.setItem("username", username);
@@ -25,21 +26,23 @@ const articleCreated = articleDate => {
   return dateOnly;
 };
 
-const Article = ({ article, slug, toggleEdit }) => (
+const Article = ( { article, slug, toggleEdit }) => (
   <div>
     <div>
+      <div className="ave-rating position-fixed">
+        <i className="float-left fas fa-star mb-2 mt-5 checked" title="Average rating" />
+        <p className="small text-center font-raleway">{article.average_rating}</p>
+      </div>
       <div className="container px-5 pb-5">
         <div className="row pb-4">
           <div className="px-5 pt-3 col-md-8">
+
             <h1 className="card-title pt-4 font-exo">
               {article.title}
-              <Average />
+              {' '}
             </h1>
 
-            <p className="text-muted pb-3 font-exo">
-              {" "}
-              <span>{article.time_to_read}</span> Min Read{" "}
-            </p>
+            <p className="text-muted pb-3 font-exo"> <span>{article.time_to_read}</span> Min Read </p>
             <p className="card-text">
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             </p>
@@ -65,20 +68,15 @@ const Article = ({ article, slug, toggleEdit }) => (
           <div className="col-md-4 pl-5 side-column mt-3 font-raleway">
             <div className="fixed sticky-top">
               <h5 className="mb-4 pt-5 font-raleway">
-                {" "}
-                Stories by <b>{article.author.username}</b>{" "}
+                {' '}
+                Stories by{' '}
+                <b>{article.author.username}</b>
+                {' '}
+
               </h5>
               <div className="">
-                <a
-                  href="#"
-                  className="card-title text-orange font-weight-bold font-raleway"
-                >
-                  Some story title
-                </a>
-                <p className="text-muted">
-                  Some very summarized content showing what the story is
-                  about...
-                </p>
+                <a href="#" className="card-title text-orange font-weight-bold font-raleway">Some story title</a>
+                <p className="text-muted">Some very summarized content showing what the story is about...</p>
               </div>
             </div>
           </div>
@@ -118,6 +116,8 @@ const Article = ({ article, slug, toggleEdit }) => (
       </div>
       <Comments />
     </div>
+    <Tags tags={article.tagList} />
+  
     <div className="footer">
       <Footer />
     </div>
