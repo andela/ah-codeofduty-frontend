@@ -16,7 +16,7 @@ export const urls = {
 
   TAGS: `${baseURL}tags/`,
 
-  FILTER_BY_TAGS: tag => `${baseURL}articles/?tag=${tag}`,
+  FILTER_BY_TAGS: tag => `${baseURL}articles/?tags=${tag}`,
 
   FOLLOW: user => `${baseURL}profiles/${user}/follow`,
   USER_PROFILE: user => `${baseURL}profiles/${user}`,

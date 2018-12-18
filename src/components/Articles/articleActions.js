@@ -93,6 +93,6 @@ export const deleteArticle = slug => (dispatch) => {
 
 export const fetchTags = () => (dispatch) => {
   axios.get(urls.TAGS)
-    .then(response => dispatch(getAllTags(response.data.tags)),)
+    .then(response => dispatch(getAllTags(response.data.tags)))
     .catch(error => console.log(error));
 };
