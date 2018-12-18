@@ -8,7 +8,7 @@ import './Tags.scss';
 
 // To use this component pass in tags (as list) as props <Tags tags={tags}/>
 
-class Tags extends Component {
+export class Tags extends Component {
   handleTags = tag => {
     const { dispatch } = this.props;
     dispatch(fetchArticles(urls.FILTER_BY_TAGS(tag)));
@@ -16,7 +16,7 @@ class Tags extends Component {
 
   render() {
     const { tags } = this.props;
-    const tagList = tags.map(tag => <Button clicked={() => this.handleTags(tag)}>{tag}</Button>);
+    const tagList = tags.map(tag => <Button id={tag} key={tag} clicked={() => this.handleTags(tag)}>{tag}</Button>);
     return <div className="Tags">{tagList}</div>;
   }
 }
