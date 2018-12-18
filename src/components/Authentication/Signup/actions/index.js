@@ -4,7 +4,7 @@ import axios from 'axios';
 import { REGISTER_FAILED, REGISTER_SUCCESSFUL } from './types';
 import { STAGING_URL } from '../../../../utils/config';
 import sendLoginRequest from '../../../../views/Auth/LoginForm/thunk';
-import { setLoginSuccess } from '../../../../views/Auth/LoginForm/actions';
+import { urls } from '../../../../apiEndpoints';
 
 export const registerSuccessful = () => ({
   type: REGISTER_SUCCESSFUL,
@@ -18,7 +18,7 @@ export const registerFailed = error => ({
 
 export const registerUser = user => (dispatch) => {
   axios
-    .post(`${STAGING_URL}/users/`, { ...user })
+    .post(urls.SIGNUP, { ...user })
     .then((res) => {
       console.log(res.data.user);
       if (res.status === 201) {

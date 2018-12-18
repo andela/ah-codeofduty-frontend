@@ -12,6 +12,7 @@ export class CreateArticle extends Component {
             title: '',
             description: '',
             body: '',
+            tagList: []
         };
     }
 
@@ -24,12 +25,12 @@ export class CreateArticle extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, description, body } = this.state;
-        console.log('here', title, description, body);
+        const { title, description, body, tagList } = this.state;
         const payload = {
                 title,
                 description,
                 body,
+                tagList,
         };
         const { addArticle } = this.props;
         addArticle(payload);
@@ -40,6 +41,7 @@ export class CreateArticle extends Component {
             title: '',
             description: '',
             body: '',
+            tagList: [],
         });
     };
 
@@ -48,22 +50,28 @@ export class CreateArticle extends Component {
         this.setState({ [name]: value });
     };
 
+    handleTagChange = tagList => {
+        this.setState({...this.state, tagList});
+    }
+
     handleEditorChange = value => {
         this.setState({ body: value });
     };
 
     render() {
-        const { title, description, body } = this.state;
+        const { title, description, body, tagList } = this.state;
         const { loading } = this.props;
         return (
             <ArticleForm
                 handleChange={this.handleChange}
                 handleEditorChange={this.handleEditorChange}
+                handleTagChange = {this.handleTagChange}
                 handleSubmit={this.handleSubmit}
                 resetForm={this.resetForm}
                 title={title}
                 description={description}
                 body={body}
+                tags={tagList}
                 loading={loading}
             />
         );

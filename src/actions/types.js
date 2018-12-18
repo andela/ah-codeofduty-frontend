@@ -8,14 +8,3 @@ export const profileActionTypes = {
   CANCEL_EDIT: 'CANCEL_EDIT',
   UPDATE_PROFILE: 'UPDATE_PROFILE',
 };
-<<<<<<< HEAD
-=======
-
-export const articleActionTypes = {
-  ARTICLES_FETCH: 'ARTICLES_FETCH',
-  ARTICLES_FETCHED: 'ARTICLES_FETCHED',
-  TAGS_FETCHED: 'TAGS_FETCHED',
-};
-
-// export default ActionTypes;
->>>>>>> (Feature #161255325): Add tagging on all relevant views:

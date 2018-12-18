@@ -10,8 +10,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { Footer } from "../Footer/Footer";
 import Rating from "../Rating/Rating";
 import Average from "../Rating/averageRating";
-
-
+import Tags from '../Tags/Tags';
 
 const { username } = authUser();
 localStorage.setItem("username", username);
@@ -30,7 +29,7 @@ const articleCreated = articleDate => {
   return dateOnly;
 };
 
-const Article = ({ article, slug, toggleEdit }) => (
+const Article = ( { article, slug, toggleEdit }) => (
   <div>
     <div><ToastContainer /></div>
   <div>
@@ -121,6 +120,7 @@ const Article = ({ article, slug, toggleEdit }) => (
         </div>
       </div>
     </div>
+    <Tags tags={article.tagList} />
     <Comments />
   </div>
   <div className="footer">

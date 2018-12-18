@@ -6,6 +6,7 @@ import {
   GET_ALL_ARTICLES_SUCCESS,
   GET_SPECIFIC_ARTICLE_INITIATED,
   GET_SPECIFIC_ARTICLE_SUCCESS,
+  GET_ALL_TAGS,
 } from '../components/Articles/actionTypes';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   editArticleInitiated: false,
   editArticleError: {},
   articlesCount: 0,
+  tags: [],
 };
 
 export const articleReducer = (state = initialState, action) => {
@@ -88,6 +90,11 @@ export const articleReducer = (state = initialState, action) => {
         loading: false,
         confirmDelete: action.payload,
       };
+    case GET_ALL_TAGS:
+      return { 
+        ...state,
+        tags: action.tags,
+      }
     default:
       return state;
   }
