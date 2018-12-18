@@ -1,0 +1,4 @@
+export const RATE_ARTICLE = 'RATE_ARTICLE';
+export const RATING_FAILURE = 'RATING_FAILURE';
+export const CURRENT_RATING = 'CURRENT_RATE';
+export const AVERAGE_RATING = 'AVERAGE_RATING';
