@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import StarRatings from "react-star-ratings";
 import { rateArticle, avgRate } from "./actions/actions";
 
-class Rating extends Component {
+export class Rating extends Component {
   constructor(props) {
     super(props);
     this.state = {
