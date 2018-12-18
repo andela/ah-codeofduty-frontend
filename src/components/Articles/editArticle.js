@@ -18,6 +18,7 @@ export class EditArticle extends Component {
             title: '',
             description: '',
             body: '',
+            tagList: [],
             isEditing: false,
             redirect: false,
         };
@@ -32,8 +33,8 @@ export class EditArticle extends Component {
         const { editArticleSuccess } = nextProps;
         const { articlePayload } = this.props;
         if (nextProps && nextProps.articlePayload && (nextProps.articlePayload !== articlePayload)){
-            const  { title, body, description }  = nextProps.articlePayload;
-            this.setState({ title, body, description });
+            const  { title, body, description, tagList }  = nextProps.articlePayload;
+            this.setState({...this.state, title, body, description, tagList });
         }
         if (editArticleSuccess === true) {
             this.setState({ isEditing: false });
@@ -45,23 +46,27 @@ export class EditArticle extends Component {
 
     handleChange = event => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({...this.state, [name]: value });
     };
 
+    handleTagChange = tagList => {
+        this.setState({...this.state, tagList});
+    }
+
     handleEditorChange = value => {
-        this.setState({ body: value });
+        this.setState({ ...this.state, body: value });
     };
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, description, body } = this.state;
-        const payload = {
-            article: {
+        const { title, description, body, tagList } = this.state;
+        const payload = 
+             {
                 title,
                 description,
                 body,
-            },
-        };
+                tagList,
+            };
 
         const { updateArticle } = this.props;
         const {
@@ -77,12 +82,13 @@ export class EditArticle extends Component {
             title: '',
             description: '',
             body: '',
+            tagList: [],
         });
     };
 
     toggleEdit = () => {
         const { isEditing } = this.state;
-        this.setState({ isEditing: !isEditing });
+        this.setState({...this.state, isEditing: !isEditing });
     };
 
     render() {
@@ -90,6 +96,7 @@ export class EditArticle extends Component {
             title,
             description,
             body,
+            tagList,
             isEditing,
             redirect,
         } = this.state;
@@ -103,11 +110,13 @@ export class EditArticle extends Component {
                 <ArticleForm
                     handleChange={this.handleChange}
                     handleEditorChange={this.handleEditorChange}
+                    handleTagChange={this.handleTagChange}
                     handleSubmit={this.handleSubmit}
                     resetForm={this.resetForm}
                     title={title}
                     description={description}
                     body={body}
+                    tags={tagList}
                     loading={loading}
                 />
             );

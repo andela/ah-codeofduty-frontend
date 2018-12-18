@@ -14,8 +14,9 @@ import {
   getAllArticles,
   getArticlesInitiated,
   getSpecificArticle,
-  getSpecificArticleInitiated
-} from "./actionCreators";
+  getSpecificArticleInitiated,
+  getAllTags,
+} from './actionCreators';
 
 const { token } = authUser();
 
@@ -89,3 +90,10 @@ export const deleteArticle = slug => dispatch => {
     });
   });
 };
+
+export const fetchTags = () => dispatch => {
+  axios.get(urls.TAGS)
+  .then(response => dispatch(getAllTags(response.data.tags))
+  )
+  .catch(error => console.log(error))
+}

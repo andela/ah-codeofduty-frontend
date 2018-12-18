@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { fetchArticles } from './articleActions';
+import { fetchArticles, fetchTags } from './articleActions';
 import ArticlesList from './articleList';
 import Paginate from '../Paginate/Paginate';
+import Tags from '../Tags/Tags';
 import { urls } from '../../apiEndpoints';
 
 export class Articles extends Component {
@@ -13,23 +13,24 @@ export class Articles extends Component {
     let url;
     
     if (Boolean(userURL)) {
-      console.log("I am the user")
       url = userURL
     } else {
       url = urls.ARTICLES
     }
     dispatch(fetchArticles(url));
+    dispatch(fetchTags());
   }
 
   render() {
-    const { articlesPayload, userURL } = this.props;
+    const { articlesPayload, tags, userURL } = this.props;
 
-    let user=null;
+    let isUser=null;
     if (Boolean(userURL)) {
-      user = "user"
+      isUser = true
     }
 
-    const paginate = articlesPayload.length ? <Paginate user={user}/> : null;
+    const paginate = articlesPayload.length ? <Paginate isUser={isUser}/> : null;
+    const allTags = tags.length ? <Tags tags={tags}/> : null;
 
     return (
       <div>
@@ -37,13 +38,13 @@ export class Articles extends Component {
                 && <ArticlesList articles={articlesPayload} />
                 }
         {paginate}
-      
+        {allTags}
       </div>
     );
   }
 }
 
-const mapStateToProps = ( {articleReducer: {articlesPayload}}) => ({ articlesPayload });
+const mapStateToProps = ( {articleReducer: {articlesPayload, tags}}) => ({ articlesPayload, tags });
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,
