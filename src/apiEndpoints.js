@@ -7,6 +7,8 @@ export const urls = {
   ARTICLES: articles,
   PROFILES: `${baseURL}profiles/`,
 
+  HIGHLIGHT: slug => `${articles}${slug}/highlight/`,
+
   ARTICLE: slug => `${articles}${slug}/`,
   ARTICLES_PAGINATE: (limit, offset) =>
     `${articles}?limit=${limit}&offset=${offset}`,
