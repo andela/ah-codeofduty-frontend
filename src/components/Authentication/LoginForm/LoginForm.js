@@ -28,10 +28,8 @@ export class LoginForm extends Component {
   render() {
     let { email, password } = this.state;
     let { loginError, isLoginPending, isLoginError } = this.props;
-
     let pendingHtml = "";
     let errorHtml = "";
-
     if (isLoginPending) {
       pendingHtml = <div className="alert alert-info">Please wait...</div>;
     }
@@ -40,72 +38,18 @@ export class LoginForm extends Component {
     }
 
     return (
-      <div
-        className="modal fade"
-        id="loginModal"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="loginModalLabel"
-        aria-hidden="true"
-      >
+      <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              <div className="login-form">
-                <form
-                  className="loginForm"
-                  onSubmit={event => this.handleSubmit(event)}
-                >
-                  {pendingHtml}
-                  {errorHtml}
-                  <div className="form-group">
-                    <div className="input-group">
-                      <input
-                        className="form-control"
-                        placeholder="Username"
-                        required
-                        type="email"
-                        id="login-email"
-                        name="email"
-                        value={email}
-                        onChange={e => this.setState({ email: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="input-group">
-                      <input
-                        className="form-control"
-                        placeholder="Password"
-                        required
-                        type="password"
-                        id="login-password"
-                        value={password}
-                        name="password"
-                        onChange={e =>
-                          this.setState({ password: e.target.value })
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <button
-                      type="submit"
-                      className="btn btn-warning btn-block login-btn"
-                    >
-                      Login
-                    </button>
-                  </div>
-                  <div className="hint-text small">
-                    {" "}
+              <div className="login-form"><form className="loginForm" onSubmit={event => this.handleSubmit(event)}>{pendingHtml} {errorHtml}<div className="form-group"><div className="input-group"><input className="form-control" placeholder="Username" required type="email" id="login-email" name="email"value={email}onChange={e => this.setState({ email: e.target.value })}/></div></div>
+                  <div className="form-group"><div className="input-group"><input className="form-control" placeholder="Password" required type="password" id="login-password" value={password} name="password"onChange={e =>this.setState({ password: e.target.value })}/></div></div><div className="form-group">
+                    <button type="submit"className="btn btn-warning btn-block login-btn">Login</button></div><div className="hint-text small">{" "}
                     Forgot Password? <a href="/resetpassword">Reset Password</a>
                   </div>
-                  <div className="or-seperator">
-                    <i>or</i>
-                  </div>
+                  <div className="or-seperator"><i>or</i></div>
                   <div className="text-center social-btn flexed">
                     <FacebookButton />
-
                     <GoogleButton />
                   </div>
                 </form>
