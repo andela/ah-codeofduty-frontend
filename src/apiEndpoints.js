@@ -16,7 +16,9 @@ export const urls = {
   FOLLOW: user => `${baseURL}profiles/${user}/follow`,
   USER_PROFILE: user => `${baseURL}profiles/${user}`,
   USER_FOLLOW: (user, follow) => `${baseURL}profiles/${user}/${follow}`,
-  USER_ARTICLES: user => userArticles(user)
+  USER_ARTICLES: user => userArticles(user),
+  COMMENTS: (slug) =>`${baseURL}articles/${slug}/comment/`,
+  REPLY: (slug, commentId) => `${baseURL}articles/${slug}/comment/${commentId}/`,
 };
 
 export const headerObject = token => ({

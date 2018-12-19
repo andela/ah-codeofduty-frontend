@@ -6,6 +6,7 @@ import socialLoginReducer from "./socialLoginReducer";
 import profileReducer from "./profileReducer";
 import { articleReducer } from './articleReducer';
 import ratingReducer from "../components/Rating/reducers/ratingReducer";
+import commentReducer from '../components/Commenter/reducer'
 
 
 export default combineReducers({
@@ -16,4 +17,5 @@ export default combineReducers({
   profileReducer,
   articleReducer,
   ratingReducer,
+  commentReducer,
 });

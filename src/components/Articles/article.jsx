@@ -6,7 +6,8 @@ import authUser from "../../utils/authUser";
 import { Footer } from "../Footer/Footer";
 import Rating from "../Rating/Rating";
 import Average from "../Rating/averageRating";
-import Comments from "../Comments/index";
+import Commenter from '../Commenter/Commenter';
+import AllComments from '../Commenter/AllComments';
 
 const { username } = authUser();
 localStorage.setItem("username", username);
@@ -116,7 +117,8 @@ const Article = ({ article, slug, toggleEdit }) => (
           </div>
         </div>
       </div>
-      <Comments />
+      <Commenter slug={slug}/>
+      <AllComments slug={slug}/>
     </div>
     <div className="footer">
       <Footer />
