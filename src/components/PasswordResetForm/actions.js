@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify'
 import {
   RESET_PASSWORD_ACTION,
   RESET_PASSWORD_ACTION_SUCCESS,
@@ -23,11 +24,17 @@ const updatePassword = (data, token = null) => (dispatch) => {
   dispatch(resetPasswordAction());
   axios
     .post(
-      `https://ah-codeofduty-frontend-staging.herokuapp.com/api/users/reset-password/${token}/`,
+      `https://ah-codeofduty-staging.herokuapp.com/api/users/reset-password/${token}/`,
       data,
     )
-    .then(response => dispatch(resetPasswordActionSuccess(response.data.message)))
-    .catch(errors => dispatch(resetPasswordActionFailure(errors.response)));
+    .then(response => {dispatch(resetPasswordActionSuccess(response.data.message));
+      toast.success("password reset successfully", { autoClose: 3500, hideProgressBar: true },
+      { position: toast.POSITION.TOP_CENTER, });
+    })
+    .catch(errors => {dispatch(resetPasswordActionFailure(errors.response));
+      toast.error("passwords must match and contain eight characters", { autoClose: 3500, hideProgressBar: true },
+      { position: toast.POSITION.TOP_CENTER, });
+    });
 };
 
 export default updatePassword;
