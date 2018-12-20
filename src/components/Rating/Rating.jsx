@@ -28,11 +28,12 @@ class Rating extends Component {
   };
 
   render() {
+    const current = this.props.current_rating.current_rating;
     return (
       <div>
         <h6>Rate this Article</h6>
         <StarRatings
-          rating={this.props.current_rating.current_rating}
+          rating={current}
           starHoverColor="gold"
           starRatedColor="gold"
           changeRating={this.changeRating}

@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import StarRatings from "react-star-ratings";
-import { rateArticle, avgRate } from "./actions/actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import StarRatings from 'react-star-ratings';
+import { avgRate } from './actions/actions';
 
 class Average extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      average_rating: 0
+      average_rating: 0,
     };
   }
 
   componentDidMount() {
-    this.props.ar(localStorage.getItem("currentArticle"));
+    // this.props.ar(localStorage.getItem("currentArticle"));
   }
 
   render() {
@@ -29,19 +29,18 @@ class Average extends Component {
   }
 }
 
-const matchDispatchToProps = dispatch =>
-  bindActionCreators(
+const matchDispatchToProps = dispatch => bindActionCreators(
     {
-      ar: avgRate
+      ar: avgRate,
     },
-    dispatch
+    dispatch,
   );
 
 const mapStateToProps = state => ({
-  average_rating: state.ratingReducer
+  average_rating: state.ratingReducer,
 });
 
 export default connect(
   mapStateToProps,
-  matchDispatchToProps
+  matchDispatchToProps,
 )(Average);
