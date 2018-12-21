@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { dislikesArticle, likesArticle } from './actions';
+import { likesArticle } from './actions';
 import './main.scss';
 
 export class LikesDislikes extends Component {
@@ -15,13 +15,12 @@ export class LikesDislikes extends Component {
   
   handleLikeClick = e => {
     this.setState({ likes: true }, () => {
-      const {slug} = this.props;
       this.props.likesArticle(this.slug, this.state);
     });
   };
   handleDislikeClick = e => {
     this.setState({ likes: false }, () => {
-      this.props.dislikesArticle(this.slug, this.state);
+      this.props.likesArticle(this.slug, this.state);
     });
   };
   
@@ -56,7 +55,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      dislikesArticle,
       likesArticle,
     },
     dispatch,
