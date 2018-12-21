@@ -2,6 +2,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import * as types from './constants';
 import authUser from '../../utils/authUser';
+import {urls,headerObject} from '../../apiEndpoints';
+
 
 export const likeArticle = () => ({
   type: types.LIKE_ARTICLE,
@@ -32,17 +34,10 @@ export const unlikeArticleFailure = errors => ({
 });
 
 const { token } = authUser();
-export const likesArticle = (slug, data) => (dispatch) => {
-  const headers = {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  };
+export const likesArticle = (slug,data) => (dispatch) => {
   dispatch(likeArticle());
-
   axios
-    .post(`https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/like/`, data, {
-      headers,
-    })
+    .post(urls.DISLIKE(slug),data, headerObject(token),)
     .then(response => {dispatch(likeArticleSuccess(response.data));
       toast.success("you have sucessfully liked this article", { autoClose: 3500, hideProgressBar: true },
       { position: toast.POSITION.TOP_CENTER, });
@@ -52,23 +47,16 @@ export const likesArticle = (slug, data) => (dispatch) => {
       { position: toast.POSITION.TOP_CENTER, });
     });
 };
-
-export const dislikesArticle = (slug, data) => (dispatch) => {
-  const headers = {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  };
+export const dislikesArticle = (slug,data) => (dispatch) => {
   dispatch(likeArticle());
   axios
-    .post(`https://ah-codeofduty-staging.herokuapp.com/api/articles/${slug}/like/`, data, {
-      headers,
-    })
+    .post(urls.DISLIKE(slug),data, headerObject(token),)
     .then(response => { dispatch(unlikeArticleSuccess(response.data));
       toast.success("you have sucessfully disliked this article", { autoClose: 3500, hideProgressBar: true },
       { position: toast.POSITION.TOP_CENTER, });
       })
     .catch(errors => {dispatch(unlikeArticleFailure(errors.response));
-      toast.error('you have already dislike this article', { autoClose: 3500, hideProgressBar: true }, {
-      position: toast.POSITION.TOP_CENTER, });
-    });
+        toast.error('you have already dislike this article', { autoClose: 3500, hideProgressBar: true }, {
+        position: toast.POSITION.TOP_CENTER, });
+      });
 };
