@@ -6,16 +6,17 @@ import ArticlesList from './articleList';
 import Paginate from '../Paginate/Paginate';
 import Tags from '../Tags/Tags';
 import { urls } from '../../apiEndpoints';
+import './articles.scss';
 
 export class Articles extends Component {
   componentDidMount() {
     const { dispatch, userURL } = this.props;
     let url;
-    
-    if (Boolean(userURL)) {
-      url = userURL
+
+    if (userURL) {
+      url = userURL;
     } else {
-      url = urls.ARTICLES
+      url = urls.ARTICLES;
     }
     dispatch(fetchArticles(url));
     dispatch(fetchTags());
@@ -24,13 +25,13 @@ export class Articles extends Component {
   render() {
     const { articlesPayload, tags, userURL } = this.props;
 
-    let isUser=null;
-    if (Boolean(userURL)) {
-      isUser = true
+    let isUser = null;
+    if (userURL) {
+      isUser = true;
     }
 
-    const paginate = articlesPayload.length ? <Paginate isUser={isUser}/> : null;
-    const allTags = tags.length ? <Tags tags={tags}/> : null;
+    const paginate = articlesPayload.length ? <Paginate isUser={isUser} /> : null;
+    const allTags = articlesPayload.length && tags.length ? <Tags tags={tags} /> : null;
 
     return (
       <div>
@@ -44,7 +45,7 @@ export class Articles extends Component {
   }
 }
 
-const mapStateToProps = ( {articleReducer: {articlesPayload, tags}}) => ({ articlesPayload, tags });
+const mapStateToProps = ({ articleReducer: { articlesPayload, tags } }) => ({ articlesPayload, tags });
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,

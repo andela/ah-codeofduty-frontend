@@ -1,32 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./articles.scss";
-import DeleteModal from "./deleteModal";
-import authUser from "../../utils/authUser";
-import { Footer } from "../Footer/Footer";
-import Rating from "../Rating/Rating";
-import Average from "../Rating/averageRating";
-import Comments from "../Comments/index";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './articles.scss';
+import DeleteModal from './deleteModal';
+import authUser from '../../utils/authUser';
+import { Footer } from '../Footer/Footer';
+import Rating from '../Rating/Rating';
+import Average from '../Rating/averageRating';
+import Comments from '../Comments/index';
 import Tags from '../Tags/Tags';
 
 const { username } = authUser();
-localStorage.setItem("username", username);
+localStorage.setItem('username', username);
 
-const getAuthor = author => {
-  const currentUser = localStorage.getItem("username");
+const getAuthor = (author) => {
+  const currentUser = localStorage.getItem('username');
   if (currentUser === author) {
-    return "btn-display";
+    return 'btn-display';
   }
-  return "btn-no-display";
+  return 'btn-no-display';
 };
 
-const articleCreated = articleDate => {
+const articleCreated = (articleDate) => {
   const dateTime = new Date(articleDate);
   const dateOnly = dateTime.toDateString();
   return dateOnly;
 };
 
-const Article = ( { article, slug, toggleEdit }) => (
+const Article = ({ article, slug, toggleEdit }) => (
   <div>
     <div>
       <div className="container px-5 pb-5">
@@ -36,11 +36,17 @@ const Article = ( { article, slug, toggleEdit }) => (
             <h1 className="card-title pt-4 font-exo">
               {article.title}
               {' '}
-            <Average/>
+              <Average />
 
             </h1>
 
-            <p className="text-muted pb-3 font-exo"> <span>{article.time_to_read}</span> Min Read </p>
+            <p className="text-muted pb-3 font-exo">
+              {' '}
+              <span>{article.time_to_read}</span>
+              {' '}
+Min Read
+              {' '}
+            </p>
             <p className="card-text">
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             </p>
@@ -67,7 +73,8 @@ const Article = ( { article, slug, toggleEdit }) => (
             <div className="fixed sticky-top">
               <h5 className="mb-4 pt-5 font-raleway">
                 {' '}
-                Stories by{' '}
+                Stories by
+                {' '}
                 <b>{article.author.username}</b>
                 {' '}
 
@@ -107,15 +114,17 @@ const Article = ( { article, slug, toggleEdit }) => (
           </div>
           <div className="col-md-4 text-center pb-2">
             <span className="text-muted font-exo">
-              Created on: <i>{articleCreated(article.time_created)}</i>
+              Created on:
+              {' '}
+              <i>{articleCreated(article.time_created)}</i>
             </span>
           </div>
         </div>
       </div>
+      <Tags tags={article.tagList} />
       <Comments />
     </div>
-    <Tags tags={article.tagList} />
-  
+
     <div className="footer">
       <Footer />
     </div>
@@ -125,7 +134,7 @@ const Article = ( { article, slug, toggleEdit }) => (
 Article.propTypes = {
   article: PropTypes.object.isRequired,
   toggleEdit: PropTypes.func.isRequired,
-  slug: PropTypes.string
+  slug: PropTypes.string,
 };
 
 export default Article;

@@ -17,7 +17,7 @@ export class Tags extends Component {
   render() {
     const { tags } = this.props;
     const tagList = tags.map(tag => <Button id={tag} key={tag} clicked={() => this.handleTags(tag)}>{tag}</Button>);
-    return <div className="Tags">{tagList}</div>;
+    return <div className="Tags article-tags">{tagList}</div>;
   }
 }
 
