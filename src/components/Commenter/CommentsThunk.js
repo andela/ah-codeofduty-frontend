@@ -17,6 +17,7 @@ export const postComment = (slug, data) => (dispatch) => {
     axios
       .post(urls.COMMENTS(slug), data, headerObject(token))
       .then((response) => {
+        console.log(response, '>>>>>>REesdata')
         dispatch(postCommentSuccess(response.data))
         dispatch(getComment(slug))
       })
@@ -29,16 +30,15 @@ export const postComment = (slug, data) => (dispatch) => {
       .then((response) => {
         dispatch(getCommentSuccess(response.data))
         localStorage.setItem('commentsCount', response.data[1].commentsCount)
-        console.log(response.data, '>>>>>>>>>>>cooment data')
       })
       .catch(error => dispatch(getCommentFailure(error.response)));
   };
 
 export const postReply  = (slug, commentId, data) => dispatch =>{
-    console.log(slug, commentId, data, '>>>>>>>>>>my data')
     axios
     .post(urls.REPLY(slug, commentId), data, headerObject(token))
     .then((response) => {
+      console.log(response, '>>>>>>REPLY')
       dispatch(postReplySuccess(response.data))
       dispatch(getComment(slug))
     })

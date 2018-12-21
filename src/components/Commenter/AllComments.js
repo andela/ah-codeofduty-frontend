@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import {
-    getComment, postComment, postReply,
+    getComment,
+    postReply,
 } from  './CommentsThunk'
 import Comment from './Comment';
 import { connect } from 'react-redux';
-// import { postReply } from  './CommentsThunk';
 
 class AllComments extends React.Component {
     constructor(props) {

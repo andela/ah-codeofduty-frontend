@@ -117,8 +117,13 @@ const Article = ({ article, slug, toggleEdit }) => (
           </div>
         </div>
       </div>
-      <Commenter slug={slug}/>
-      <AllComments slug={slug}/>
+      {authUser()
+              ? (
+      <React.Fragment>
+        <Commenter slug={slug}/>
+        <AllComments slug={slug}/>
+      </React.Fragment>):
+      (<div class="container pl-5 comments p-4 font-raleway"><p> Please login to comment</p></div>)}
     </div>
     <div className="footer">
       <Footer />

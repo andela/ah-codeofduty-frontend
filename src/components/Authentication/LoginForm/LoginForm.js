@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import $ from 'jquery'
 import  './LoginForm.scss';
 import GoogleButton from "../SocialLogin/GoogleButton";
 import FacebookButton from "../SocialLogin/FacebookButton";
 import login from '../../../views/Auth/LoginForm/actions';
 import './LoginForm.scss';
 
+window.jQuery = $;
+window.$ = $;
+global.jQuery = $;
+
+const bootstrap = require('bootstrap');
 export class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +24,10 @@ export class LoginForm extends Component {
   componentDidUpdate(prevProps) {
     const {isLoginSuccess} = this.props;
     if (prevProps.isLoginPending && isLoginSuccess) {
-      window.$('#loginModal').modal('hide');
-      window.$('.modal-backdrop').modal('hide');
-      window.$('body').removeClass('modal-open');
-      window.$('.modal-backdrop').remove();
+      $('#loginModal').modal('hide');
+      $('.modal-backdrop').modal('hide');
+      $('body').removeClass('modal-open');
+      $('.modal-backdrop').remove();
     }
   }
 

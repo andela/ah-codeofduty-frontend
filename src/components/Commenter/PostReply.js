@@ -19,7 +19,6 @@ class PostReply extends React.Component {
 
     onSubmit = () => {
         this.props.postReply(this.props.slug, this.props.commentId, this.state)
-        console.log(this.state, 'reply state>>>>>>>>>>>>')
     }
     render() {
         return (

@@ -12,7 +12,6 @@ import ProtectedRoute from './views/Auth/ProtectedRoute';
 import CreateArticle from './components/Articles/createArticle';
 import Articles from './components/Articles/articles';
 import EditArticle from "./components/Articles/editArticle";
-import Comments from  './components/Comments/index'
 
 class App extends Component {
   render() {
@@ -26,7 +25,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Index} />
               <Route path="/login/" component={Login} />
-              <ProtectedRoute exact path="/comments/" component={Comments} />
               <ProtectedRoute path="/profile" component={Profile} />
               <ProtectedRoute path="/new_article" component={CreateArticle} />
               <Route path="/articles" component={Articles} />
