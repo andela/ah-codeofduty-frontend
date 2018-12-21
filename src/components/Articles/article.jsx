@@ -124,7 +124,6 @@ Min Read
       <Tags tags={article.tagList} />
       <Comments />
     </div>
-
     <div className="footer">
       <Footer />
     </div>
