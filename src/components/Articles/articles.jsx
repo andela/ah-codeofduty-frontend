@@ -6,6 +6,7 @@ import ArticlesList from './articleList';
 import Paginate from '../Paginate/Paginate';
 import Tags from '../Tags/Tags';
 import { urls } from '../../apiEndpoints';
+import './articles.scss';
 
 export class Articles extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ export class Articles extends Component {
     }
 
     const paginate = articlesPayload.length ? <Paginate isUser={isUser} /> : null;
-    const allTags = tags.length ? <Tags tags={tags} /> : null;
+    const allTags = articlesPayload.length && tags.length ? <Tags tags={tags} /> : null;
 
     return (
       <div>
