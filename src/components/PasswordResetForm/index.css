@@ -1,0 +1,48 @@
+.reset_box {
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.reset_box h1 {
+  color: #4c;
+  font-size: 250%;
+  margin-bottom: 50;
+  padding: 1px 0;
+  text-align: left;
+  text-shadow: 2px 3px #ccc;
+}
+
+.textbox {
+  width: 100%;
+  overflow: hidden;
+  font-size: 25px;
+  padding: 8px 0;
+  margin: 0;
+  border-bottom: 1px solid #ec844f;
+}
+.textbox i {
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+.textbox input {
+  border: none;
+  outline: none;
+  margin: 0 15px;
+  font-size: 18px;
+  color: black;
+  width: 80%;
+}
+.btnn {
+  width: 100%;
+  color: #fff;
+  border: 2px solid #ccc;
+  margin-top: 30px;
+  padding: 8px;
+  background: orange;
+  margin-left: 0%;
+  font-size: 120%;
+  border-radius: 10px 10px;
+}
