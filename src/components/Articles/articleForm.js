@@ -38,8 +38,8 @@ const ArticleForm = ({
   },
 
 }) => (
-    <div>
-  <div
+  <div>
+    <div
     className="container-fluid ah-container"
     style={{ paddingTop: '50px' }}
   >
@@ -121,10 +121,10 @@ const ArticleForm = ({
       </Loader>
     </div>
   </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+  <div style={{ paddingTop: '125px' }}>
+    <Footer />
+  </div>
+</div>
 );
 
 ArticleForm.propTypes = {

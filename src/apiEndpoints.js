@@ -5,6 +5,8 @@ const userArticles = user => `${baseURL}profiles/${user}/articles`;
 
 export const urls = {
   ARTICLES: articles,
+  RECENT_ARTICLES: `${articles}recent/`,
+  POPULAR_ARTICLES: `${articles}popular/`,
   PROFILES: `${baseURL}profiles/`,
   TAGS: `${baseURL}tags/`,
 

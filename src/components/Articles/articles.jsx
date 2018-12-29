@@ -35,6 +35,7 @@ export class Articles extends Component {
 
     return (
       <div>
+        {/* consult on what this code does */}
         {articlesPayload && articlesPayload.length > 0
                 && <ArticlesList articles={articlesPayload} />
                 }
