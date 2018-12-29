@@ -43,7 +43,6 @@ export const postArticle = postData => (dispatch) => {
 export const fetchArticles = url => (dispatch) => {
   dispatch(getArticlesInitiated(true));
   return axios.get(url).then((response) => {
-    console.warn('Look, I fetched articles!', response.data);
     dispatch(getAllArticles(response.data));
   });
 };

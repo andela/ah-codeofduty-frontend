@@ -94,11 +94,6 @@ export const articleReducer = (state = initialState, action) => {
         loading: false,
         confirmDelete: action.payload,
       };
-    case GET_ALL_TAGS:
-      return {
-        ...state,
-        tags: action.tags,
-      };
     default:
       return state;
   }

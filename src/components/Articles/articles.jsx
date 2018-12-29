@@ -45,7 +45,9 @@ export class Articles extends Component {
   }
 }
 
-const mapStateToProps = ({ articleReducer: { articlesPayload, tags } }) => ({ articlesPayload, tags });
+const mapStateToProps = ({ articleReducer: { articlesPayload }, tagsReducer: { tags } }) => (
+  { articlesPayload, tags }
+);
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,
