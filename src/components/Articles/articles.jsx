@@ -45,7 +45,7 @@ export class Articles extends Component {
   }
 }
 
-const mapStateToProps = ({ articleReducer: { articlesPayload, tags } }) => (
+const mapStateToProps = ({ articleReducer: { articlesPayload }, tagsReducer: { tags } }) => (
   { articlesPayload, tags }
 );
 
