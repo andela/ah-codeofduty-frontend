@@ -17,7 +17,7 @@ const SingleArticle = ({ article }) => {
   localStorage.setItem("current_article", article.slug);
   return (
     <Col>
-      <Card style={{ width: "22rem" }}>
+      <Card style={{ width: "21rem" }}>
         <CardImage
           className="img-fluid"
           src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"

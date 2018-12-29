@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import authUser from "../../utils/authUser";
 import { urls, headerObject } from "../../apiEndpoints";
+import getArticles from "../../utils/fetchArticles";
 
 import {
   createArticleError,
@@ -41,10 +42,7 @@ export const postArticle = postData => dispatch => {
 
 export const fetchArticles = url => dispatch => {
   dispatch(getArticlesInitiated(true));
-  return axios.get(url).then(response => {
-    console.warn("Look, I fetched articles!", response.data);
-    dispatch(getAllArticles(response.data));
-  });
+  getArticles(url, getAllArticles, dispatch);
 };
 export const fetchSpecificArticle = slug => (dispatch) => {
   localStorage.setItem('likeslug',slug);

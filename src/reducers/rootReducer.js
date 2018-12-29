@@ -8,6 +8,7 @@ import { articleReducer } from './articleReducer';
 import articlesReducer from './articlesReducer';
 import likeDislikeReducer from '../components/like_unlike/reducer';
 import ratingReducer from "../components/Rating/reducers/ratingReducer";
+import homeReducer from './homeReducer'
 import userEmail from "../components/PasswordReset/reducer";
 import newPassword from "../components/PasswordResetForm/reducers";
 
@@ -23,6 +24,7 @@ export default combineReducers({
   articlesReducer,
   likeDislikeReducer,
   ratingReducer,
+  homeReducer,
   userEmail,
   newPassword
 });

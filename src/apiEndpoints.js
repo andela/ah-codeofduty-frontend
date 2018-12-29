@@ -1,10 +1,12 @@
-const baseURL = "https://ah-codeofduty-staging.herokuapp.com/api/";
+const baseURL = "http://127.0.0.1:8000/api/";
 
 const articles = `${baseURL}articles/`;
 const userArticles = user => `${baseURL}profiles/${user}/articles`;
 
 export const urls = {
   ARTICLES: articles,
+  RECENT_ARTICLES: `${articles}recent/`,
+  POPULAR_ARTICLES: `${articles}popular/`,
   PROFILES: `${baseURL}profiles/`,
 
   ARTICLE: slug => `${articles}${slug}/`,

@@ -6,6 +6,7 @@ import { fetchArticles } from './articleActions';
 import ArticlesList from './articleList';
 import Paginate from '../Paginate/Paginate';
 import { urls } from '../../apiEndpoints';
+import { Footer } from '../Footer/Footer';
 
 export class Articles extends Component {
   componentDidMount() {
@@ -13,7 +14,6 @@ export class Articles extends Component {
     let url;
     
     if (Boolean(userURL)) {
-      console.log("I am the user")
       url = userURL
     } else {
       url = urls.ARTICLES
@@ -22,7 +22,7 @@ export class Articles extends Component {
   }
 
   render() {
-    const { articlesPayload, userURL } = this.props;
+    const { articlesPayload, userURL } = this.props;    
 
     let user=null;
     if (Boolean(userURL)) {
@@ -33,15 +33,18 @@ export class Articles extends Component {
 
     return (
       <div>
+        {/* consult on what this code does */}
         {articlesPayload && articlesPayload.length > 0
                 && <ArticlesList articles={articlesPayload} />
                 }
         {paginate}
-      
+      <Footer/>
       </div>
     );
   }
 }
+
+
 
 const mapStateToProps = ( {articleReducer: {articlesPayload}}) => ({ articlesPayload });
 
