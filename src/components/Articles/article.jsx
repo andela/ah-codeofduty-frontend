@@ -15,12 +15,27 @@ import Tags from '../Tags/Tags';
 const { username } = authUser();
 localStorage.setItem('username', username);
 
-const getAuthor = (author) => {
+const getAuthor = (author, slug, toggleEdit) => {
   const currentUser = localStorage.getItem('username');
   if (currentUser === author) {
-    return 'btn-display';
+    return (
+      <span id="buttons" style={{ display: 'inline-block' }}>
+        <i
+          title="edit"
+          id="toggleEdit"
+          className="fas fa-pencil-square-o mr-3"
+          onClick={toggleEdit}
+        />
+        <i
+          title="delete"
+          className="fas fa-trash fa-2x"
+          id="delete"
+          data-toggle="modal"
+          data-target="#deleteModal"
+        />
+      </span>);
   }
-  return 'btn-no-display';
+  return (<LikesDislikes slug={slug} />);
 };
 
 const articleCreated = (articleDate) => {
@@ -44,9 +59,11 @@ const Article = ({ article, slug, toggleEdit }) => (
 
             </h1>
             <p className="text-muted pb-3 font-exo">
-              <span>{article.time_to_read}</span>
-              {' '}
-              Min Read
+              <span>
+                {article.time_to_read}
+                {' '}
+                Min Read
+              </span>
             </p>
             <p className="card-text">
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
@@ -84,50 +101,13 @@ const Article = ({ article, slug, toggleEdit }) => (
             </div>
           </div>
         </div>
-        <div className="col-md-4 pl-5 side-column mt-3 font-raleway">
-          <div className="fixed sticky-top">
-            <h5 className="mb-4 pt-5 font-raleway">
-              Stories by
-              {' '}
-              <b>{article.author.username}</b>
-              {' '}
-            </h5>
-            <div className="">
-              <a
-                href="#"
-                className="card-title text-orange font-weight-bold font-raleway"
-              >
-                Some story title
-              </a>
-              <p className="text-muted">
-                Some very summarized content showing what the story is
-                about...
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
       <div className="row pb-1 pt-3">
-        <div className="col-md-3 text-center pb-3">
+        <div className="col-md-4 text-center pb-3 pl-5">
           <Rating />
         </div>
         <div className="col-md-4 text-center pb-3">
-          <LikesDislikes slug={slug} />
-          <span id="buttons" className={getAuthor(article.author.username)}>
-            <i
-              title="edit"
-              id="toggleEdit"
-              className="fas fa-pencil-square-o mr-3"
-              onClick={toggleEdit}
-            />
-            <i
-              title="delete"
-              className="fas fa-trash fa-2x"
-              id="delete"
-              data-toggle="modal"
-              data-target="#deleteModal"
-            />
-          </span>
+          {getAuthor(article.author.username, slug, toggleEdit)}
           <div>
             <DeleteModal slug={slug} />
           </div>
