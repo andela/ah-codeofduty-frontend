@@ -56,7 +56,6 @@ const Article = ({ article, slug, toggleEdit }) => (
               {article.title}
               {' '}
               <Average />
-
             </h1>
             <p className="text-muted pb-3 font-exo">
               <span>

@@ -46,6 +46,7 @@ export const fetchArticles = url => (dispatch) => {
     dispatch(getAllArticles(response.data));
   });
 };
+
 export const fetchSpecificArticle = slug => (dispatch) => {
   localStorage.setItem('likeslug', slug);
   dispatch(getSpecificArticleInitiated(true));
