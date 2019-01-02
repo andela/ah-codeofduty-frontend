@@ -10,7 +10,7 @@ describe('Articles Component', () => {
     ],
   };
   it('should render articles Component correctly', () => {
-    shallow(<Articles dispatch={dispatch} articlesPayload={articlesPayload} />,
+    shallow(<Articles tags={[]} dispatch={dispatch} articlesPayload={articlesPayload} />,
     );
   });
 });

@@ -1,8 +1,8 @@
 .pagination {
     width: 100%;
     text-align: center;
-    margin-left: 35%;
-    padding-top: 30px;
+    margin: auto; 
+    display:table;
 }
 
 .pages {
@@ -10,6 +10,10 @@
     padding: 4px 10px 4px 10px;
     cursor: pointer;
     transition: 0.5s ease-in-out;
+}
+
+a{
+    outline: none;
 }
 
 .pages:hover {

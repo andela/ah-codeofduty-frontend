@@ -2,6 +2,8 @@ import React from 'react';
 import Loader from 'react-loader';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css'
 import 'react-quill/dist/quill.snow.css';
 import {Footer} from "../Footer/Footer";
 
@@ -9,9 +11,11 @@ const ArticleForm = ({
   handleSubmit,
   resetForm,
   handleChange,
+  handleTagChange,
   handleEditorChange,
   title,
   description,
+  tags,
   body,
   loading,
 
@@ -73,6 +77,12 @@ const ArticleForm = ({
                     required
                   />
                 </div>
+              </div><div className="form-group">
+                <div className="input-group mb-2">
+                  {/* .............................. */}
+                  <TagsInput value={tags} onChange={handleTagChange} className="tagInput"/>
+                  {/* .............................. */}
+                  </div>
               </div>
               <br/>
               <div className="form-group">

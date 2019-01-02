@@ -1,5 +1,3 @@
-// import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -21,7 +19,6 @@ import {
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
-
 const {
   SAVE_PROFILE,
   EDIT_PROFILE,
@@ -116,6 +113,4 @@ describe('Axios fetch operations', () => {
     ];
     moxiosFetch(urls.USER_PROFILE('user'), () => getProfile('user'));
   });
-
-  // test save profile
 });

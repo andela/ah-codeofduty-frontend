@@ -1,7 +1,7 @@
 .Edit {
     font-family: "Raleway";
     margin: 3%;
-    overflow: scroll;
+    outline: none;
 }
 
 .Edit input[type=text],
@@ -11,6 +11,7 @@ textarea {
     margin-bottom: 20px;
     border: none;
     border-bottom: 1px solid orange;
+    outline: none;
 }
 
 textarea {
@@ -22,6 +23,7 @@ textarea {
     padding: 10px;
     width: 200px;
     margin-top: 40px;
+    outline: none;
 }
 
 .Edit form {
@@ -47,5 +49,3 @@ textarea {
     cursor: pointer;
     z-index: 50;
 }
-
-// @media()

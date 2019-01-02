@@ -10,6 +10,7 @@ import {
   GET_ALL_ARTICLES_SUCCESS,
   GET_SPECIFIC_ARTICLE_INITIATED,
   GET_SPECIFIC_ARTICLE_SUCCESS,
+  GET_ALL_TAGS,
 } from './actionTypes';
 
 export const createArticleSuccess = payload => ({
@@ -24,7 +25,7 @@ export const createArticleInitiated = payload => ({
   type: CREATE_ARTICLE_INITIATED,
   payload,
 });
-export const getAllArticles = ({results, articlesCount}) => ({
+export const getAllArticles = ({ results, articlesCount }) => ({
   type: GET_ALL_ARTICLES_SUCCESS,
   payload: results,
   articlesCount,
@@ -56,4 +57,9 @@ export const editArticleInititated = payload => ({
 export const deleteArticleSuccess = payload => ({
   type: DELETE_ARTICLE_SUCCESS,
   payload,
+});
+
+export const getAllTags = tags => ({
+  type: GET_ALL_TAGS,
+  tags,
 });

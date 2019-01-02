@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { fetchArticles } from './articleActions';
+import { fetchArticles, fetchTags } from './articleActions';
 import ArticlesList from './articleList';
 import Paginate from '../Paginate/Paginate';
+import Tags from '../Tags/Tags';
 import { urls } from '../../apiEndpoints';
+import './articles.scss';
 
 export class Articles extends Component {
   componentDidMount() {
     const { dispatch, userURL } = this.props;
     let url;
-    
-    if (Boolean(userURL)) {
-      console.log("I am the user")
-      url = userURL
+
+    if (userURL) {
+      url = userURL;
     } else {
-      url = urls.ARTICLES
+      url = urls.ARTICLES;
     }
     dispatch(fetchArticles(url));
+    dispatch(fetchTags());
   }
 
   render() {
-    const { articlesPayload, userURL } = this.props;
+    const { articlesPayload, tags, userURL } = this.props;
 
-    let user=null;
-    if (Boolean(userURL)) {
-      user = "user"
+    let isUser = null;
+    if (userURL) {
+      isUser = true;
     }
 
-    const paginate = articlesPayload.length ? <Paginate user={user}/> : null;
+    const paginate = articlesPayload.length ? <Paginate isUser={isUser} /> : null;
+    const allTags = articlesPayload.length && tags.length ? <Tags tags={tags} /> : null;
 
     return (
       <div>
@@ -37,13 +39,15 @@ export class Articles extends Component {
                 && <ArticlesList articles={articlesPayload} />
                 }
         {paginate}
-      
+        {allTags}
       </div>
     );
   }
 }
 
-const mapStateToProps = ( {articleReducer: {articlesPayload}}) => ({ articlesPayload });
+const mapStateToProps = ({ articleReducer: { articlesPayload }, tagsReducer: { tags } }) => (
+  { articlesPayload, tags }
+);
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,
