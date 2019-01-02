@@ -23,9 +23,9 @@ class Home extends Component{
       <Featured article={popularArticles[0]}/>
       <hr/>
       <div className="container mb-4">
-        <h3>Most Recent</h3>
+        <h3 id="recent">Most Recent</h3>
         <ArticlesList articles={recentArticles} />
-        <h3>Most popular</h3>
+        <h3 id="popular">Most popular</h3>
         <ArticlesList articles={popularArticles} />
       </div>
       <Footer/>
