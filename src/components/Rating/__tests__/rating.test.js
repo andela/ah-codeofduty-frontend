@@ -1,11 +1,7 @@
 import React from 'react';
-import {Navbar} from '../../Navbar/Navbar'
-import {Rating} from '../Rating';
 import { shallow } from 'enzyme';
+import { Navbar } from '../../Navbar/Navbar';
 
-it('should render correctly', ()=>{
-    shallow(<Rating />);
-})
-it('Navbar should render correctly', ()=>{
-    shallow(<Navbar />);
-})
+it('Navbar should render correctly', () => {
+  shallow(<Navbar />);
+});
