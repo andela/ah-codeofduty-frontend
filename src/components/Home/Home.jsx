@@ -24,9 +24,9 @@ class Home extends Component{
       <hr/>
       <div className="container mb-4">
         <h3 id="recent">Most Recent</h3>
-        <ArticlesList articles={recentArticles} />
+        <ArticlesList articles={recentArticles} articlesClass="homeArticles" />
         <h3 id="popular">Most popular</h3>
-        <ArticlesList articles={popularArticles} />
+        <ArticlesList articles={popularArticles} articlesClass="homeArticles" />
       </div>
       <Footer/>
     </Aux>
