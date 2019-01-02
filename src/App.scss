@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Marck+Script|Raleway:400,900');
+@import url("https://fonts.googleapis.com/css?family=Marck+Script|Raleway:400,900");
 
 .App {
   margin: 0;
@@ -44,7 +44,6 @@ ul {
   padding: 0;
   width: 100%;
   // text-align:center;
-
 }
 
 li {
@@ -63,4 +62,22 @@ li {
 .App a:hover {
   text-decoration: none;
   color: orange;
+}
+
+// -------------------------------------
+.reaction {
+  padding: 0 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.reaction:active {
+  fill: #24292e;
+  border-color: none;
+  outline: 0;
+}
+button:focus {
+  fill: #24292e;
+  outline: 0;
+  color: #24292e;
 }
