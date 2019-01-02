@@ -9,7 +9,7 @@ import {Footer} from "../Footer/Footer";
 
 import './Home.scss';
 
-class Home extends Component{
+export class Home extends Component{
   componentDidMount(){
     const { dispatch } = this.props;
     dispatch(fetchRecentArticles());
