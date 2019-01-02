@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import SingleArticle from "./singleArticle";
+import './articleList.scss';
 
-const ArticlesList = ({ articles }) => (
-  <div>
+const ArticlesList = ({ articles, articlesClass }) => (
+  <div className={articlesClass}>
     <div className="container mt-4">
       <div className="row">
         {articles.map(article => (

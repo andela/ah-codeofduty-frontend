@@ -13,10 +13,8 @@ export const urls = {
   SIGNUP: `${baseURL}users/`,
   LOGIN: `${baseURL}users/login/`,
 
-  SIGNUP: `${baseURL}users/`,
-  LOGIN: `${baseURL}users/login/`,
-
   ARTICLE: slug => `${articles}${slug}/`,
+
   ARTICLES_PAGINATE: (limit, offset) => `${articles}?limit=${limit}&offset=${offset}`,
   USER_ARTICLES_PAGINATE: (limit, offset, user) => `${userArticles(user)}?limit=${limit}&offset=${offset}`,
 
