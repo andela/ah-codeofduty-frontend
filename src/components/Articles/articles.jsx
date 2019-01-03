@@ -7,6 +7,7 @@ import Paginate from '../Paginate/Paginate';
 import Tags from '../Tags/Tags';
 import { urls } from '../../apiEndpoints';
 import './articles.scss';
+import { Footer } from '../Footer/Footer';
 
 export class Articles extends Component {
   componentDidMount() {
@@ -41,6 +42,7 @@ export class Articles extends Component {
                 }
         {paginate}
         {allTags}
+        <Footer />
       </div>
     );
   }

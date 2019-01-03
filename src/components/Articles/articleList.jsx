@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SingleArticle from "./singleArticle";
-import './articleList.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+import SingleArticle from './singleArticle';
 
 const ArticlesList = ({ articles, articlesClass }) => (
   <div className={articlesClass}>
@@ -16,7 +15,7 @@ const ArticlesList = ({ articles, articlesClass }) => (
 );
 
 ArticlesList.propTypes = {
-  articles: PropTypes.array.isRequired
+  articles: PropTypes.array.isRequired,
 };
 
 export default ArticlesList;

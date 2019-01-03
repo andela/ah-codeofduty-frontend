@@ -3,9 +3,9 @@ import Loader from 'react-loader';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
 import TagsInput from 'react-tagsinput';
-import 'react-tagsinput/react-tagsinput.css'
+import 'react-tagsinput/react-tagsinput.css';
 import 'react-quill/dist/quill.snow.css';
-import {Footer} from "../Footer/Footer";
+import { Footer } from '../Footer/Footer';
 
 const ArticleForm = ({
   handleSubmit,
@@ -40,10 +40,10 @@ const ArticleForm = ({
 }) => (
   <div>
     <div
-    className="container-fluid ah-container"
-    style={{ paddingTop: '50px' }}
-  >
-    <div className="row">
+      className="container-fluid ah-container"
+      style={{ paddingTop: '50px' }}
+    >
+      <div className="row">
       <Loader loaded={!loading}>
         <div className="col-12">
           <form id="add-article-form" onSubmit={handleSubmit}>
@@ -62,7 +62,7 @@ const ArticleForm = ({
                   />
                 </div>
               </div>
-              <br/>
+              <br />
               <div className="form-group">
                 <div className="input-group mb-2">
                   <input
@@ -77,14 +77,15 @@ const ArticleForm = ({
                     required
                   />
                 </div>
-              </div><div className="form-group">
+              </div>
+<div className="form-group">
                 <div className="input-group mb-2">
                   {/* .............................. */}
                   <TagsInput value={tags} onChange={handleTagChange} className="tagInput"/>
                   {/* .............................. */}
                   </div>
               </div>
-              <br/>
+              <br />
               <div className="form-group">
                 <div className="text-editor">
                   <div>
@@ -99,7 +100,7 @@ const ArticleForm = ({
                       title="body"
                     />
                   </div>
-                  <br/>
+                  <br />
                   <div className="m-t-10">
                     <button type="submit" className="Button m-r-10">
                                             Save
@@ -120,11 +121,11 @@ const ArticleForm = ({
         </div>
       </Loader>
     </div>
-  </div>
-  <div style={{ paddingTop: '125px' }}>
+    </div>
+    <div style={{ paddingTop: '125px' }}>
     <Footer />
   </div>
-</div>
+    </div>
 );
 
 ArticleForm.propTypes = {
