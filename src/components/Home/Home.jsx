@@ -17,7 +17,9 @@ export class Home extends Component{
   }
 
   render () {
-    const {recentArticles, popularArticles} = this.props;
+    let {recentArticles, popularArticles} = this.props;
+    recentArticles = recentArticles.slice(0,6);
+    popularArticles = popularArticles.slice(0,6);
     return(
     <Aux>
       <Featured article={popularArticles[0]}/>
