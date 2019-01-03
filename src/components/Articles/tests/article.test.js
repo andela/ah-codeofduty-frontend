@@ -1,24 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import Article from '../article';
-import store from '../../../store';
+import { shallow } from 'enzyme';
+import Articles from '../index';
 
 describe('Article Component', () => {
-  const article = {
-    author: { username: 'red' },
-    title: 'this',
-    body: 'body',
-  };
-  const slug = {
-    slug: 'this',
-  };
+  const article = { author: { username: 'red' }, body: 'body' };
 
   it('should render the Article Component correctly', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <Article article={article} slug={slug} toggleEdit="" />
-      </Provider>,
-    );
+    shallow(<Articles article={article} toggleEdit="" tags={[]} />);
   });
 });
