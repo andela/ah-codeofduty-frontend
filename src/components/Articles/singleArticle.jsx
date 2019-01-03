@@ -26,11 +26,13 @@ const SingleArticle = ({ article }) => {
         <CardBody>
           <CardTitle>{article.title}</CardTitle>
           <CardText>{article.description}</CardText>
-          <centre>
-            <Link exact to={returnArticleURL(article.slug)}>
-              Read More...
-            </Link>
-          </centre>
+          <ul>
+            <li><Link exact to={returnArticleURL(article.slug)}>
+              Read More...    
+            </Link></li>
+            <li><i class="fa fa-eye" aria-hidden="true"> {article.view_count}</i></li>
+           
+          </ul>
         </CardBody>
       </Card>
     </Col>
