@@ -1,11 +1,16 @@
 import {
   CREATE_ARTICLE_ERROR,
   CREATE_ARTICLE_INITIATED,
-  CREATE_ARTICLE_SUCCESS, DELETE_ARTICLE_SUCCESS, EDIT_ARTICLE_ERROR, EDIT_ARTICLE_INITIATED, EDIT_ARTICLE_SUCCESS,
+  CREATE_ARTICLE_SUCCESS,
+  DELETE_ARTICLE_SUCCESS,
+  EDIT_ARTICLE_ERROR,
+  EDIT_ARTICLE_INITIATED,
+  EDIT_ARTICLE_SUCCESS,
   GET_ALL_ARTICLES_INITIATED,
   GET_ALL_ARTICLES_SUCCESS,
   GET_SPECIFIC_ARTICLE_INITIATED,
   GET_SPECIFIC_ARTICLE_SUCCESS,
+  GET_ALL_TAGS,
 } from '../components/Articles/actionTypes';
 
 const initialState = {
@@ -18,6 +23,7 @@ const initialState = {
   editArticleInitiated: false,
   editArticleError: {},
   articlesCount: 0,
+  tags: [],
 };
 
 export const articleReducer = (state = initialState, action) => {

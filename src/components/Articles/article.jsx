@@ -12,9 +12,12 @@ import { Footer } from "../Footer/Footer";
 import Rating from "../Rating/Rating";
 import Average from "../Rating/averageRating";
 import { avgRate, rateArticle, initialRate } from "../Rating/actions/actions";
+import Tags from '../Tags/Tags';
+
 
 const { username } = authUser();
-localStorage.setItem("username", username);
+localStorage.setItem('username', username);
+
 
 export class Article extends React.Component {
   state = {};
@@ -139,10 +142,11 @@ export class Article extends React.Component {
   }
 }
 
+
 Article.propTypes = {
   article: PropTypes.object.isRequired,
   toggleEdit: PropTypes.func.isRequired,
-  slug: PropTypes.string
+  slug: PropTypes.string,
 };
 
 const matchDispatchToProps = {

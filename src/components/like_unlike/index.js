@@ -26,14 +26,14 @@ export class LikesDislikes extends Component {
   
   render() {
     return (
-      <>
+      <span className='likes' style={{ display: 'inline-block'}}>
         <button
           type="button"
           className="btn btn-default btn-responsive up_button"
           id="up_button"
           onClick={this.handleLikeClick}
         >
-          <i class="fa fa-thumbs-up fa-2x" id="thumbsup"></i>
+          <i class="fa fa-thumbs-up" id="thumbsup"></i>
         </button>
 
         <button
@@ -41,9 +41,9 @@ export class LikesDislikes extends Component {
           className="btn btn-default btn-responsive up_button"
           onClick={this.handleDislikeClick}
         >
-          <i className="fa fa-thumbs-down fa-2x" id="thumbsdown"></i>
+          <i className="fa fa-thumbs-down" id="thumbsdown"></i>
         </button>
-      </>
+      </span>
     );
   }
 }
