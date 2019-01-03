@@ -11,6 +11,7 @@ import { Footer } from '../Footer/Footer';
 import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
 import Tags from '../Tags/Tags';
+import SocialShare from "./share";
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -68,6 +69,9 @@ const Article = ({ article, slug, toggleEdit }) => (
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             </p>
             <p className="card-text pt-3"> THE END </p>
+            <div>
+              <SocialShare />
+            </div>
             <div className="row">
               <div className="col-lg-2">
                 <img
