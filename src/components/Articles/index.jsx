@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import './articles.scss';
 import { ToastContainer } from 'react-toastify';
 import DeleteModal from './deleteModal';
@@ -12,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { Footer } from '../Footer/Footer';
 import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
-import { avgRate, rateArticle, initialRate } from '../Rating/actions/actions';
 import { Tags } from '../Tags/Tags';
 
 const { username } = authUser();
@@ -82,10 +80,6 @@ Min Read
                 />
               </div>
               <div className="col-lg-10 pt-2">
-                <i
-                  className="fas fa-crown float-right pr-5 pt-3 text-large"
-                  title="Favorite this article"
-                />
                 <h5 className="font-raleway">Written by</h5>
                 <p className="text-large font-exo">{article.author.username}</p>
               </div>

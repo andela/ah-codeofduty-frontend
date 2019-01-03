@@ -2,17 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./articles.scss";
-import DeleteModal from "./deleteModal";
 import authUser from "../../utils/authUser";
-import Comments from "../Comments/index";
-import LikesDislikes from "../like_unlike/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { Footer } from "../Footer/Footer";
-import Rating from "../Rating/Rating";
-import Average from "../Rating/averageRating";
 import { avgRate, rateArticle, initialRate } from "../Rating/actions/actions";
-import Tags from "../Tags/Tags";
 import Articles from "./index";
 
 const { username } = authUser();
@@ -27,19 +21,6 @@ export class Article extends React.Component {
     this.props.initialRate(this.props.slug);
   }
 
-  getAuthor = author => {
-    const currentUser = localStorage.getItem("username");
-    if (currentUser === author) {
-      return "btn-display";
-    }
-    return "btn-no-display";
-  };
-
-  articleCreated = articleDate => {
-    const dateTime = new Date(articleDate);
-    const dateOnly = dateTime.toDateString();
-    return dateOnly;
-  };
   render() {
     const { article, slug, toggleEdit } = this.props;
     return (
