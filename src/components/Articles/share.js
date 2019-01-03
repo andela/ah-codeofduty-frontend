@@ -6,7 +6,7 @@ import {
   TwitterShareButton, TwitterIcon,
   WhatsappShareButton, WhatsappIcon,
 } from 'react-share';
-import { STAGING_URL } from '../../utils/config';
+import { FE_URL } from '../../utils/config';
 
 class SocialShare extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class SocialShare extends Component {
         <ul className="mr-auto mt-2 mt-lg-0">
           <li>
             <WhatsappShareButton
-              url={`${STAGING_URL}/articles/${slug}`}
+              url={`${FE_URL}/article/${slug}`}
               className="share-icons"
               style={cursorStyle}
             >
@@ -32,7 +32,7 @@ class SocialShare extends Component {
           <li>
             {' '}
             <TwitterShareButton
-              url={`${STAGING_URL}/articles/${slug}`}
+              url={`${FE_URL}/article/${slug}`}
               className="share-icons"
               style={cursorStyle}
             >
@@ -42,7 +42,7 @@ class SocialShare extends Component {
           <li>
             {' '}
             <FacebookShareButton
-              url={`${STAGING_URL}/articles/${slug}`}
+              url={`${FE_URL}/article/${slug}`}
               className="share-icons"
               style={cursorStyle}
             >
@@ -52,7 +52,7 @@ class SocialShare extends Component {
           <li>
             {' '}
             <EmailShareButton
-              url={`${STAGING_URL}/articles/${slug}`}
+              url={`${FE_URL}/article/${slug}`}
               style={cursorStyle}
             >
               <EmailIcon size={32} round />
