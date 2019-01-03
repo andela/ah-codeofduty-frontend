@@ -25,6 +25,8 @@ export const urls = {
   USER_FOLLOW: (user, follow) => `${baseURL}profiles/${user}/${follow}`,
   USER_ARTICLES: user => userArticles(user),
   DISLIKE: slug => `${baseURL}articles/${slug}/like/`,
+
+  REPORT_ARTICLE: slug => `${baseURL}articles/${slug}/report/`,
 };
 
 export const headerObject = token => ({

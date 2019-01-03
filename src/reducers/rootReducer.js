@@ -10,6 +10,7 @@ import ratingReducer from '../components/Rating/reducers/ratingReducer';
 import userEmail from '../components/PasswordReset/reducer';
 import newPassword from '../components/PasswordResetForm/reducers';
 import tagsReducer from './tagsReducer';
+import reportReducer from '../components/Reports/ReportArticle/reducer';
 
 
 export default combineReducers({
@@ -24,4 +25,5 @@ export default combineReducers({
   ratingReducer,
   userEmail,
   newPassword,
+  reportReducer,
 });
