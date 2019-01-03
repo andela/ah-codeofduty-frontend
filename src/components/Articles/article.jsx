@@ -11,6 +11,7 @@ import { Footer } from '../Footer/Footer';
 import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
 import Tags from '../Tags/Tags';
+import BookmarkArticle from '../Bookmarks/bookmark';
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -33,9 +34,10 @@ const getAuthor = (author, slug, toggleEdit) => {
           data-toggle="modal"
           data-target="#deleteModal"
         />
-      </span>);
+      </span>
+    );
   }
-  return (<LikesDislikes slug={slug} />);
+  return <LikesDislikes slug={slug} />;
 };
 
 const articleCreated = (articleDate) => {
@@ -46,23 +48,25 @@ const articleCreated = (articleDate) => {
 
 const Article = ({ article, slug, toggleEdit }) => (
   <div>
-    <div><ToastContainer /></div>
+    <div>
+      <ToastContainer />
+    </div>
     <div>
       <div className="container px-5 pb-5">
         <div className="row pb-4">
           <div className="px-5 pt-3 col-md-8">
-
             <h1 className="card-title pt-4 font-exo">
-              {article.title}
-              {' '}
-              <Average />
+              {article.title} 
+{' '}
+<Average />
+              <BookmarkArticle />
             </h1>
             <p className="text-muted pb-3 font-exo">
               <span>
-                {article.time_to_read}
-                {' '}
-                Min Read
-              </span>
+{article.time_to_read}
+{' '}
+Min Read
+</span>
             </p>
             <p className="card-text">
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
@@ -89,13 +93,21 @@ const Article = ({ article, slug, toggleEdit }) => (
           <div className="col-md-4 pl-5 side-column mt-3 font-raleway">
             <div className="fixed sticky-top">
               <h5 className="mb-4 pt-5 font-raleway">
-                Stories by
-                {' '}
-                <b>{article.author.username}</b>
+                Stories by 
+{' '}
+<b>{article.author.username}</b>
               </h5>
               <div className="">
-                <a href="#" className="card-title text-orange font-weight-bold font-raleway">Some story title</a>
-                <p className="text-muted">Some very summarized content showing what the story is about...</p>
+                <a
+                  href="#"
+                  className="card-title text-orange font-weight-bold font-raleway"
+                >
+                  Some story title
+                </a>
+                <p className="text-muted">
+                  Some very summarized content showing what the story is
+                  about...
+                </p>
               </div>
             </div>
           </div>
@@ -113,9 +125,9 @@ const Article = ({ article, slug, toggleEdit }) => (
         </div>
         <div className="col-md-4 text-center pb-2">
           <span className="text-muted font-exo">
-            Created on:
-            {' '}
-            <i>{articleCreated(article.time_created)}</i>
+            Created on: 
+{' '}
+<i>{articleCreated(article.time_created)}</i>
           </span>
         </div>
       </div>
@@ -126,7 +138,6 @@ const Article = ({ article, slug, toggleEdit }) => (
       <Footer />
     </div>
   </div>
-
 );
 
 Article.propTypes = {
