@@ -19,7 +19,7 @@ export const resetPasswordFailure = errors => ({
 const sendEmailToUser = data => (dispatch) => {
   dispatch(resetPassword());
   axios
-    .post('https://ah-codeofduty-staging.herokuapp.com/api/users/forgot-password/', data)
+    .post('http://127.0.0.1:8000/api/users/forgot-password/', data)
     .then(response => {dispatch(resetPasswordSuccess(response.data.message));
       toast.success("Reset link sent to your email", { autoClose: 3500, hideProgressBar: true },
       { position: toast.POSITION.TOP_CENTER, });

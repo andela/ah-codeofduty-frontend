@@ -12,6 +12,7 @@ import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
 import Tags from '../Tags/Tags';
 import BookmarkArticle from '../Bookmarks/bookmark';
+import SocialShare, { cursorStyle } from "./share";
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -72,6 +73,10 @@ Min Read
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             </p>
             <p className="card-text pt-3"> THE END </p>
+            <div>
+              <i className="fas fa-share-alt" data-toggle="collapse" data-target="#social-sharing" aria-expanded="false" aria-controls="collapseExample" style={cursorStyle}> </i>
+              <SocialShare />
+            </div>
             <div className="row">
               <div className="col-lg-2">
                 <img
