@@ -30,7 +30,7 @@ export class Rating extends Component {
   render() {
     const current = this.props.current_rating.current_rating;
     return (
-      <div>
+      <div className="outer">
         <h6>Rate this Article</h6>
         <StarRatings
           rating={current}
