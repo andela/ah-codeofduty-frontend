@@ -8,22 +8,24 @@ import {
 } from 'react-share';
 import { FE_URL } from '../../utils/config';
 
+export const cursorStyle = {
+  cursor: 'pointer',
+};
 class SocialShare extends Component {
   componentDidMount() {
   }
 
   render() {
     const slug = localStorage.getItem('likeslug');
-    const cursorStyle = {
-      cursor: 'pointer',
-    };
+    const title = localStorage.getItem('ArticleTitle');
     return (
-      <div id="social-sharing">
+      <div id="social-sharing" className="collapse">
         <ul className="mr-auto mt-2 mt-lg-0">
           <li>
             <WhatsappShareButton
               url={`${FE_URL}/article/${slug}`}
               className="share-icons"
+              title={title}
               style={cursorStyle}
             >
               <WhatsappIcon size={32} round />
@@ -34,6 +36,7 @@ class SocialShare extends Component {
             <TwitterShareButton
               url={`${FE_URL}/article/${slug}`}
               className="share-icons"
+              title={title}
               style={cursorStyle}
             >
               <TwitterIcon size={32} round />
@@ -44,6 +47,7 @@ class SocialShare extends Component {
             <FacebookShareButton
               url={`${FE_URL}/article/${slug}`}
               className="share-icons"
+              quote={title}
               style={cursorStyle}
             >
               <FacebookIcon size={32} round />
@@ -53,6 +57,7 @@ class SocialShare extends Component {
             {' '}
             <EmailShareButton
               url={`${FE_URL}/article/${slug}`}
+              title={title}
               style={cursorStyle}
             >
               <EmailIcon size={32} round />
@@ -63,9 +68,5 @@ class SocialShare extends Component {
     );
   }
 }
-
-SocialShare.propTypes = {
-  slug: PropTypes.string.isRequired,
-};
 
 export default SocialShare;

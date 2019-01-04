@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const STAGING_URL = "https://ah-codeofduty-staging.herokuapp.com/api";
-export const FE_URL= "https://ah-codeofduty-frontend-staging.herokuapp.com/";
+export const FE_URL= "https://ah-codeofduty-frontend-staging.herokuapp.com";
 export const headerObject = token => ({
   headers: {
     Authorization: `Bearer ${token}`,

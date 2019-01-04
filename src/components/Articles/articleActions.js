@@ -52,6 +52,7 @@ export const fetchSpecificArticle = slug => (dispatch) => {
   dispatch(getSpecificArticleInitiated(true));
   return axios.get(urls.ARTICLE(slug)).then((response) => {
     dispatch(getSpecificArticle(response.data));
+    localStorage.setItem('ArticleTitle', response.data.title);
   });
 };
 
