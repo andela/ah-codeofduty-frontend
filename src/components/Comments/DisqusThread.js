@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SHORTNAME = 'ah-cod';
-const WEBSITE_URL = 'https://ah-codeofduty-staging.herokuapp.com';
+const WEBSITE_URL = 'http://127.0.0.1:8000';
 
 function renderDisqus() {
   if (window.DISQUS === undefined) {

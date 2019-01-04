@@ -1,0 +1,22 @@
+  footer span{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  footer a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s ease-in-out;
+    padding: 3rem;
+  }
+
+  footer a:hover{
+    color: black;
+  }
+
+  .hr-footer {
+    background-color: orange;
+    // width: 1000%;
+  }
