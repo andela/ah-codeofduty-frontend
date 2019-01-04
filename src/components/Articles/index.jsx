@@ -13,6 +13,7 @@ import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
 import { Tags } from '../Tags/Tags';
 import SocialShare, { cursorStyle } from './share';
+import BookmarkArticle from '../Bookmarks/bookmark';
 
 const { username } = authUser();
 localStorage.setItem('username', username);
@@ -60,6 +61,7 @@ const Articles = ({ article, slug, toggleEdit }) => (
               {article.title} 
 {' '}
 <Average />
+              <BookmarkArticle />
             </h1>
             <p className="text-muted pb-3 font-exo">
               <span>
