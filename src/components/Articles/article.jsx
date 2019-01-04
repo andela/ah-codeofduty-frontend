@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { Footer } from "../Footer/Footer";
 import { avgRate, rateArticle, initialRate } from "../Rating/actions/actions";
 import Articles from "./index";
+import SocialShare, { cursorStyle } from "./share";
 
 const { username } = authUser();
 localStorage.setItem("username", username);
