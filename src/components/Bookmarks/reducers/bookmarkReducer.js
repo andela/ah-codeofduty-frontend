@@ -1,6 +1,6 @@
 import { BOOKMARK_ARTICLE, BOOKMARK_ARTICLE_FAILURE } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   isBookmarking: false,
 };
 

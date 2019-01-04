@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import BookmarkArticles from "./index";
-import { bookmarkArticle, bookmark } from "./actions/actions";
+import { bookmarkArticle } from "./actions/actions";
 
 class BookmarkArticle extends Component {
   constructor(props) {
@@ -21,10 +21,7 @@ class BookmarkArticle extends Component {
   };
 
   render() {
-    const boo = this.props;
-    console.log("props pprops", boo);
     const { bookmarks } = this.state;
-    console.log("state", bookmarks);
     return (
       <BookmarkArticles
         onBookmarkClick={this.handleBookmark}

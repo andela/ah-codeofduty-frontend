@@ -1,11 +1,8 @@
 import React from 'react';
-import {Navbar} from '../../Navbar/Navbar'
-import {Rating} from '../Rating';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { shallow, wrapper, mount } from 'enzyme';
+import { Rating } from '../Rating';
 
-it('should render correctly', ()=>{
-    shallow(<Rating />);
-})
-it('Navbar should render correctly', ()=>{
-    shallow(<Navbar />);
-})
+it('should render correctly', () => {
+  shallow(<Rating />);
+});
