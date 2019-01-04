@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import StarRatings from "react-star-ratings";
-import { rateArticle, avgRate } from "./actions/actions";
+import { rateArticle, initialRate } from "./actions/actions";
 
 export class Rating extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 0
+      rating: 0,
+      current_rating: 0
     };
+  }
+
+  componentDidMount() {
+    this.props.cr(localStorage.getItem("currentArticle"));
   }
 
   changeRating = newRating => {
@@ -23,11 +28,12 @@ export class Rating extends Component {
   };
 
   render() {
+    const current = this.props.current_rating.current_rating;
     return (
-      <div>
+      <div className="outer">
         <h6>Rate this Article</h6>
         <StarRatings
-          rating={this.state.rating}
+          rating={current}
           starHoverColor="gold"
           starRatedColor="gold"
           changeRating={this.changeRating}
@@ -44,12 +50,17 @@ export class Rating extends Component {
 const matchDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      addRating: rateArticle
+      addRating: rateArticle,
+      cr: initialRate
     },
     dispatch
   );
 
+const mapStateToProps = state => ({
+  current_rating: state.ratingReducer
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   matchDispatchToProps
 )(Rating);

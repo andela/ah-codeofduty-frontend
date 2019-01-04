@@ -5,17 +5,10 @@ import {
   CURRENT_RATING,
   AVERAGE_RATING,
 } from './types';
-import { STAGING_URL } from '../../../utils/config';
+import { STAGING_URL, headerObject } from '../../../utils/config';
 import authUser from '../../../utils/authUser';
 
 const { token } = authUser();
-
-const headerObject = token => ({
-  headers: {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  },
-});
 
 export const addRating = rate => ({
   type: RATE_ARTICLE,
@@ -37,9 +30,17 @@ export const ratingFailed = error => ({
   error,
 });
 
-export const avgRate = data => (dispatch) => {
+export const initialRate = data => (dispatch) => {
   const url = `${STAGING_URL}/articles/${data}/`;
 
+  axios.get(url, headerObject(token)).then((response) => {
+    const articleData = response.data.rating || 0;
+    dispatch(currentRating(articleData));
+  });
+};
+
+export const avgRate = data => (dispatch) => {
+  const url = `${STAGING_URL}/articles/${data}/`;
   axios.get(url, headerObject(token)).then((response) => {
     const articleData = response.data.average_rating || 0;
     dispatch(averageRating(articleData));

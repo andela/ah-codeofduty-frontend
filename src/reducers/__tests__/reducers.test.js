@@ -1,9 +1,5 @@
 import expect from 'expect';
 import profileReducer, { initialState } from '../profileReducer';
-import { profileActionTypes, onEditProfile } from '../../actions/profileActions';
-import {
-  getProfile, getFollow, saveProfile, editing,
-} from '../../actions/profileActions';
 
 describe('profile reducer', () => {
   const actions = (content) => {
@@ -45,5 +41,8 @@ describe('profile reducer', () => {
   });
   it('should handle UPDATE_PROFILE', () => {
     actions({ type: 'UPDATE_PROFILE', profile: { user: 'user' } });
+  });
+  it('should handle GET_ALL_TAGS', () => {
+    actions({ type: 'GET_ALL_TAGS' });
   });
 });

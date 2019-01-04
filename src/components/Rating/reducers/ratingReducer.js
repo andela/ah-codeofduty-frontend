@@ -2,11 +2,11 @@ import {
   RATE_ARTICLE,
   RATING_FAILURE,
   CURRENT_RATING,
-  AVERAGE_RATING
-} from "../actions/types";
+  AVERAGE_RATING,
+} from '../actions/types';
 
 export const initialState = {
-  average_rating: undefined
+  average_rating: undefined,
 };
 
 export default (state = initialState, action) => {
@@ -14,25 +14,25 @@ export default (state = initialState, action) => {
     case RATE_ARTICLE:
       return {
         ...state,
-        rating: action.payload
+        rating: action.payload,
       };
 
     case CURRENT_RATING:
       return {
         ...state,
-        current_rating: action.payload.rating
+        current_rating: action.payload.rating,
       };
 
     case AVERAGE_RATING:
       return {
         ...state,
-        average_rating: action.payload.average_rating
+        average_rating: action.payload.average_rating,
       };
 
     case RATING_FAILURE:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
 
     default:
