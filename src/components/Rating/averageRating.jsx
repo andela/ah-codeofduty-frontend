@@ -13,7 +13,7 @@ class Average extends Component {
   }
 
   componentDidMount() {
-    // this.props.ar(localStorage.getItem("currentArticle"));
+    this.props.ar(localStorage.getItem('currentArticle'));
   }
 
   render() {
