@@ -11,6 +11,7 @@ import newPassword from '../components/PasswordResetForm/reducers';
 import likeDislikeReducer from '../components/like_unlike/reducer';
 import tagsReducer from './tagsReducer';
 import homeReducer from './homeReducer';
+import reportReducer  from  '../components/Reports/ReportArticle/reducer';
 
 export default combineReducers({
   simpleReducer,
@@ -25,4 +26,5 @@ export default combineReducers({
   homeReducer,
   userEmail,
   newPassword,
+  reportReducer,
 });
