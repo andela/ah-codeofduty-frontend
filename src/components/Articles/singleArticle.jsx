@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
@@ -8,13 +8,14 @@ import {
   CardImage,
   CardTitle,
   CardText,
-  Col
-} from "mdbreact";
+  Col,
+} from 'mdbreact';
 
 const returnArticleURL = slug => `/article/${slug}`;
 
 const SingleArticle = ({ article }) => {
-  localStorage.setItem("current_article", article.slug);
+  localStorage.setItem('current_article', article.slug);
+  localStorage.setItem('article_title', article.title);
   return (
     <Col>
       <Card style={{ width: "21rem" }}>
@@ -40,7 +41,7 @@ const SingleArticle = ({ article }) => {
 };
 
 SingleArticle.propTypes = {
-  article: PropTypes.object.isRequired
+  article: PropTypes.object.isRequired,
 };
 
 export default SingleArticle;

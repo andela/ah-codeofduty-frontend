@@ -116,3 +116,5 @@ const mapStateToProps = ({ profileReducer }) => {
 };
 
 export default connect(mapStateToProps)(Edit);
+
+export { Edit as EditTest};

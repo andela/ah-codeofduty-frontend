@@ -33,6 +33,7 @@ class ReportArticle extends Component {
   onSubmit = (event) => {
       event.preventDefault()
       this.props.postReport(this.props.slug, this.state)
+      this.setState({ show: false });
   }
     handleClose() {
       this.setState({ show: false });
@@ -53,7 +54,7 @@ class ReportArticle extends Component {
       return (
         <div className="container">
 
-          <Button bsStyle="danger" bsSize="large" onClick={this.handleShow}>
+          <Button className="btn-warning" bsSize="large" onClick={this.handleShow}>
            Report article
           </Button>
 
@@ -62,12 +63,12 @@ class ReportArticle extends Component {
               <Modal.Title>Report this article</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <form className="report-form" >
+            <form className="report-form" id="reportForm">
                 <div className="form-group">
                 </div>
                   <div className="form-group">
                     <div className="input-group">
-                        <textarea className="form-control" placeholder="write your complaint on this article here..." required type="text" id="report-body" onChange={this.onChange}/>
+                        <textarea className="form-control" placeholder="write your complaint on this article here..." required type="text" id="report-body" onChange={this.onChange} value={this.state.feedback}/>
                     </div>
                     </div>
                     <div className="form-group">
@@ -78,7 +79,7 @@ class ReportArticle extends Component {
                 </form>
             </Modal.Body>
             <Modal.Footer>
-              <Button bsStyle="danger" onClick={this.handleClose}>Close</Button>
+              <Button className="btn-warning" onClick={this.handleClose}>Close</Button>
             </Modal.Footer>
           </Modal>
         </div>
