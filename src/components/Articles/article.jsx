@@ -1,22 +1,13 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
-import './articles.scss';
-import DeleteModal from './deleteModal';
-import authUser from '../../utils/authUser';
-import Comments from '../Comments/index';
-import LikesDislikes from '../like_unlike/index';
-import { Footer } from '../Footer/Footer';
-import Rating from '../Rating/Rating';
-import Average from '../Rating/averageRating';
-import Tags from '../Tags/Tags';
-import BookmarkArticle from '../Bookmarks/bookmark';
+import PropTypes from "prop-types";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import "./articles.scss";
 import authUser from "../../utils/authUser";
+import { Footer } from "../Footer/Footer";
 import { avgRate, rateArticle, initialRate } from "../Rating/actions/actions";
 import Articles from "./index";
-import SocialShare, { cursorStyle } from "./share";
 
 const { username } = authUser();
 localStorage.setItem("username", username);
