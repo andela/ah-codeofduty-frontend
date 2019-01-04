@@ -1,8 +1,6 @@
-import {
-  GET_ALL_TAGS,
-} from '../components/Articles/actionTypes';
+import { GET_ALL_TAGS } from '../components/Articles/actionTypes';
 
-const initialState = {
+export const initialState = {
   tags: [],
 };
 

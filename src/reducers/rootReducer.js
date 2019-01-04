@@ -5,10 +5,10 @@ import loginReducer from '../views/Auth/LoginForm/reducer';
 import socialLoginReducer from './socialLoginReducer';
 import profileReducer from './profileReducer';
 import { articleReducer } from './articleReducer';
-import likeDislikeReducer from '../components/like_unlike/reducer';
 import ratingReducer from '../components/Rating/reducers/ratingReducer';
 import userEmail from '../components/PasswordReset/reducer';
 import newPassword from '../components/PasswordResetForm/reducers';
+import likeDislikeReducer from '../components/like_unlike/reducer';
 import tagsReducer from './tagsReducer';
 import homeReducer from './homeReducer';
 
