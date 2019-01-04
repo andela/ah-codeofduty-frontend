@@ -9,3 +9,4 @@ const button = ({ children, clicked }) => (
 );
 
 export default button;
+export { button as buttonTest };
