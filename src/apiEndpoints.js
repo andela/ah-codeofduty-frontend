@@ -5,6 +5,8 @@ const userArticles = user => `${baseURL}profiles/${user}/articles`;
 
 export const urls = {
   ARTICLES: articles,
+  RECENT_ARTICLES: `${articles}recent/`,
+  POPULAR_ARTICLES: `${articles}popular/`,
   PROFILES: `${baseURL}profiles/`,
   TAGS: `${baseURL}tags/`,
 
@@ -12,6 +14,7 @@ export const urls = {
   LOGIN: `${baseURL}users/login/`,
 
   ARTICLE: slug => `${articles}${slug}/`,
+
   ARTICLES_PAGINATE: (limit, offset) => `${articles}?limit=${limit}&offset=${offset}`,
   USER_ARTICLES_PAGINATE: (limit, offset, user) => `${userArticles(user)}?limit=${limit}&offset=${offset}`,
 

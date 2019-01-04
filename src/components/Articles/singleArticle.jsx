@@ -17,7 +17,7 @@ const SingleArticle = ({ article }) => {
   localStorage.setItem("current_article", article.slug);
   return (
     <Col>
-      <Card style={{ width: "22rem" }}>
+      <Card style={{ width: "21rem" }}>
         <CardImage
           className="img-fluid"
           src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
@@ -26,11 +26,13 @@ const SingleArticle = ({ article }) => {
         <CardBody>
           <CardTitle>{article.title}</CardTitle>
           <CardText>{article.description}</CardText>
-          <centre>
-            <Link exact to={returnArticleURL(article.slug)}>
-              Read More...
-            </Link>
-          </centre>
+          <ul>
+            <li><Link exact to={returnArticleURL(article.slug)}>
+              Read More...    
+            </Link></li>
+            <li><i class="fa fa-eye" aria-hidden="true"> {article.view_count}</i></li>
+           
+          </ul>
         </CardBody>
       </Card>
     </Col>
