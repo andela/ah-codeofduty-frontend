@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { configure, shallow, wrapper } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
-import { configure, shallow } from 'enzyme';
 import { Navbar } from '../../Navbar/Navbar';
 import Average from '../averageRating';
 import StarRatings, { Rating } from '../Rating';
@@ -40,10 +40,6 @@ describe('Average Component', () => {
       </Provider>,
     );
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('Navbar should render correctly', () => {
-    shallow(<Navbar />);
   });
 
   it('renders Register component without crashing', () => {

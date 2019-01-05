@@ -8,9 +8,4 @@ describe('Average Component', () => {
     const wrapper = shallow(<Comment />);
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('Navbar should render correctly', () => {
-    const wrapper = shallow(<Navbar />);
-    expect(wrapper).toMatchSnapshot();
-  });
 });
