@@ -1,14 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./articles.scss";
-import authUser from "../../utils/authUser";
+import PropTypes from "prop-types";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import "./articles.scss";
+import authUser from "../../utils/authUser";
 import { Footer } from "../Footer/Footer";
 import { avgRate, rateArticle, initialRate } from "../Rating/actions/actions";
 import Articles from "./index";
-import SocialShare, { cursorStyle } from "./share";
 
 const { username } = authUser();
 localStorage.setItem("username", username);
