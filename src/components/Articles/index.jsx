@@ -147,9 +147,6 @@ Min Read
     <Tags tags={article.tagList} />
     <ReportArticle slug={slug} />
     <Comments />
-    <div className="footer">
-      <Footer />
-    </div>
   </div>
 );
 
