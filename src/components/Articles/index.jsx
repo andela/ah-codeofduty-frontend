@@ -12,6 +12,7 @@ import { Footer } from '../Footer/Footer';
 import Rating from '../Rating/Rating';
 import Average from '../Rating/averageRating';
 import { Tags } from '../Tags/Tags';
+import ReportArticle from  '../Reports/ReportArticle'
 import SocialShare, { cursorStyle } from './share';
 import BookmarkArticle from '../Bookmarks/bookmark';
 
@@ -144,10 +145,8 @@ Min Read
       </div>
     </div>
     <Tags tags={article.tagList} />
+    <ReportArticle slug={slug} />
     <Comments />
-    <div className="footer">
-      <Footer />
-    </div>
   </div>
 );
 
